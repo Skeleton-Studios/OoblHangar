@@ -37,7 +37,7 @@ enum class EGeneralBattleEvent : uint8 {
     StageUniq1 UMETA(DisplayName = "On Second Unique Stage Interaction"),
     StageUniq2 UMETA(DisplayName = "On Third Unique Stage Interaction"),
     ROUND1 UMETA(DisplayName = "On First Round"),
-    ROUND_OTHER UMETA(Hidden),
+    ROUND_OTHER UMETA(DisplayName = "On Other Round"),
     WallBreak UMETA(DisplayName = "On Wall Break"),
     FightOnStageDestruction UMETA(DisplayName = "On FightOnStageDestruction"),
     ROUND_ODD UMETA(DisplayName = "On Odd Round Count"),
