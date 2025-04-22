@@ -54,19 +54,19 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     bool IsNextStageSequence;
     
-    UPROPERTY(BlueprintReadWrite, Category = "Polaris|StageGround")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     bool TKCollisionEnable;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     int32 WallDamageId;
     
-    UPROPERTY(BlueprintReadWrite, Category = "Polaris|StageGround")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     int32 TotalDamage;
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGround")
     bool IsDurable;
     
-    UPROPERTY(BlueprintReadWrite, Category = "Polaris|StageGround")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     int32 DestructLevel;
     
     UPROPERTY(EditAnywhere, Instanced, Category = "Polaris|StageGround")
