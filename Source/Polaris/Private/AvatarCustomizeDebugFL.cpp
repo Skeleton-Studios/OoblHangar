@@ -6,6 +6,9 @@ UAvatarCustomizeDebugFL::UAvatarCustomizeDebugFL() {
 void UAvatarCustomizeDebugFL::SortAvatarItemOrderMap(const TMap<int32, int64>& Source, TMap<int32, int64>& Result) {
 }
 
+void UAvatarCustomizeDebugFL::SortAvatarData(const TArray<ULobbyAvatarData*>& Source, TArray<ULobbyAvatarData*>& Result) {
+}
+
 FAvatarItemData UAvatarCustomizeDebugFL::SetAvatarItemDataReleaseVersion(FAvatarItemData AvatarItemData, int32 ReleaseVersion) {
     return FAvatarItemData{};
 }

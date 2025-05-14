@@ -35,6 +35,7 @@ FDynamicBoneBustParamCSV::FDynamicBoneBustParamCSV() {
     this->verticalProneLimitMax_R_Bust = 0.00f;
     this->verticalRotOffset = 0.00f;
     this->verticalRotOffsetAdd = 0.00f;
+    this->horizontalRotOffset = 0.00f;
     this->turnBoostOffset = 0.00f;
 }
 

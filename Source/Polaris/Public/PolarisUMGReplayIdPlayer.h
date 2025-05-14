@@ -12,7 +12,7 @@ public:
     UFUNCTION(BlueprintImplementableEvent)
     bool IsInputing();
     
-    UFUNCTION(BlueprintImplementableEvent)
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void InitializeUMG(const FString& Title, const FString& Initial, int32 maxLength);
     
     UFUNCTION(BlueprintImplementableEvent)

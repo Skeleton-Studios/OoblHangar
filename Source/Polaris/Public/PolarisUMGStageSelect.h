@@ -37,6 +37,9 @@ public:
     void Setup(bool is_blue_cursor);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetLockStatus(int32 ID, bool lock, bool sub);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SelectPanel(int32 ID);
     
     UFUNCTION(BlueprintImplementableEvent)

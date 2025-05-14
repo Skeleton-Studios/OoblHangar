@@ -4,6 +4,7 @@
 #include "Engine/GameViewportClient.h"
 #include "PolarisGameViewportClient.generated.h"
 
+class UPrimitiveComponent;
 class UTextureRenderTarget2D;
 
 UCLASS(NonTransient)
@@ -13,6 +14,9 @@ public:
 private:
     UPROPERTY()
     TMap<UTextureRenderTarget2D*, TEnumAsByte<ESceneCaptureSource>> m_capture_viewport_data;
+    
+    UPROPERTY(Export)
+    TArray<TWeakObjectPtr<UPrimitiveComponent>> m_show_only_components;
     
 public:
     UPolarisGameViewportClient();

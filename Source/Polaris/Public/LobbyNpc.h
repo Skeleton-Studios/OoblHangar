@@ -15,6 +15,9 @@ public:
     bool _isTreasure;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    bool _isIronBird;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FString _treasureEventId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -28,6 +31,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FString _treasureMsg_Fail;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    FString _treasureMsg_Battle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<int32> _treasureUnlockIndices;
@@ -46,11 +52,20 @@ public:
     
     ALobbyNpc(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintPure)
+    static bool IsVisibleUnlockDialog();
+    
     UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
     FString ImplGetTreasureMessage();
     
+    UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
+    FString ImplGetTreasureBattleMessage();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ImplAccess();
+    
+    UFUNCTION(BlueprintCallable)
+    void GetTreasureItem();
     
 };
 

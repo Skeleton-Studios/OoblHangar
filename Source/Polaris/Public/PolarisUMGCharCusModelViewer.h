@@ -15,6 +15,9 @@ public:
     void SetHelpTextVisibility(bool Visible);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetHelpTextMode(bool is_drama);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetHelpText(int32 idx, const FString& Icon, const FString& help);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -27,7 +30,7 @@ public:
     void RequestTexScaleAnim(bool downsize);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void RequestOnOffAnim(bool On);
+    void RequestOnOffAnim(bool on);
     
     UFUNCTION(BlueprintImplementableEvent)
     void RequestIOAnim(bool In);
@@ -36,7 +39,7 @@ public:
     bool HasTexScaleAnimationFinished(bool downsize);
     
     UFUNCTION(BlueprintImplementableEvent)
-    bool HasOnOffAnimationFinished(bool On);
+    bool HasOnOffAnimationFinished(bool on);
     
     UFUNCTION(BlueprintImplementableEvent)
     bool HasIOAnimationFinished(bool In);

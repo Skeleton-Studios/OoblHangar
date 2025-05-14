@@ -4,6 +4,7 @@
 #include "Engine/EngineTypes.h"
 #include "PolarisSceneColorCaptureComponent.generated.h"
 
+class UPrimitiveComponent;
 class UTextureRenderTarget2D;
 
 UCLASS(BlueprintType, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnableComponent))
@@ -19,7 +20,13 @@ public:
     UPolarisSceneColorCaptureComponent(const FObjectInitializer& ObjectInitializer);
 
     UFUNCTION(BlueprintCallable)
+    void ShowOnlyComponent(UPrimitiveComponent* InComponent);
+    
+    UFUNCTION(BlueprintCallable)
     void EndCapture();
+    
+    UFUNCTION(BlueprintCallable)
+    void ClearShowOnlyComponent();
     
     UFUNCTION(BlueprintCallable)
     void BeginCapture();

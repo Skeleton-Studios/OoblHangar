@@ -105,6 +105,9 @@ public:
     ALobbyInputActor* GetInputManager();
     
     UFUNCTION(BlueprintCallable)
+    void ExitSceneAndGotoReplayList();
+    
+    UFUNCTION(BlueprintCallable)
     void ExitScene();
     
     UFUNCTION(BlueprintCallable)

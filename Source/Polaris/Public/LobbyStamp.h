@@ -27,6 +27,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void GetStampIndices(TArray<FName>& Result);
     
+    UFUNCTION(BlueprintPure)
+    TMap<FName, FLobbyStampInfo> GetMap() const;
+    
     UFUNCTION(BlueprintCallable)
     bool GetInfo(const FName& Index, FLobbyStampInfo& Info);
     

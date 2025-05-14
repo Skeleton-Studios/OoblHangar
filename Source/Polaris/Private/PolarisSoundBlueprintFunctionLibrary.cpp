@@ -12,6 +12,9 @@ void UPolarisSoundBlueprintFunctionLibrary::SetWWiseStateValue(const FString& St
 void UPolarisSoundBlueprintFunctionLibrary::SetWWiseRTPCValue(const FString& RTPCName, float RTPCValue, int32 InterpolateTime, AActor* SrcActor) {
 }
 
+void UPolarisSoundBlueprintFunctionLibrary::SetCharacterSoundStatus(int32 _PlayerNumber, int32 _FighterId, int32 _type) {
+}
+
 int32 UPolarisSoundBlueprintFunctionLibrary::KeyOnSoundFromAkComponent(UAkAudioEvent* _Event, int32 NoMultiPlayFrame, UAkComponent* _srcAkComp) {
     return 0;
 }

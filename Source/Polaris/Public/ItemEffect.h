@@ -30,6 +30,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FName ItemBoneName;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 ColorSlotNumber;
+    
     UPROPERTY()
     int32 ItemPositionId;
     

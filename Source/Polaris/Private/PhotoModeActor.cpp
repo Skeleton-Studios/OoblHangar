@@ -37,6 +37,7 @@ void APhotoModeActor::SetPlayerCameraFOV_Implementation(float lensfov) {
 }
 
 
+
 void APhotoModeActor::SetLookAt_Implementation(float FocalDistance, FTransform CineCameraTransform) {
 }
 
@@ -72,6 +73,10 @@ void APhotoModeActor::GetMIDParameter_Implementation(int32 N, float& Val) {
 }
 
 
+AActor* APhotoModeActor::GetColorBackActor() {
+    return NULL;
+}
+
 
 
 
@@ -81,6 +86,10 @@ void APhotoModeActor::EndCharacterActor_Implementation() {
 
 void APhotoModeActor::DrawLookAtPoint_Implementation(FVector Pos, int32 color_type) {
 }
+
+void APhotoModeActor::DestroyColorBackActor() {
+}
+
 
 
 

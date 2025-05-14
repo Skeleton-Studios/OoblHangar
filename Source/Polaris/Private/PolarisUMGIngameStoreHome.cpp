@@ -12,9 +12,11 @@ bool UPolarisUMGIngameStoreHome::IsEndLine(int32 coursor_y) const {
     return false;
 }
 
-UTexture2D* UPolarisUMGIngameStoreHome::GetPickUpBanner(EStoreItemAttribute sell_type) {
+UTexture2D* UPolarisUMGIngameStoreHome::GetPickUpBanner(EStoreItemShowCaseType sell_type) {
     return NULL;
 }
+
+
 
 
 

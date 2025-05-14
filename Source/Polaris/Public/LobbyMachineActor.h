@@ -75,10 +75,13 @@ public:
     int64 GetOwnerCosmosId();
     
     UFUNCTION(BlueprintCallable)
-    static ALobbyMachineActor* GetMachineActor(int32 UniqueId);
+    static ALobbyMachineActor* GetMachineActor(int32 uniqueId);
     
     UFUNCTION(BlueprintPure)
     int32 GetGroupMatchNum();
+    
+    UFUNCTION(BlueprintPure)
+    static bool CanSeatingMatching(ELobbyMachineType Type);
     
 };
 

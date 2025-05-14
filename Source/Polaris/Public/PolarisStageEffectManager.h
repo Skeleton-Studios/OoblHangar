@@ -6,7 +6,6 @@
 #include "Engine/EngineTypes.h"
 #include "Engine/HitResult.h"
 #include "AttachBoneParticleInfo.h"
-#include "EStageAnotherWorldType.h"
 #include "Templates/SubclassOf.h"
 #include "PolarisStageEffectManager.generated.h"
 
@@ -14,6 +13,7 @@ class APolarisInteractionEffectManager;
 class UDecalComponent;
 class UNiagaraComponent;
 class UNiagaraSystem;
+class USkeletalMeshComponent;
 
 UCLASS()
 class POLARIS_API APolarisStageEffectManager : public AActor {
@@ -87,7 +87,7 @@ public:
     void SetStageGimmickParticleAsset(UNiagaraSystem* Asset);
     
     UFUNCTION(BlueprintCallable)
-    void SetAnotherWorldType(EStageAnotherWorldType wolrd_type);
+    void SetAnotherWorldType(int32 wolrd_type);
     
     UFUNCTION(BlueprintCallable)
     void ResetStageSmoke();
@@ -108,10 +108,10 @@ public:
     void ResetAllEffect(bool is_floor_break);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void RequestStageFloorSmoke(const FVector& position, const FRotator& Rotation, int32 FloorId, const int32 EffectId, const int32 PlayerId, const FName BoneName);
+    void RequestStageFloorSmoke(const FVector& position, const FRotator& Rotation, int32 FloorId, const int32 EffectId, const int32 PlayerId, const FName BoneName, USkeletalMeshComponent* attach_mesh);
     
     UFUNCTION(BlueprintCallable)
-    void RequestSoundFootstepKeyOn(const int32 surface_type, int32 PlayerIndex, int32 FighterId, bool isLeft);
+    void RequestSoundFootstepKeyOn(const int32 surface_type, int32 PlayerIndex, int32 FighterId, bool isLeft, USkeletalMeshComponent* attach_mesh);
     
     UFUNCTION(BlueprintImplementableEvent)
     void RequestSoundFootstep(const FVector& position, int32 PlayerIndex, int32 FighterId, bool isLeft);
@@ -132,7 +132,7 @@ public:
     void RequestDown(const FVector& position, const FRotator& Rotation);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    void RequestBonestep(int32 PlayerIndex, const int32 EffectId, const FName BoneName, const FVector& position, const FRotator& Rotation, const bool bSound, const FVector& Offset);
+    void RequestBonestep(int32 PlayerIndex, const int32 EffectId, const FName BoneName, const FVector& position, const FRotator& Rotation, const bool bSound, const FVector& Offset, USkeletalMeshComponent* attach_mesh);
     
     UFUNCTION(BlueprintImplementableEvent)
     void RemoveAllParticles();

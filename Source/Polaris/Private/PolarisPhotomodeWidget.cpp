@@ -20,6 +20,7 @@ UPolarisPhotomodeWidget::UPolarisPhotomodeWidget() {
 
 
 
+
 void UPolarisPhotomodeWidget::InvokeTabDecideCallback(int32 Type) {
 }
 
@@ -34,6 +35,7 @@ void UPolarisPhotomodeWidget::InvokeItemDecideCallback(int32 ID) {
 
 void UPolarisPhotomodeWidget::InvokeArrowDecideCallback(int32 ID) {
 }
+
 
 
 APhotoModeActor* UPolarisPhotomodeWidget::GetPhotoModeActor() {

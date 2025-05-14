@@ -25,6 +25,7 @@ class UAkAudioEvent;
 class UEventDispatcherObject;
 class UMaterialInterface;
 class UObject;
+class UStaticMeshComponent;
 class UTexture2D;
 class UTextureRenderTarget2D;
 
@@ -152,6 +153,9 @@ public:
     static bool IsEnableResolutionUpscaling(EPolarisResolutionUpscaling upscaling);
     
     UFUNCTION(BlueprintPure)
+    static bool IsDramaPlaying();
+    
+    UFUNCTION(BlueprintPure)
     static bool IsDoingZoneCutIn(int32 player_id);
     
     UFUNCTION(BlueprintPure)
@@ -174,6 +178,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     static bool IsDisableBattleHUD();
+    
+    UFUNCTION(BlueprintPure)
+    static bool IsCompareStaticMesh(UStaticMeshComponent* pA, UStaticMeshComponent* pB);
     
     UFUNCTION(BlueprintPure)
     static bool IsBattlePostFilterON();
@@ -235,8 +242,14 @@ public:
     UFUNCTION(BlueprintPure)
     static int32 GetSideByPlayerID(int32 player_id);
     
+    UFUNCTION(BlueprintPure)
+    static int32 GetSftCounterX(int32 player_id, int32 ID);
+    
     UFUNCTION(BlueprintCallable)
     static FRotator GetsetVectorFightRy2(FVector rot, int32 player_id);
+    
+    UFUNCTION(BlueprintCallable)
+    static FRotator GetsetVectorActRy2(FVector rot, int32 player_id);
     
     UFUNCTION(BlueprintPure)
     static EPolarisResolutionUpscaling GetResolutionUpscaling();
@@ -252,6 +265,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static FString GetMotName(const int32& player_id);
+    
+    UFUNCTION(BlueprintPure)
+    static int32 GetMotheadDramaNo(int32 player_id);
     
     UFUNCTION(BlueprintPure)
     static APolarisMobManager* GetMobManager();

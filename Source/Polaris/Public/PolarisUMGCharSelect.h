@@ -48,6 +48,9 @@ public:
     void OnSetPanelCenter(float X, float Y);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void OnSetGhostPanel(int32 X, int32 Y, bool is_ghost);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnSetFacePanel(int32 X, int32 Y, int32 ID, bool Unlocked);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -73,6 +76,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnSelected1P(int32 X, int32 Y);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnRefreshFacePanelUnLockState(int32 X, int32 Y, int32 ID, bool Unlocked);
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnDeselected(int32 X, int32 Y);

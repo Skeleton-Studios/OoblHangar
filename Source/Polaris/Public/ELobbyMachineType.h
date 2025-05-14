@@ -13,5 +13,7 @@ enum class ELobbyMachineType : uint8 {
     BallLobbymatch,
     BallPlayermatch,
     OnlinePractice,
+    Carrot,
+    OnlineGvG,
 };
 

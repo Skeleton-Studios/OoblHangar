@@ -12,6 +12,9 @@ class POLARIS_API UPolarisCameraBlueprintLibrary : public UBlueprintFunctionLibr
 public:
     UPolarisCameraBlueprintLibrary();
 
+    UFUNCTION(BlueprintCallable)
+    static void ToggleDistortionEffects(bool bShouldDistort);
+    
     UFUNCTION(BlueprintPure, meta=(WorldContext="WorldContextObject"))
     static void PolarisGetCameraTransform(const UObject* WorldContextObject, int32 PlayerIndex, bool bGameOnly, FTransform& Transform, float& FOV, float& FOVNative, bool& EditorAlt);
     

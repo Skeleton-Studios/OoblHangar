@@ -26,6 +26,9 @@ public:
     
     UProfileBlueprintFunctionLibrary();
 
+    UFUNCTION(BlueprintPure)
+    static FString ToStreamerModeName(const FString& Name);
+    
     UFUNCTION(BlueprintCallable)
     static void StartLoadCharacter(UPARAM(Ref) FPlayerProfileData& profile_data, UPARAM(Ref) FTransform& Transform, bool is_force);
     

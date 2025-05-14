@@ -11,6 +11,9 @@ public:
     UPlayerMatchFunctionLibrary();
 
     UFUNCTION(BlueprintPure)
+    static int32 PlayerMatchGetStreaks(const FString& cosmos_id);
+    
+    UFUNCTION(BlueprintPure)
     static bool Equal(const FString& cosmos_id, const FPlayerMatchPlayerInfo& player_info);
     
 };

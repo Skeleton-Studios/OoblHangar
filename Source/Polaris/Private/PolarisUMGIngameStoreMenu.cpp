@@ -23,6 +23,7 @@ UPolarisUMGIngameStoreMenu::UPolarisUMGIngameStoreMenu() {
 
 
 
+
 GS_StoreMenuType UPolarisUMGIngameStoreMenu::GetCurrentCategory() const {
     return GS_StoreMenuType::Home;
 }

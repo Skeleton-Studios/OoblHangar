@@ -6,6 +6,7 @@
 #include "FDebugCaptureFilterList.h"
 #include "MannequinMaterialHolder.h"
 #include "MaterialCache.h"
+#include "PerPositionAdditionalEquipCandidateMap.h"
 #include "PolarisDebugThumbnailAccModeConfig.h"
 #include "Templates/SubclassOf.h"
 #include "PolarisDebugThumbnailShotActor.generated.h"
@@ -44,6 +45,9 @@ public:
     
     UPROPERTY(EditAnywhere)
     TMap<EDebugCaptureCategory, FFDebugCaptureFilterList> FilterSet;
+    
+    UPROPERTY(EditAnywhere)
+    TMap<int32, FPerPositionAdditionalEquipCandidateMap> AdditionalEquipCandidateList;
     
     APolarisDebugThumbnailShotActor(const FObjectInitializer& ObjectInitializer);
 

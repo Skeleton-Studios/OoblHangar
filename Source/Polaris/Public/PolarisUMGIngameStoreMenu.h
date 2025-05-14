@@ -41,6 +41,9 @@ public:
     void ShowTitleText();
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetPFTextID(const FString& text_id);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetEnableViewerGuid(bool Enabled);
     
     UFUNCTION(BlueprintImplementableEvent)

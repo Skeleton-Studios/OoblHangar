@@ -12,6 +12,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageWall")
     bool IsNoBreak;
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 DisableCollisionFaceFlags;
     
     APolarisStageWallActor(const FObjectInitializer& ObjectInitializer);
 

@@ -41,7 +41,7 @@ public:
     void ToggleAuraVisibility(const int32 player_id, const bool Visible);
     
     UFUNCTION(BlueprintCallable)
-    void SetAuraVisibility(int32 player_id, bool IsVisible);
+    void SetAuraVisibility(int32 player_id, bool IsVisible, bool isForce);
     
     UFUNCTION(BlueprintCallable)
     void RemoveVisibilityAllParticles();

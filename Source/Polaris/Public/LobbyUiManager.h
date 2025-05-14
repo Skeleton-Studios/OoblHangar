@@ -45,10 +45,22 @@ public:
     void ImplNpcTalk(const FString& Name, const TArray<FString>& Messages);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ImplIronBird();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ImplHideForProfile();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ImplDebugDisableMinimap();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ImplBuddyNpcTalk(AActor* BuddyNpc, const FString& Name, const TArray<FString>& Messages);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ImplBuddyNpcPlaySequencer(AActor* BuddyNpc);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ImplBuddyNpcOpenMenu(AActor* BuddyNpc);
     
     UFUNCTION(BlueprintCallable)
     void CallOnTalkFinish();

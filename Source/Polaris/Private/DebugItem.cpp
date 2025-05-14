@@ -4,7 +4,7 @@ UDebugItem::UDebugItem() {
     this->CaptureBankID = 0;
     this->bEnableAccMode = false;
     this->bEnableMannequin = false;
-    this->Brightness = EPolarisReflectionBrightness::E_Brightness_Nothing;
+    this->Brightness = EPolarisReflectionBrightness::E_Brightness_2000;
 }
 
 

@@ -6,7 +6,7 @@ UPolarisUMGIngameStorePickUpMenu::UPolarisUMGIngameStorePickUpMenu() {
 
 
 
-UTexture2D* UPolarisUMGIngameStorePickUpMenu::GetPickUpHeader(EStoreItemAttribute sell_type) {
+UTexture2D* UPolarisUMGIngameStorePickUpMenu::GetPickUpHeader(EStoreItemShowCaseType sell_type) {
     return NULL;
 }
 

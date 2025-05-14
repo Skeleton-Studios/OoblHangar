@@ -9,7 +9,11 @@ UPolarisInGameStoreHomeArea::UPolarisInGameStoreHomeArea() {
     this->max_column_num = 4;
 }
 
-UTexture2D* UPolarisInGameStoreHomeArea::GetPickUpBanner(EStoreItemAttribute sell_type, int32 pick_up_group) {
+UTexture2D* UPolarisInGameStoreHomeArea::GetPickUpBannerFromBannerID(const FName& banner_id) {
+    return NULL;
+}
+
+UTexture2D* UPolarisInGameStoreHomeArea::GetPickUpBanner(EStoreItemShowCaseType sell_type, int32 pick_up_group) {
     return NULL;
 }
 
@@ -42,6 +46,9 @@ TArray<UPolarisUMGIngameStoreItemPanel*> UPolarisInGameStoreHomeArea::FindAllBut
 }
 
 
+
+void UPolarisInGameStoreHomeArea::CreatePlatformPanelData(const TArray<FContentPanelData> Data, UClass* loaded_class) {
+}
 
 UPolarisUMGIngameStoreItemPanel* UPolarisInGameStoreHomeArea::CreateOtherPanelData(UClass* loaded_class) {
     return NULL;

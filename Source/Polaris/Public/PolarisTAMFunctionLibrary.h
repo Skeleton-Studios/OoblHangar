@@ -96,6 +96,9 @@ public:
     static void ShowInformationBar(const FString& text_id);
     
     UFUNCTION(BlueprintCallable)
+    static void ShowGhostLearningDialog();
+    
+    UFUNCTION(BlueprintCallable)
     static void SetTutorialSkip(bool is_skip);
     
     UFUNCTION(BlueprintCallable)
@@ -225,6 +228,9 @@ public:
     static void SetDownloadGhostCache(int32 npc_id, int32 ghost_index);
     
     UFUNCTION(BlueprintCallable)
+    static void SetCurrentNewsInfoId(const FString& info_id);
+    
+    UFUNCTION(BlueprintCallable)
     static void SetCpuGhostCache(int32 npc_id, int32 ghost_index);
     
     UFUNCTION(BlueprintCallable)
@@ -348,6 +354,9 @@ public:
     static void PlaySE_TalkDecide();
     
     UFUNCTION(BlueprintCallable)
+    static void OnOpenNews();
+    
+    UFUNCTION(BlueprintCallable)
     static void OnEndNewChallenger_Lobby();
     
     UFUNCTION(BlueprintCallable)
@@ -445,6 +454,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static bool IsIncentiveNpc(int32 npc_id);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool IsGhostLearningDialogClosed();
     
     UFUNCTION(BlueprintCallable)
     static bool IsEnableGhostTutorial();
@@ -600,7 +612,7 @@ public:
     static FVector GetPlayerLocation();
     
     UFUNCTION(BlueprintCallable)
-    static bool GetPlayerGhost(int32 Index, int32& fighter_id, int32& rank, int64& last_update_time, FDateTime& date_time);
+    static bool GetPlayerGhost(int32 Index, int32& fighter_id, int32& rank, int64& last_update_time, FDateTime& date_time, int32& update_count, int32& battle_version);
     
     UFUNCTION(BlueprintCallable)
     static TArray<FString> GetNpcTalk(int32 npc_id, EPolarisTAMTalkType talk_type);
@@ -814,6 +826,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void ChangeIsExpeditionFlag(bool flag);
+    
+    UFUNCTION(BlueprintCallable)
+    static void ChangeGhostSparring();
     
     UFUNCTION(BlueprintCallable)
     static void ChangeCharacterSelect();

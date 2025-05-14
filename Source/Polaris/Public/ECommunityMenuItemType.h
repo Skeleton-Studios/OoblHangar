@@ -12,5 +12,6 @@ enum class ECommunityMenuItemType {
     PlayedWith,
     MyProfile,
     BlockList,
+    PlayerSearch,
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EStoreItemAttribute.h"
+#include "EStoreItemShowCaseType.h"
 #include "PickupShowcase.generated.h"
 
 USTRUCT(BlueprintType)
@@ -20,7 +20,7 @@ public:
     int32 _order;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EStoreItemAttribute _sellType;
+    EStoreItemShowCaseType _sellType;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FText _titleText;

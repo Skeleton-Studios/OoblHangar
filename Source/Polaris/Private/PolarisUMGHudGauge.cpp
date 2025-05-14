@@ -19,8 +19,18 @@ UPolarisUMGHudGauge::UPolarisUMGHudGauge() {
 
 
 
+
 void UPolarisUMGHudGauge::ShowHudGauge_Implementation(bool flag, bool Ignore, bool left_is_enable_zone, bool right_is_enable_zone) {
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,5 +5,6 @@ FLobbyTreasureInfo::FLobbyTreasureInfo() {
     this->Shogo = 0;
     this->ShogoBg = 0;
     this->GhostId = 0;
+    this->CharaPanelId = 0;
 }
 

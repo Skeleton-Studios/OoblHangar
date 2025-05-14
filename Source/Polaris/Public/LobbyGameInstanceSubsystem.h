@@ -10,6 +10,7 @@
 #include "LobbyGameInstanceSubsystem.generated.h"
 
 class AActor;
+class ALobbyNpc;
 class APolarisCharacterActor;
 class ULobbyAvatarData;
 class ULobbyBlackPen;
@@ -26,6 +27,7 @@ class ULobbyNetworkSelect;
 class ULobbyNpcTreasure;
 class ULobbyPlayerStatus;
 class ULobbyStamp;
+class ULobbyTemplateMessage;
 class ULobbyTreasureEvent;
 class ULobbyWatch;
 class UPolarisParentalControl;
@@ -34,6 +36,7 @@ UCLASS(BlueprintType)
 class POLARIS_API ULobbyGameInstanceSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
+    DECLARE_DYNAMIC_DELEGATE(FWarpErrorDelegate);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FSpawnLobbyPlayerCharacter, AActor*, Actor);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE(FForceCloseReport);
     
@@ -51,6 +54,9 @@ public:
     
     UPROPERTY(BlueprintReadOnly)
     int32 _seatId;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 _seatMathicngId;
     
     UPROPERTY(BlueprintReadOnly)
     FVector _resumeLocation;
@@ -185,10 +191,16 @@ public:
     ULobbyStamp* _stamp;
     
     UPROPERTY(BlueprintReadWrite)
+    ULobbyTemplateMessage* _templateMessage;
+    
+    UPROPERTY(BlueprintReadWrite)
     ULobbyNpcTreasure* _npcTreasure;
     
     UPROPERTY(BlueprintReadWrite)
     ULobbyTreasureEvent* _treasureEvent;
+    
+    UPROPERTY(BlueprintReadWrite)
+    ALobbyNpc* _buddyNpc;
     
     UPROPERTY(BlueprintReadWrite)
     int32 LastEnteredPasscode;
@@ -196,8 +208,14 @@ public:
     UPROPERTY(BlueprintReadOnly)
     bool _isLoungeStandByStarted;
     
+    UPROPERTY(BlueprintReadWrite)
+    bool isReturnBuddyMenu;
+    
     ULobbyGameInstanceSubsystem();
 
+    UFUNCTION()
+    void WarpToErrorDialogFinish();
+    
     UFUNCTION(BlueprintCallable)
     void StopAnimation(APolarisCharacterActor* Actor);
     
@@ -206,6 +224,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void StartDeleteCharacter();
+    
+    UFUNCTION(BlueprintPure)
+    bool ShouldQuickMatchLimitRankRange();
     
     UFUNCTION(BlueprintCallable)
     void SetSpawnLobbyPlayerCharacter(AActor* Actor);
@@ -240,6 +261,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void PlayAnimationByStatus(EPolarisCharacterAnimStatus Status);
     
+    UFUNCTION(BlueprintCallable)
+    void OpenWarpToErrorDialog(ULobbyGameInstanceSubsystem::FWarpErrorDelegate OnDialogFinish);
+    
     UFUNCTION(BlueprintPure)
     bool IsLoadingCharacter();
     
@@ -251,6 +275,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     FText GetPlayerName();
+    
+    UFUNCTION(BlueprintPure)
+    TArray<FString> GetMatchAnywhereRankRangeText();
     
     UFUNCTION(BlueprintCallable)
     bool GetAndClearLoungeRelocation();

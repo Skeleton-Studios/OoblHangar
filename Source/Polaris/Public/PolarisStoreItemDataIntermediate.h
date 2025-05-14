@@ -109,6 +109,9 @@ public:
     ELobbyAvatarItemType ConvartAvatarPartIdToItemType(int32 part_id);
     
     UFUNCTION(BlueprintImplementableEvent)
+    FRewardItemDesc BuildRewardFightMoney(int32 money_num, const FName& item_id);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     FRewardItemDesc BuildRewardEXP(int32 exp_num);
     
     UFUNCTION(BlueprintImplementableEvent)

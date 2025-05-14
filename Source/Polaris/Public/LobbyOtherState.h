@@ -52,6 +52,9 @@ public:
     int32 _balloonChatTemplate;
     
     UPROPERTY(BlueprintReadOnly)
+    int32 _balloonChatTemplateSub;
+    
+    UPROPERTY(BlueprintReadOnly)
     int32 _chatBalloonCount;
     
     UPROPERTY(BlueprintReadOnly)

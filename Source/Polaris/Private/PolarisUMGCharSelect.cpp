@@ -25,6 +25,8 @@ UPolarisUMGCharSelect::UPolarisUMGCharSelect() {
 
 
 
+
+
 void UPolarisUMGCharSelect::InvokeSelectCallback(int32 ID) {
 }
 

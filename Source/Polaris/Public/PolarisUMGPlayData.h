@@ -88,7 +88,7 @@ public:
     void OnCreateTab(const TArray<FString>& tabs);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void OnCreateStageWin(const TArray<FPolarisUMGPlayDataStageItemStruct>& items);
+    void OnCreateStageWin(const TArray<FPolarisUMGPlayDataStageItemStruct>& items, const FString& period_text);
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnCreatePlayStatsWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& items);
@@ -103,19 +103,19 @@ public:
     void OnCreatePlayRecordWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& total_items, const TArray<FPolarisUMGPlayDataTblItemStruct>& battle_items);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void OnCreateOthersWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& online_items, const TArray<FPolarisUMGPlayDataTblItemStruct>& offline_items);
+    void OnCreateOthersWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& online_items, const TArray<FPolarisUMGPlayDataTblItemStruct>& offline_items, const FString& period_text);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void OnCreateCharaRankWin(const TArray<FPolarisUMGPlayDataCharaItemStruct>& items, EPolarisUMGPlayDataSortType sort_type, bool is_online);
+    void OnCreateCharaRankWin(const TArray<FPolarisUMGPlayDataCharaItemStruct>& items, EPolarisUMGPlayDataSortType sort_type, bool is_online, const FString& period_text);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void OnCreateCharaOnlineWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& items, const UTexture2D* chara_icon, const UTexture2D* name_icon);
+    void OnCreateCharaOnlineWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& items, const UTexture2D* chara_icon, const UTexture2D* name_icon, const FString& period_text);
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnCreateCharaOfflineWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& items, const UTexture2D* chara_icon, const UTexture2D* name_icon);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void OnCreateBattleOnlineWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& battle_items);
+    void OnCreateBattleOnlineWin(const TArray<FPolarisUMGPlayDataTblItemStruct>& battle_items, const FString& period_text);
     
     UFUNCTION(BlueprintCallable)
     void InvokeTabDecideCallback(int32 ID);

@@ -93,6 +93,9 @@ void UPolarisAutoTestBlueprintLibrary::AutoTest_SetNextDemoCapture() {
 void UPolarisAutoTestBlueprintLibrary::AutoTest_SetMovieCaptureName(const FString& MovieName) {
 }
 
+void UPolarisAutoTestBlueprintLibrary::AutoTest_SetFinishCharCusItemCapture() {
+}
+
 void UPolarisAutoTestBlueprintLibrary::AutoTest_SetDebugOption(const FString& ValueName, int32 Param) {
 }
 
@@ -141,6 +144,10 @@ bool UPolarisAutoTestBlueprintLibrary::AutoTest_IsFinishDemoCapture() {
 }
 
 bool UPolarisAutoTestBlueprintLibrary::AutoTest_IsFinishDebugBattle() {
+    return false;
+}
+
+bool UPolarisAutoTestBlueprintLibrary::AutoTest_IsFinishCharCusItemCapture() {
     return false;
 }
 

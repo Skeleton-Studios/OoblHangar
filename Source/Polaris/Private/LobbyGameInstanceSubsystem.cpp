@@ -4,6 +4,7 @@ ULobbyGameInstanceSubsystem::ULobbyGameInstanceSubsystem() {
     this->_levelState = 0;
     this->_isSitting = false;
     this->_seatId = -1;
+    this->_seatMathicngId = -1;
     this->_bReturnToLobby = false;
     this->_bGotoCustomize = false;
     this->_bGoToAnother = false;
@@ -40,10 +41,16 @@ ULobbyGameInstanceSubsystem::ULobbyGameInstanceSubsystem() {
     this->_blackPen = NULL;
     this->_enemyInstance = NULL;
     this->_stamp = NULL;
+    this->_templateMessage = NULL;
     this->_npcTreasure = NULL;
     this->_treasureEvent = NULL;
+    this->_buddyNpc = NULL;
     this->LastEnteredPasscode = 0;
     this->_isLoungeStandByStarted = false;
+    this->isReturnBuddyMenu = false;
+}
+
+void ULobbyGameInstanceSubsystem::WarpToErrorDialogFinish() {
 }
 
 void ULobbyGameInstanceSubsystem::StopAnimation(APolarisCharacterActor* Actor) {
@@ -53,6 +60,10 @@ void ULobbyGameInstanceSubsystem::StartLoadCharacter(int32 fighter_id, FTransfor
 }
 
 void ULobbyGameInstanceSubsystem::StartDeleteCharacter() {
+}
+
+bool ULobbyGameInstanceSubsystem::ShouldQuickMatchLimitRankRange() {
+    return false;
 }
 
 void ULobbyGameInstanceSubsystem::SetSpawnLobbyPlayerCharacter(AActor* Actor) {
@@ -88,6 +99,9 @@ void ULobbyGameInstanceSubsystem::PopCamera(FRotator& Rotator, bool& Success) {
 void ULobbyGameInstanceSubsystem::PlayAnimationByStatus(EPolarisCharacterAnimStatus Status) {
 }
 
+void ULobbyGameInstanceSubsystem::OpenWarpToErrorDialog(ULobbyGameInstanceSubsystem::FWarpErrorDelegate OnDialogFinish) {
+}
+
 bool ULobbyGameInstanceSubsystem::IsLoadingCharacter() {
     return false;
 }
@@ -102,6 +116,10 @@ FText ULobbyGameInstanceSubsystem::GetTekkenPowerString() {
 
 FText ULobbyGameInstanceSubsystem::GetPlayerName() {
     return FText::GetEmpty();
+}
+
+TArray<FString> ULobbyGameInstanceSubsystem::GetMatchAnywhereRankRangeText() {
+    return TArray<FString>();
 }
 
 bool ULobbyGameInstanceSubsystem::GetAndClearLoungeRelocation() {

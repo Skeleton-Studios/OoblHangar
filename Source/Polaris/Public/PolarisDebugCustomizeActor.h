@@ -54,6 +54,12 @@ public:
     bool isKeepItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    TArray<bool> DispCharacterTypeArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 DispCharacterSelectOrder;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 FighterId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, EditFixedSize)

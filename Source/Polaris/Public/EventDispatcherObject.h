@@ -176,6 +176,7 @@ public:
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMissileClash, FEventOnMissileClashParam, Param);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMissileCancel, FEventOnMissileCancelParam, Param);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnKO, FEventOnKOParam, Param);
+    DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnKeepRewindPosition);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnJumpLanding, FEventOnJumpLandingParam, Param);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemReset, FEventOnItemResetParam, Param);
     DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnItemOnDamagedEvent, FEventOnItemOnDamagedEventParam, Param);
@@ -343,6 +344,9 @@ public:
     FOnRageStateChanged OnRageStateChangedDelegate;
     
     UPROPERTY(BlueprintAssignable)
+    FOnKeepRewindPosition OnKeepRewindPositionDelegate;
+    
+    UPROPERTY(BlueprintAssignable)
     FOnRewind OnRewindDelegate;
     
     UPROPERTY(BlueprintAssignable)
@@ -482,6 +486,9 @@ public:
     
     UPROPERTY(BlueprintAssignable)
     FOnStageReset OnStageResetLaterDelegate;
+    
+    UPROPERTY(BlueprintAssignable)
+    FOnStageReset OnSequencerResetDelegate;
     
     UPROPERTY(BlueprintAssignable)
     FOnEvaluteLiveLinkMotion OnEvaluteLiveLinkMotionDelegate;

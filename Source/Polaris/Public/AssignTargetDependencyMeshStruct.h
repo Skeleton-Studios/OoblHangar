@@ -20,6 +20,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 Priority;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 ReleaseVersion;
+    
     FAssignTargetDependencyMeshStruct();
 };
 

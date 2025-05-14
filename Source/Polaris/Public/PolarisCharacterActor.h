@@ -4,6 +4,7 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "Engine/HitResult.h"
 #include "ESupportUEAnimationMode.h"
@@ -16,12 +17,14 @@
 #include "BodyRegionMeshMap.h"
 #include "DependencyChangeParam.h"
 #include "DesignAssignStruct.h"
+#include "DropItemInfoStruct.h"
 #include "DynamicBoneDataStruct.h"
 #include "DynamicBoneParam.h"
 #include "EBodySplitType.h"
 #include "EMeshBodyRegionType.h"
 #include "EMotionLevelSequence.h"
 #include "EPolarisBodyTransformState.h"
+#include "EPolarisCharacterAnimStatus.h"
 #include "EPolarisKatanaVisibility.h"
 #include "EPolarisTracePartsId.h"
 #include "ESkinType.h"
@@ -77,6 +80,7 @@
 #include "EventOnZoneBeginParam.h"
 #include "EventOnZoneEndEffectParam.h"
 #include "EventOnZoneEndParam.h"
+#include "ExtraItemActorDramaParam.h"
 #include "ItemActorHolder.h"
 #include "ItemPositionKey.h"
 #include "ItemPositionWrapPinStruct.h"
@@ -85,14 +89,18 @@
 #include "MaterialOverrideParam.h"
 #include "PolarisCharacterJointAsset.h"
 #include "PolarisCharacterSweatControlParam.h"
+#include "PolarisInt32Array.h"
 #include "PolarisLightingChannels.h"
 #include "SESTBakeData.h"
 #include "SkeletalMeshMergeParams.h"
 #include "SlaveMeshSetStruct.h"
+#include "SpawnConfig.h"
+#include "SqueezeBoneAssetSetStructArray.h"
 #include "Templates/SubclassOf.h"
 #include "WeaponBoneName.h"
 #include "PolarisCharacterActor.generated.h"
 
+class ALevelSequenceActor;
 class APolarisCharacterEffectManager;
 class APolarisCharacterMissile;
 class APolarisDemoCharacterActor;
@@ -187,6 +195,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 PlayerNumber;
     
+    UPROPERTY()
+    FSpawnConfig SpawnConfig;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FVector ControlLocation;
     
@@ -253,6 +264,9 @@ public:
     UPROPERTY(EditAnywhere)
     TArray<UPhoenixSkeletonBinary*> PhoenixSkeletonPropotionBeforeBinaries2;
     
+    UPROPERTY()
+    TMap<int32, FSqueezeBoneAssetSetStructArray> SqueezeBoneAssetSetMap;
+    
     UPROPERTY(EditAnywhere)
     TArray<FDynamicBoneDataStruct> PhoenixDynamicBoneBinaries;
     
@@ -298,8 +312,20 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool IsPauseDynamicsForSequencer;
     
+    UPROPERTY()
+    bool IsUpperBodyMale;
+    
+    UPROPERTY()
+    bool IsLowerBodyMale;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool ActorVisible;
+    
+    UPROPERTY()
+    TArray<FMatrix44f> ProportionMatrices;
+    
+    UPROPERTY()
+    TArray<FMatrix44f> InverseTransposeMatrices;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Instanced)
     UPolarisWrinkleComponent* WrinkleComponent;
@@ -319,9 +345,24 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TMap<FItemPositionKey, FItemActorHolder> ItemActorHolders;
     
+    UPROPERTY(BlueprintReadWrite)
+    TMap<FItemPositionKey, FDropItemInfoStruct> DropItemActorMap;
+    
     UPROPERTY(BlueprintReadOnly)
     TMap<int32, APolarisItemBaseActor*> ExtraItemActors;
     
+private:
+    UPROPERTY()
+    TMap<int32, FExtraItemActorDramaParam> ExtraItemActorDramaParams;
+    
+protected:
+    UPROPERTY()
+    int32 PlayerId;
+    
+    UPROPERTY()
+    bool IsVisibleActor;
+    
+public:
     UPROPERTY(BlueprintReadOnly, Instanced, VisibleAnywhere)
     UCapsuleComponent* CapsuleComponent;
     
@@ -376,6 +417,12 @@ public:
     UPROPERTY(BlueprintReadOnly, VisibleDefaultsOnly)
     TArray<FMaterialOverrideParam> MaterialOverrideParamArray;
     
+    UPROPERTY()
+    TMap<int32, FPolarisInt32Array> AffectedPosMap;
+    
+    UPROPERTY()
+    TMap<int32, FPolarisInt32Array> AffectedPosMaterialMap;
+    
     UPROPERTY(BlueprintReadWrite, Instanced)
     UMissileManagerComponent* MissileManagerComponent;
     
@@ -400,6 +447,11 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FRotator WaitAnimRotationCustomizeMode;
     
+private:
+    UPROPERTY()
+    AnimBPType MyAnimBPType;
+    
+public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TSoftObjectPtr<ULevelSequence> AnimEntrySeq_CS_L;
     
@@ -424,11 +476,23 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     ULevelSequence* AnimBake_CC;
     
+    UPROPERTY()
+    EPolarisCharacterAnimStatus AnimType;
+    
+    UPROPERTY()
+    int32 AnimPlaySide;
+    
+    UPROPERTY()
+    TWeakObjectPtr<ALevelSequenceActor> SeqActor;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Interp)
     float FacialBlend;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TMap<EMotionLevelSequence, ULevelSequence*> MotionLevelSequence;
+    
+    UPROPERTY()
+    TArray<TWeakObjectPtr<ALevelSequenceActor>> MotionLevelSequenceActors;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<ULevelSequence*> MuscleAnimPartLevelSequence_LeftUpper;
@@ -445,11 +509,44 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<ULevelSequence*> MuscleAnimPartCmnLevelSequences;
     
+    UPROPERTY()
+    TArray<TWeakObjectPtr<ALevelSequenceActor>> MuscleAnimPartLevelSequenceActors_LeftUpper;
+    
+    UPROPERTY()
+    TArray<TWeakObjectPtr<ALevelSequenceActor>> MuscleAnimPartLevelSequenceActors_RightUpper;
+    
+    UPROPERTY()
+    TArray<TWeakObjectPtr<ALevelSequenceActor>> MuscleAnimPartLevelSequenceActors_LeftLower;
+    
+    UPROPERTY()
+    TArray<TWeakObjectPtr<ALevelSequenceActor>> MuscleAnimPartLevelSequenceActors_RightLower;
+    
+    UPROPERTY()
+    int32 MuscleAnimPartAnimNo_LeftUpper;
+    
+    UPROPERTY()
+    int32 MuscleAnimPartAnimNo_RightUpper;
+    
+    UPROPERTY()
+    int32 MuscleAnimPartAnimNo_LeftLower;
+    
+    UPROPERTY()
+    int32 MuscleAnimPartAnimNo_RightLower;
+    
+    UPROPERTY()
+    int32 MuscleAnimPartAnimNo_Common;
+    
+    UPROPERTY()
+    TArray<TWeakObjectPtr<ALevelSequenceActor>> MuscleAnimPartCmnLevelSequenceActors;
+    
     UPROPERTY(BlueprintReadWrite)
     bool IsCustomizeMode;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Interp)
     int32 DynamicBoneNumResetSteps;
+    
+    UPROPERTY()
+    FName LastDynamicBoneVariationName;
     
     UPROPERTY(BlueprintReadWrite)
     bool IsEnableClothSimulation;
@@ -508,6 +605,27 @@ public:
     UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
     FLinearColor FlushedSkinMulColor_Automatic;
     
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    bool IsEnableSequencerMaterialWorkParam;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    FLinearColor SequencerMaterialWorkParamLC00;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    FLinearColor SequencerMaterialWorkParamLC01;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    FLinearColor SequencerMaterialWorkParamLC02;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    float SequencerMaterialWorkParamF00;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    float SequencerMaterialWorkParamF01;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    float SequencerMaterialWorkParamF02;
+    
     UPROPERTY(BlueprintReadWrite)
     bool IsRebakeEnable;
     
@@ -551,6 +669,9 @@ private:
     UPROPERTY()
     TArray<UMaterialInterface*> SequenceScalarParameterMaterials;
     
+    UPROPERTY()
+    TArray<FName> SequenceScalarParameterNames;
+    
 public:
     UPROPERTY(BlueprintAssignable)
     FOnChangeCharacterSelectSequence OnChangeCharacterSelectSequenceDelegate;
@@ -563,6 +684,12 @@ public:
     
     UPROPERTY(BlueprintReadWrite)
     TArray<float> WorkParamFArray;
+    
+    UPROPERTY(BlueprintReadWrite)
+    TArray<FName> WorkParamFNameArray;
+    
+    UPROPERTY()
+    bool IsVisibilityDramaPriority;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     UItemOffsetSlotDataAsset* ItemOffsetSlotData;
@@ -580,7 +707,7 @@ public:
     UPolarisUMGRageArts* RageArtsUI;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    ULevelSequence* BattleStartCommonOverride_ReversalWin2;
+    TArray<ULevelSequence*> BattleStartCommonOverride_ReversalWin;
     
 private:
     UPROPERTY(Instanced)
@@ -596,14 +723,31 @@ public:
     UPROPERTY(BlueprintReadWrite, Instanced)
     UChildActorComponent* SoundPosActor_Trans;
     
+private:
+    UPROPERTY()
+    int32 TaskReferenceCount;
+    
+    UPROPERTY()
+    bool IsPendingDeferredLeavePhotoMode;
+    
+    UPROPERTY()
+    float TimeSinceLeavePhotoMode;
+    
+public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool IsDebug;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool isDemo;
     
+    UPROPERTY()
+    bool AnimInstance_SetupCharacterFlag;
+    
     APolarisCharacterActor(const FObjectInitializer& ObjectInitializer);
 
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void UpdateNscThunderMaterialAnimation(bool OneShotAnimEnable, float OneShotAnimFrame, bool LoopAnimEnable, float LoopAnimFrame);
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void UpdateMaterialParameters(float DeltaTime);
     
@@ -638,7 +782,7 @@ public:
     void SetPetPos(FTransform Location, int32 no);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
-    void SetPetExtraParam(int32 no, int32 State, float Param, int32 Type, int32 curve_type, int32 target_type);
+    void SetPetExtraParam(int32 no, int32 State, float fparam, int32 iparam0, int32 iparam1, int32 iparam2);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetPetAnimFrameF(float frame, int32 no);
@@ -937,6 +1081,9 @@ public:
     UFUNCTION(BlueprintImplementableEvent)
     void InitializeComponentsForBP(UItemPrefab* source_ip, int32 Pos, int32 AccNum, int32 DepNum, UCatwalkClothCollisionAsset* cloth_collision, UCatwalkClothCollisionAsset* cloth_collision_attachment, UCatwalkClothOverride* cloth_override, const TArray<UGFurAsset*>& GFurAssetArray, USkeletalMeshComponent* SourceSkeletalMeshComp, bool IsInitializeVisibility, AActor* OwnerActor);
     
+    UFUNCTION(BlueprintCallable)
+    void HiddenClothSimulationFromTag(UCatwalkClothComponentBase* _ClothComponent, const FString& _SimulationMeshTag, bool _IsHidden, int32 _WorkParamNo);
+    
     UFUNCTION(BlueprintImplementableEvent)
     FWeaponBoneName GetWeaponBoneName(EPolarisTracePartsId parts_id);
     
@@ -1189,6 +1336,9 @@ public:
     void ChangeBodyRegionMeshVisibility(EMeshBodyRegionType bodyRegion, bool IsVisible, bool isForce);
     
     UFUNCTION(BlueprintCallable)
+    void CancelNscThunderMaterialAnimation(int32 Type);
+    
+    UFUNCTION(BlueprintCallable)
     void CancelMissileRequestFromTag(const FName& Tag, bool IsDestory);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -1202,6 +1352,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void CalcSweatAnimation(float& StopSweat_A_L, float& StopSweat_B_L, float& StopSweat_A_R, float& StopSweat_B_R);
+    
+    UFUNCTION(BlueprintCallable)
+    void AssignItemActorMaterialFromSlaveMesh(FItemPositionWrapPinStruct SrcItemPos, FItemPositionWrapPinStruct DstItemPos);
     
     UFUNCTION(BlueprintCallable)
     void ApplySequenceWrinkleIntensities(bool bForce);

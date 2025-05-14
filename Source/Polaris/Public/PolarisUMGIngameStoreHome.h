@@ -1,8 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "BlackPenBannerData.h"
+#include "ContentHeaderData.h"
+#include "ContentPanelData.h"
 #include "EStoreHomeState.h"
-#include "EStoreItemAttribute.h"
+#include "EStoreItemShowCaseType.h"
 #include "OtherShowcase.h"
 #include "PickupShowcase.h"
 #include "PolarisUMGIngameStoreMenuBase.h"
@@ -31,7 +33,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    UTexture2D* GetPickUpBanner(EStoreItemAttribute sell_type);
+    UTexture2D* GetPickUpBanner(EStoreItemShowCaseType sell_type);
     
 public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -41,6 +43,9 @@ public:
     void CreateShowcaseData(FOtherShowcase showcase_info, const TArray<FStoreItemPanelStruct>& panel_infos);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void CreatePlatformHeaderData(const TArray<FContentHeaderData>& header_list);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void CreateHeaderData(FPickupShowcase hedder_info, const TArray<FStoreItemPanelStruct>& panel_infos);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -48,6 +53,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void CheckAndStyleHeaderArea();
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void AddPlatformShowcaseData(const FText& title_text, const TArray<FContentPanelData>& item_list);
     
 };
 

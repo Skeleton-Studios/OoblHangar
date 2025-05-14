@@ -26,10 +26,19 @@ public:
     static bool IsItemSalesMaintenanceStatus();
     
     UFUNCTION(BlueprintPure)
+    static bool IsInExtraStageBlackPen();
+    
+    UFUNCTION(BlueprintPure)
+    static bool IsInExtraStage(int32 current_lv, int32 max_level, int32 add_max_level);
+    
+    UFUNCTION(BlueprintPure)
     static bool IsEnableStoreTestSetting();
     
     UFUNCTION(BlueprintPure)
     static bool IsEnableLimitedOwnedButton();
+    
+    UFUNCTION(BlueprintPure)
+    static bool IsDisablePF();
     
     UFUNCTION(BlueprintPure)
     static bool IsDisableOtherMenu();
@@ -50,6 +59,9 @@ public:
     static void IngameStoreViewerDestroyAllNiagaraEffects();
     
     UFUNCTION(BlueprintCallable)
+    static void IngameStoreViewerDestroyAllDecals();
+    
+    UFUNCTION(BlueprintCallable)
     static void IngameStoreClickCharaIcon(int32 button_index);
     
     UFUNCTION(BlueprintPure)
@@ -63,6 +75,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     static FText GetStoreCategoryTitleRawText(EStoreItemType Type);
+    
+    UFUNCTION(BlueprintPure)
+    static void GetLatestBalloonInfo(FString& _out_raw_text, int32& _out_color_idx);
     
     UFUNCTION(BlueprintPure)
     static int32 GetCurrentVerNo();

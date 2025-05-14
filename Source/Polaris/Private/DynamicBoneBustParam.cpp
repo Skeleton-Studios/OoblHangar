@@ -6,6 +6,7 @@ FDynamicBoneBustParam::FDynamicBoneBustParam() {
     this->RVer = 0;
     this->verticalRotOffset = 0.00f;
     this->verticalRotOffsetAdd = 0.00f;
+    this->horizontalRotOffset = 0.00f;
     this->turnBoostOffset = 0.00f;
 }
 

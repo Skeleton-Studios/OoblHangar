@@ -2,6 +2,7 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "ColorArrayData.h"
 #include "DebugImageBlueprintLibrary.generated.h"
 
 class UTexture2D;
@@ -30,6 +31,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static UTexture2D* CreateTempTextureAsset(const FString& temp_asset_name, UTexture2D* original_asset);
+    
+    UFUNCTION(BlueprintCallable)
+    static void ConvertToPng(const TArray<FColor>& Data, int32 Width, int32 Height, TArray<uint8>& png_data);
+    
+    UFUNCTION(BlueprintCallable)
+    static void AppendColorData(int32 color_width, int32 color_height, const TArray<FColorArrayData>& datas, int32 data_width, int32 data_height, TArray<FColor>& Result);
     
 };
 

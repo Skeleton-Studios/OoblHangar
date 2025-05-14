@@ -3,6 +3,9 @@
 ULobbyBlueprintFunctionLibrary::ULobbyBlueprintFunctionLibrary() {
 }
 
+void ULobbyBlueprintFunctionLibrary::SetLobbyHudVisibility(bool is_visible) {
+}
+
 void ULobbyBlueprintFunctionLibrary::RequestCrossPrivilege(const FString& xuid, ULobbyBlueprintFunctionLibrary::FLobbyOnGetBool OnGetBool) {
 }
 
@@ -44,6 +47,10 @@ void ULobbyBlueprintFunctionLibrary::LobbyShowInformationBar(const FString& text
 void ULobbyBlueprintFunctionLibrary::LobbyShowConnectionIcon() {
 }
 
+bool ULobbyBlueprintFunctionLibrary::LobbyShouldHideRelationshipIcon() {
+    return false;
+}
+
 void ULobbyBlueprintFunctionLibrary::LobbySetSwingParam(int32 infoTranslation, const FName StrParam1, int32 NumParam1) {
 }
 
@@ -65,6 +72,10 @@ void ULobbyBlueprintFunctionLibrary::LobbySetCrossplayLobbyFlag(bool is_crosspla
 void ULobbyBlueprintFunctionLibrary::LobbySetCrossplayFlag(bool is_crossplay) {
 }
 
+FString ULobbyBlueprintFunctionLibrary::LobbySeatingToPracticeTextID() {
+    return TEXT("");
+}
+
 void ULobbyBlueprintFunctionLibrary::LobbyScreenShot2(const FString& Path, bool withUI) {
 }
 
@@ -72,6 +83,10 @@ void ULobbyBlueprintFunctionLibrary::LobbyScreenShot(const FString& Filename, bo
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbySavePath(TArray<float>& times, TArray<FRotator>& rotators, TArray<FVector>& locations) {
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyRequestStreamLevelDynamic(const TArray<FString>& request_maps_path) {
+    return false;
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyRapidJsonTest() {
@@ -96,6 +111,9 @@ void ULobbyBlueprintFunctionLibrary::LobbyOpenProfileInCommunityMenu(int64 cosmo
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyOpenPlatformProfileUI(const FString& platformId, int32 platform012, ULobbyBlueprintFunctionLibrary::FLobbyOpenPlatformProfileUIDelegate OnClose) {
+}
+
+void ULobbyBlueprintFunctionLibrary::LobbyNotifyErrorCheck() {
 }
 
 bool ULobbyBlueprintFunctionLibrary::LobbyNotificationExistsInvitation() {
@@ -194,7 +212,19 @@ bool ULobbyBlueprintFunctionLibrary::LobbyIsFirstPlayLounge() {
     return false;
 }
 
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableProfileToReplayList() {
+    return false;
+}
+
 bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableOnlinePractice() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableOnlineGhostVsGhost() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableKBChat() {
     return false;
 }
 
@@ -202,7 +232,23 @@ bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableIGS() {
     return false;
 }
 
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableGhostVsGhost() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableFastTravel() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableEvLobby() {
+    return false;
+}
+
 bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableCustomizeSlot() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyIsEnableArtEmote() {
     return false;
 }
 
@@ -215,6 +261,10 @@ bool ULobbyBlueprintFunctionLibrary::LobbyIsDisableLobbySound() {
 }
 
 bool ULobbyBlueprintFunctionLibrary::LobbyIsButtonHelpStackEmpty() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyIsAgingWarp() {
     return false;
 }
 
@@ -243,10 +293,22 @@ void ULobbyBlueprintFunctionLibrary::LobbyHideConnectionIcon() {
 void ULobbyBlueprintFunctionLibrary::LobbyHideButtonHelp() {
 }
 
+bool ULobbyBlueprintFunctionLibrary::LobbyGvGNpcTutorial() {
+    return false;
+}
+
 void ULobbyBlueprintFunctionLibrary::LobbyGotoPlayerMatchRoomInCommunityMenu() {
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyGotoMultiPlayStart(ULobbyBlueprintFunctionLibrary::FLobbyOnGetBool Callback) {
+}
+
+FString ULobbyBlueprintFunctionLibrary::LobbyGetTextIDPanelFastTravel() {
+    return TEXT("");
+}
+
+FString ULobbyBlueprintFunctionLibrary::LobbyGetStreamerModePlayerName(const FString& playerName) {
+    return TEXT("");
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyGetServerLabel(FString& Result) {
@@ -307,6 +369,10 @@ int32 ULobbyBlueprintFunctionLibrary::LobbyGetMyChatPrivilegeStatus() {
     return 0;
 }
 
+FString ULobbyBlueprintFunctionLibrary::LobbyGetMenu4TextID() {
+    return TEXT("");
+}
+
 void ULobbyBlueprintFunctionLibrary::LobbyGetLocalTimeLocalizedStringFromIso8601(const FString& Iso8601Text, FString& DateText, FString& TimeText, bool Seconds) {
 }
 
@@ -320,6 +386,14 @@ void ULobbyBlueprintFunctionLibrary::LobbyGetHelpListItems(const FString& catego
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyGetHelpListCategoryList(TArray<FString>& Categories) {
+}
+
+FString ULobbyBlueprintFunctionLibrary::LobbyGetGvGMenuTextID() {
+    return TEXT("");
+}
+
+FString ULobbyBlueprintFunctionLibrary::LobbyGetGvGHudTextID(int32 Index) {
+    return TEXT("");
 }
 
 bool ULobbyBlueprintFunctionLibrary::LobbyGetGameSettingCrossPlayFlag() {
@@ -342,6 +416,10 @@ bool ULobbyBlueprintFunctionLibrary::LobbyGetCrossplayFlagWithoutPrivilegeFlag()
 }
 
 bool ULobbyBlueprintFunctionLibrary::LobbyGetCrossplayFlag() {
+    return false;
+}
+
+bool ULobbyBlueprintFunctionLibrary::LobbyGetCrossplayConfig() {
     return false;
 }
 
@@ -377,6 +455,10 @@ bool ULobbyBlueprintFunctionLibrary::LobbyGetCameraSettingAutoTrackingFlag() {
     return false;
 }
 
+FString ULobbyBlueprintFunctionLibrary::LobbyGetBuddyTalkTextId(int32 Index) {
+    return TEXT("");
+}
+
 int32 ULobbyBlueprintFunctionLibrary::LobbyGetBasePlatformTag() {
     return 0;
 }
@@ -402,6 +484,9 @@ void ULobbyBlueprintFunctionLibrary::LobbyDownloadGhostInPlayerMatchRoom(int64 c
 void ULobbyBlueprintFunctionLibrary::LobbyDownloadGhostInCommunityMenu(int64 cosmosId, const FString& playerName, ULobbyBlueprintFunctionLibrary::FDownloadGhostFinishCallback Callback) {
 }
 
+void ULobbyBlueprintFunctionLibrary::LobbyCrashAgingWarpBadLocation() {
+}
+
 FString ULobbyBlueprintFunctionLibrary::LobbyCosmosIdToString(int64 cosmosId) {
     return TEXT("");
 }
@@ -425,6 +510,9 @@ void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpTest() {
 void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpSitting() {
 }
 
+void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpSeatingMatching() {
+}
+
 void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpScene(const FString& Scene) {
 }
 
@@ -435,6 +523,9 @@ void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpPush() {
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpPop() {
+}
+
+void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpIronBird() {
 }
 
 void ULobbyBlueprintFunctionLibrary::LobbyButtonHelpEmoteListPlay() {
@@ -530,12 +621,22 @@ bool ULobbyBlueprintFunctionLibrary::LobbyActivateDirectChatInPlayerMatchRoom(co
 void ULobbyBlueprintFunctionLibrary::LobbNotificationClearFriendRequest() {
 }
 
+bool ULobbyBlueprintFunctionLibrary::IsWaitingStreamLevel(const TArray<FString>& check_maps_path) {
+    return false;
+}
+
 bool ULobbyBlueprintFunctionLibrary::GetMyCrossPrivilege(bool InFriendOnly, bool InAll) {
     return false;
 }
 
 int64 ULobbyBlueprintFunctionLibrary::ConvertCosmosIdToInt64(const FName& cosmosId) {
     return 0;
+}
+
+void ULobbyBlueprintFunctionLibrary::ChangeVisibleButtonHelpUI(bool is_visible) {
+}
+
+void ULobbyBlueprintFunctionLibrary::BeginCarrot() {
 }
 
 

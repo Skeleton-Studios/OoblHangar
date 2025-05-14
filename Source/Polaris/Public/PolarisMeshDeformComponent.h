@@ -11,24 +11,24 @@ UCLASS(BlueprintType, EditInlineNew, ClassGroup=Custom, meta=(BlueprintSpawnable
 class POLARIS_API UPolarisMeshDeformComponent : public USceneComponent {
     GENERATED_BODY()
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "MeshDeform")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<FPolarisMeshDeformParam> DeformParams;
     
     UPolarisMeshDeformComponent(const FObjectInitializer& ObjectInitializer);
 
-    UFUNCTION(BlueprintCallable, Category = "MeshDeform")
+    UFUNCTION(BlueprintCallable)
     static void UpdateMeshWeightIF(USkeletalMeshComponent* Mesh, UPARAM(Ref) TArray<FPolarisMeshDeformParam>& NewDeformParams, FVector HitPosition, float Damage);
     
-    UFUNCTION(BlueprintCallable, Category = "MeshDeform")
+    UFUNCTION(BlueprintCallable)
     void UpdateMeshWeight(FVector HitPosition, float Damage);
     
-    UFUNCTION(BlueprintCallable, Category = "MeshDeform")
+    UFUNCTION(BlueprintCallable)
     static void ResetMeshWeightIF(USkeletalMeshComponent* Mesh, UPARAM(Ref) TArray<FPolarisMeshDeformParam>& NewDeformParams);
     
-    UFUNCTION(BlueprintCallable, Category = "MeshDeform")
+    UFUNCTION(BlueprintCallable)
     void Init();
     
-    UFUNCTION(BlueprintCallable, Category = "MeshDeform")
+    UFUNCTION(BlueprintCallable)
     static float GetInfluence(FVector Center, float Radius, FVector HitPosition);
     
 };

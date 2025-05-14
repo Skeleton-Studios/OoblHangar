@@ -13,6 +13,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnUnsetRival, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnSetRival, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnRemoveFollow, bool, isSuccess);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FOnDownloadSearchPlayers, int32, Status);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnDownloadRival, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnDownloadFollows, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_TwoParams(FOnCallbackSuccess_Status, bool, isSuccess, int32, Status);
@@ -44,6 +45,9 @@ public:
     
     UPROPERTY(BlueprintReadOnly)
     FLobbyFriendsMember _rivalInfo;
+    
+    UPROPERTY(BlueprintReadOnly)
+    TMap<int64, FLobbyFriendsMember> _searchPlayers;
     
     ULobbyFriends();
 
@@ -97,6 +101,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void FriendRequest(int64 cosmosId, ULobbyFriends::FOnCallbackSuccess_Status OnRequestFriend);
+    
+    UFUNCTION(BlueprintCallable)
+    void DownloadSearchPlayers(const int32 searchType, const FString& searchWord, ULobbyFriends::FOnDownloadSearchPlayers OnDownloadSearchPlayers);
     
     UFUNCTION(BlueprintCallable)
     void DownloadRival(ULobbyFriends::FOnDownloadRival OnDownloadRival, bool isForceUpdate);

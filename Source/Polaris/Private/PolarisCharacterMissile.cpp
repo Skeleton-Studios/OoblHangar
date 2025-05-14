@@ -54,6 +54,7 @@ bool APolarisCharacterMissile::IsFinish_Implementation() const {
     return false;
 }
 
+
 TEnumAsByte<EMissileHitType> APolarisCharacterMissile::GetNextEffectQueued() const {
     return MissileHitTypeEffect_Unassigned;
 }

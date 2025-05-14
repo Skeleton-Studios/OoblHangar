@@ -23,5 +23,9 @@ enum class ELobbyTutorialType : uint8 {
     FirstOnlineBattle,
     FirstPartyEffect,
     AddedOnlinePractice,
+    FirstArtEmote,
+    FirstOnlineGhostVS,
+    FirstGhostVsBuddy,
+    FirstGhostVsArea,
 };
 

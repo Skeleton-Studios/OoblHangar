@@ -13,58 +13,58 @@ UCLASS()
 class POLARIS_API APolarisDestructibleNiagaraActor : public AActor {
     GENERATED_BODY()
 public:
-    UPROPERTY(EditAnywhere, Instanced, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(EditAnywhere, Instanced)
     USceneComponent* DefaultSceneRoot;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     EStageGimmickState State;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool IsVanish;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool IsNoFadeout;
     
-    UPROPERTY(BlueprintReadWrite, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite)
     bool IsVanishWait;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float VanishingStartSecond;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float VanishingEndSecond;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     UAkAudioEvent* ImpacterAudioEvent;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float ImpacterExtraMassValue;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float ImpacterExtraVelocityValue;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float ImpacterForceThreshold;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float ImpacterMassThreshold;
     
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 ImpacterNoMultiPlayFrame;
     
-    UPROPERTY(Instanced, VisibleDefaultsOnly, Category = "Polaris|DestructibleNiagara")
+    UPROPERTY(Instanced, VisibleDefaultsOnly)
     UNiagaraComponent* DestructibleParticle;
     
     APolarisDestructibleNiagaraActor(const FObjectInitializer& ObjectInitializer);
 
 protected:
-    UFUNCTION(Category = "Polaris|DestructibleNiagara")
+    UFUNCTION()
     void OnReset();
     
-    UFUNCTION(Category = "Polaris|DestructibleNiagara")
+    UFUNCTION()
     void OnComponentFractureEvent(const FVector& HitPoint, const FVector& HitDirection);
     
-    UFUNCTION(BlueprintCallable, Category = "Polaris|DestructibleNiagara")
+    UFUNCTION(BlueprintCallable)
     void KeyOnImpacterSound();
     
 };

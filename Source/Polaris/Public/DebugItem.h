@@ -3,8 +3,10 @@
 #include "UObject/Object.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "DebugThumbnailAnimationReplace.h"
 #include "EPolarisReflectionBrightness.h"
+#include "FDebugCaptureFilterList.h"
 #include "DebugItem.generated.h"
 
 UCLASS(BlueprintType)
@@ -26,6 +28,9 @@ public:
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
     FQuat ItemRotation;
     
+    UPROPERTY(BlueprintReadOnly, EditAnywhere)
+    TMap<int32, FTransform> AccModeDependencyMeshTransforms;
+    
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool bEnableMannequin;
     
@@ -37,6 +42,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     EPolarisReflectionBrightness Brightness;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    FFDebugCaptureFilterList FilterList;
     
     UDebugItem();
 

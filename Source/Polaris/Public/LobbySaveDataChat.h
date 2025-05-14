@@ -10,10 +10,10 @@ public:
     ULobbySaveDataChat();
 
     UFUNCTION(BlueprintCallable)
-    void SetTemplateMessage(int32 InIndex, int32 InId);
+    bool ShouldClearTemplateMessage();
     
-    UFUNCTION(BlueprintCallable)
-    void SetStamp(int32 InIndex, int32 InId);
+    UFUNCTION(BlueprintPure)
+    TArray<int32> GetTemplateMessages() const;
     
     UFUNCTION(BlueprintPure)
     int32 GetTemplateMessageNum() const;
@@ -22,10 +22,22 @@ public:
     int32 GetTemplateMessage(int32 InIndex) const;
     
     UFUNCTION(BlueprintPure)
+    TArray<int32> GetStamps() const;
+    
+    UFUNCTION(BlueprintPure)
     int32 GetStampNum() const;
     
     UFUNCTION(BlueprintPure)
     int32 GetStamp(int32 InIndex) const;
+    
+    UFUNCTION(BlueprintCallable)
+    void ClearTemplateMessage();
+    
+    UFUNCTION(BlueprintCallable)
+    int32 AddTemplateMessage(int32 InId);
+    
+    UFUNCTION(BlueprintCallable)
+    int32 AddStamp(int32 InId);
     
 };
 

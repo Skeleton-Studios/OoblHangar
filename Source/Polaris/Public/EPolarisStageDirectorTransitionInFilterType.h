@@ -6,8 +6,10 @@ UENUM()
 enum class EPolarisStageDirectorTransitionInFilterType : int32 {
     ByName,
     ByTag,
+    OnPreStart,
     OnInitialRoundStart,
     OnPracticeInitialRoundStart,
     OnRoundStart,
+    OnWallBreak,
 };
 

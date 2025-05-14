@@ -13,6 +13,9 @@ public:
     void SetRankRange(int32 rankRange);
     
     UFUNCTION(BlueprintCallable)
+    void SetQuickMatchRankRange(int32 rankRange);
+    
+    UFUNCTION(BlueprintCallable)
     void SetPlayerSideLeft(bool isLeft);
     
     UFUNCTION(BlueprintCallable)
@@ -47,6 +50,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     int32 GetRankRange() const;
+    
+    UFUNCTION(BlueprintPure)
+    int32 GetQuickMatchRankRange() const;
     
     UFUNCTION(BlueprintPure)
     int32 GetLineQuality(bool bRankmatch);

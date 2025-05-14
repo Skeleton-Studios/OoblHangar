@@ -64,6 +64,9 @@ public:
     void RequestPFStoreDLC(const FName& dlc_item_id);
     
     UFUNCTION(BlueprintCallable)
+    void RequestItemViewerFiltering(const FStoreItemPanelStruct& item_data, EStoreItemType filter_type, int32 fighter_id);
+    
+    UFUNCTION(BlueprintCallable)
     void RequestItemViewer(const FStoreItemPanelStruct& item_data, bool is_bottom_layer);
     
     UFUNCTION(BlueprintCallable)

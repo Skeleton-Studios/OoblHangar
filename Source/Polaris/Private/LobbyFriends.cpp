@@ -63,6 +63,9 @@ int32 ULobbyFriends::GetFollowNum(const FString& loungeId) const {
 void ULobbyFriends::FriendRequest(int64 cosmosId, ULobbyFriends::FOnCallbackSuccess_Status OnRequestFriend) {
 }
 
+void ULobbyFriends::DownloadSearchPlayers(const int32 searchType, const FString& searchWord, ULobbyFriends::FOnDownloadSearchPlayers OnDownloadSearchPlayers) {
+}
+
 void ULobbyFriends::DownloadRival(ULobbyFriends::FOnDownloadRival OnDownloadRival, bool isForceUpdate) {
 }
 

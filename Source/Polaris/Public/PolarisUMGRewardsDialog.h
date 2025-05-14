@@ -11,7 +11,7 @@ public:
     UPolarisUMGRewardsDialog();
 
     UFUNCTION(BlueprintImplementableEvent)
-    void Setup(const FString& title_text, const bool is_show_subtitle);
+    void Setup(const FString& title_text, const bool is_show_subtitle, const bool is_raw_text);
     
     UFUNCTION(BlueprintImplementableEvent)
     void Select(int32 ID);

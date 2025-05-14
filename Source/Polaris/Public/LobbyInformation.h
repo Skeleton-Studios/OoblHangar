@@ -13,6 +13,7 @@ public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnDownloadLog, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnDebugBuyup, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnCallbackStatus, int32, Status);
+    DECLARE_DYNAMIC_DELEGATE(FOnCallback);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyTest1201, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyTest1200, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyDownloadInformations, bool, isSuccess);
@@ -31,6 +32,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void Test1200(ULobbyInformation::FLobbyTest1200 OnTest1200);
+    
+    UFUNCTION(BlueprintCallable)
+    static void ShowPsTournamentActivityCard(ULobbyInformation::FOnCallback OnFinishShowPsTournamentActivityCard);
     
     UFUNCTION(BlueprintCallable)
     static void ShowPlatformStoreItem(const FString& ItemId, ULobbyInformation::FOnCallbackStatus OnFinishPlatformStore);
@@ -52,6 +56,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void LobbyDecideGameModeStoreByNews();
+    
+    UFUNCTION(BlueprintCallable)
+    void LobbyClearShowPsTournamentActivityCard();
     
     UFUNCTION(BlueprintCallable)
     static void LobbyClearShowPlatformStore();

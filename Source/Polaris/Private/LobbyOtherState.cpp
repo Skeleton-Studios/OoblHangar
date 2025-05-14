@@ -7,6 +7,7 @@ FLobbyOtherState::FLobbyOtherState() {
     this->_state = 0;
     this->_balloonChatStamp = 0;
     this->_balloonChatTemplate = 0;
+    this->_balloonChatTemplateSub = 0;
     this->_chatBalloonCount = 0;
     this->_sitting = 0;
     this->_seatId = 0;

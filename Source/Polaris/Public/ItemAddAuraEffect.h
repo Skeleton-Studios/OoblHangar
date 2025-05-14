@@ -30,6 +30,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 SortPriority;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    bool isVisibleDrama;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 ColorSlotNumber;
+    
     FItemAddAuraEffect();
 };
 

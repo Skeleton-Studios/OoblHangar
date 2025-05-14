@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "AvatarItemCaptureData.h"
 #include "AvatarCustomizeGameController.generated.h"
 
 UCLASS()
@@ -68,6 +69,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void Decide();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void CaptureItem(const TArray<FAvatarItemCaptureData>& captureDatas);
     
     UFUNCTION(BlueprintImplementableEvent)
     bool CanRepeatHorizontalCursor();

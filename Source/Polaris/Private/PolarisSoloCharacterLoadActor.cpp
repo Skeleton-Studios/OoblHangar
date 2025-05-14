@@ -10,6 +10,10 @@ bool APolarisSoloCharacterLoadActor::RequestCharacterLoad(int32 fighter_id, int3
     return false;
 }
 
+bool APolarisSoloCharacterLoadActor::IsUnLoaded() const {
+    return false;
+}
+
 bool APolarisSoloCharacterLoadActor::IsLoaded() const {
     return false;
 }

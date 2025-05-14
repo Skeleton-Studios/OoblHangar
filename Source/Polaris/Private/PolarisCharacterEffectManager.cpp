@@ -22,6 +22,9 @@ UNiagaraComponent* APolarisCharacterEffectManager::SpawnBone(const int32& Effect
 void APolarisCharacterEffectManager::SetVisibilityAll(bool IsVisible) {
 }
 
+void APolarisCharacterEffectManager::SetPausedAll(bool IsPaused) {
+}
+
 void APolarisCharacterEffectManager::SetDummyTick(const int32 tick_count, const float delta_time) {
 }
 
@@ -35,6 +38,10 @@ void APolarisCharacterEffectManager::RemoveAllParticles() {
 }
 
 
+
+bool APolarisCharacterEffectManager::IsNotChangeSpeedEffectId_Implementation(int32 effect_id) {
+    return false;
+}
 
 void APolarisCharacterEffectManager::AddParticleSystem(int32 PlayerNumber, int32 EffectId, UNiagaraComponent* Emitter) {
 }

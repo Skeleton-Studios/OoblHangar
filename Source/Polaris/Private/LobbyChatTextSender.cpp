@@ -3,7 +3,7 @@
 ULobbyChatTextSender::ULobbyChatTextSender() {
 }
 
-bool ULobbyChatTextSender::SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId) {
+bool ULobbyChatTextSender::SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId, int32 InTemplateSubId) {
     return false;
 }
 

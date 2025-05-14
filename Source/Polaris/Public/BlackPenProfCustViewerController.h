@@ -6,6 +6,7 @@
 #include "BlackPenProfCustViewerController.generated.h"
 
 class AActor;
+class ABlackPenAvatarViewerController;
 class ULevelSequence;
 class UTexture2D;
 
@@ -43,6 +44,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     AActor* GetCameraController();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    ABlackPenAvatarViewerController* GetAvatarViewerController();
     
 };
 

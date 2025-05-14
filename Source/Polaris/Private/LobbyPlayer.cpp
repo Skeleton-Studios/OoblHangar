@@ -6,6 +6,7 @@ ALobbyPlayer::ALobbyPlayer(const FObjectInitializer& ObjectInitializer) : Super(
     this->_watchTargetCosmosId = 0;
     this->_isReserveAnywhereMatching = false;
     this->_isFirstJudgeBattle = false;
+    this->_isSeatingMatchReserve = false;
     this->_isEnableUpdate = true;
     this->_isReturnFromTreasure = false;
     this->_treasureSuccess = false;
@@ -28,6 +29,9 @@ void ALobbyPlayer::ShortWarp() {
 }
 
 void ALobbyPlayer::SetStandingLocationAndRotation() {
+}
+
+void ALobbyPlayer::SetSeatMatchingId(int32 seatId) {
 }
 
 void ALobbyPlayer::SetSeatId(int32 seatId) {
@@ -85,6 +89,9 @@ void ALobbyPlayer::Relocation(FVector NewLocation, FRotator NewRotation) {
 void ALobbyPlayer::PushCustomize(const ULobbyAvatarData* pAvatarData) {
 }
 
+void ALobbyPlayer::OutputDebugCallstack(const FString& Option) {
+}
+
 void ALobbyPlayer::LongWarp() {
 }
 
@@ -111,6 +118,10 @@ FVector ALobbyPlayer::GetStandingLocation() const {
 
 bool ALobbyPlayer::GetSkipFlagForAnywhereSettingDialogAndClear() {
     return false;
+}
+
+int32 ALobbyPlayer::GetSeatMatchingId() {
+    return 0;
 }
 
 int32 ALobbyPlayer::GetSeatId() {

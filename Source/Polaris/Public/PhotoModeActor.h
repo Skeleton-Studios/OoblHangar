@@ -19,6 +19,9 @@ class POLARIS_API APhotoModeActor : public AActor {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite)
+    TArray<APolarisPhotoModeWallActor*> m_chara_collision_actors;
+    
+    UPROPERTY(BlueprintReadWrite)
     FLinearColor postProcessColor;
     
     UPROPERTY(BlueprintReadWrite)
@@ -132,6 +135,9 @@ public:
     void SetPlayerCameraFOV(float lensfov);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetParameterOffsetMode(bool is_visible);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetMaterialColor();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
@@ -206,6 +212,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     float GetFovFromLens();
     
+    UFUNCTION(BlueprintCallable)
+    AActor* GetColorBackActor();
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     UPostProcessComponent* GetCineCameraPostProcessComponent();
     
@@ -223,6 +232,12 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void DrawLookAtPoint(FVector Pos, int32 color_type);
+    
+    UFUNCTION(BlueprintCallable)
+    void DestroyColorBackActor();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ColorBackUpdateEffectsList();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CheckCameraDistanceToPlayer2(int32 PlayerId, int32 State);

@@ -22,12 +22,16 @@ int64 ALobbyMachineActor::GetOwnerCosmosId() {
     return 0;
 }
 
-ALobbyMachineActor* ALobbyMachineActor::GetMachineActor(int32 UniqueId) {
+ALobbyMachineActor* ALobbyMachineActor::GetMachineActor(int32 uniqueId) {
     return NULL;
 }
 
 int32 ALobbyMachineActor::GetGroupMatchNum() {
     return 0;
+}
+
+bool ALobbyMachineActor::CanSeatingMatching(ELobbyMachineType Type) {
+    return false;
 }
 
 

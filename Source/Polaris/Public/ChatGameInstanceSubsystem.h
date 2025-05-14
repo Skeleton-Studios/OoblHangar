@@ -19,5 +19,8 @@ public:
     UFUNCTION(BlueprintPure)
     ULobbyChatText* GetTextChat();
     
+    UFUNCTION(BlueprintPure)
+    FString GetStreamerModeName(const FString& Name);
+    
 };
 

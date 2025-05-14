@@ -63,6 +63,9 @@ public:
     void SetTimerNum(int32 Num);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetRightBattleMessageColor(bool is_p1_color);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetHistoryData(int32 side, int32 Index, const UTexture2D* Icon_0, const UTexture2D* Icon_1, const UTexture2D* Icon_2, int32 lever, int32 Button, int32 frame);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -120,7 +123,28 @@ public:
     void OnWallHitIn(int32 side);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void OnTornadoOut(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnTornadoInMessage(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnTornadoIn(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnSuccessOut(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnSuccessIn(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnSuccessCount(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPunishOut(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnPunishInMessage(int32 side);
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnPunishIn(int32 side);
@@ -130,6 +154,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnCounterHitOut(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnCounterHitInMessage(int32 side);
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnCounterHitIn(int32 side);
@@ -166,6 +193,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnCleanHitOut(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void OnCleanHitInMessage(int32 side);
     
     UFUNCTION(BlueprintImplementableEvent)
     void OnCleanHitIn(int32 side);

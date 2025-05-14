@@ -24,6 +24,9 @@ public:
     UPROPERTY(EditAnywhere)
     FName _tb_command;
     
+    UPROPERTY(EditAnywhere)
+    FName _tb_count;
+    
     FBlackPenMenuInfoWidgetName();
 };
 

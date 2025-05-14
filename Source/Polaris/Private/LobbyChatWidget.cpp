@@ -60,6 +60,9 @@ bool ULobbyChatWidget::CheckTutorialSessionSetEventFlag() {
     return false;
 }
 
+void ULobbyChatWidget::ChangeVisibility_Implementation(bool next_visibility) {
+}
+
 bool ULobbyChatWidget::ActiveLogChat_Implementation() {
     return false;
 }

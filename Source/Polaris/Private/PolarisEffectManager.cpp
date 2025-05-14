@@ -14,6 +14,7 @@ APolarisEffectManager::APolarisEffectManager(const FObjectInitializer& ObjectIni
     this->m_pPolarisNiagaraActorManager = NULL;
 }
 
+
 void APolarisEffectManager::SetParticleAssetNameHash(UNiagaraSystem* Asset) {
 }
 
@@ -38,11 +39,11 @@ void APolarisEffectManager::ResetAllFlag() {
 
 
 
-UNiagaraComponent* APolarisEffectManager::ReqNiagaraScalingAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, FVector Scale, EAttachLocation::Type LocationType, bool bAutoDestroy, bool bAutoSound) {
+UNiagaraComponent* APolarisEffectManager::ReqNiagaraScalingAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, FVector Scale, TEnumAsByte<EAttachLocation::Type> LocationType, bool bAutoDestroy, bool bAutoSound) {
     return NULL;
 }
 
-UNiagaraComponent* APolarisEffectManager::ReqNiagaraAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, EAttachLocation::Type LocationType, bool bAutoDestroy, bool bAutoSound) {
+UNiagaraComponent* APolarisEffectManager::ReqNiagaraAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, TEnumAsByte<EAttachLocation::Type> LocationType, bool bAutoDestroy, bool bAutoSound) {
     return NULL;
 }
 
@@ -51,6 +52,9 @@ UNiagaraComponent* APolarisEffectManager::ReqNiagaraAtLocation_Implementation(co
 }
 
 
+
+void APolarisEffectManager::OnChangeAnotherWorld(FEventOnChangeAnotherWorldParam Param) {
+}
 
 void APolarisEffectManager::KeyOnSoundbyNiagaraAsset(const FVector& position, UNiagaraSystem* Asset) {
 }
@@ -90,6 +94,9 @@ APolarisCharacterEffectManager* APolarisEffectManager::GetCharacterEffectManager
 
 bool APolarisEffectManager::GetChangeFloorFlag() {
     return false;
+}
+
+void APolarisEffectManager::GetBattleEffect(TArray<UNiagaraComponent*>& niagara_components, TArray<UPolarisTraceComponent*>& trace_components, bool is_get_stage_battle_effect) {
 }
 
 void APolarisEffectManager::AddParticle(UNiagaraComponent* particlem, bool over_count_check) {

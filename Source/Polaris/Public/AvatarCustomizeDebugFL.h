@@ -7,6 +7,7 @@
 #include "AvatarCustomizeDebugFL.generated.h"
 
 class UDataTable;
+class ULobbyAvatarData;
 class UObject;
 
 UCLASS(BlueprintType)
@@ -17,6 +18,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     static void SortAvatarItemOrderMap(const TMap<int32, int64>& Source, TMap<int32, int64>& Result);
+    
+    UFUNCTION(BlueprintCallable)
+    static void SortAvatarData(const TArray<ULobbyAvatarData*>& Source, TArray<ULobbyAvatarData*>& Result);
     
     UFUNCTION(BlueprintCallable)
     static FAvatarItemData SetAvatarItemDataReleaseVersion(FAvatarItemData AvatarItemData, int32 ReleaseVersion);

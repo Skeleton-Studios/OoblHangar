@@ -24,6 +24,9 @@ private:
     UPROPERTY()
     bool IsDelayNextTick;
     
+    UPROPERTY()
+    bool IsDelaySpawn;
+    
 public:
     APolarisNiagaraActor(const FObjectInitializer& ObjectInitializer);
 

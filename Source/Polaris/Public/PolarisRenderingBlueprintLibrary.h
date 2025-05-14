@@ -1,6 +1,10 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "PolarisRenderingBlueprintLibrary.generated.h"
 
@@ -14,11 +18,17 @@ class UPolarisRenderingBlueprintLibrary : public UBlueprintFunctionLibrary {
 public:
     UPolarisRenderingBlueprintLibrary();
 
+    UFUNCTION(BlueprintPure)
+    static void TransformByBoxSphereBounds(const FBoxSphereBounds& BoundingBox, const FTransform& Transform, FBoxSphereBounds& Result);
+    
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void PolarisDrawMaterialToRenderTarget(UObject* WorldContextObject, UTextureRenderTarget2D* TextureRenderTarget, UMaterialInterface* Material);
     
     UFUNCTION(BlueprintCallable, meta=(WorldContext="WorldContextObject"))
     static void PolarisClearRenderTarget2D(UObject* WorldContextObject, UTextureRenderTarget2D* TextureRenderTarget, FLinearColor ClearColor);
+    
+    UFUNCTION(BlueprintPure)
+    static bool IsFullyContainedFrustum(const FMatrix& ProjectionViewMatrix, const FVector& Origin, const FVector& BoxExtent);
     
 };
 

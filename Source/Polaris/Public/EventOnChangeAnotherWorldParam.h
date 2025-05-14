@@ -3,7 +3,6 @@
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
 #include "EStageAnotherWorldProcType.h"
-#include "EStageAnotherWorldType.h"
 #include "EventOnChangeAnotherWorldParam.generated.h"
 
 USTRUCT(BlueprintType)
@@ -11,7 +10,7 @@ struct FEventOnChangeAnotherWorldParam {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EStageAnotherWorldType Type;
+    int32 Type;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     EStageAnotherWorldProcType proc_type;

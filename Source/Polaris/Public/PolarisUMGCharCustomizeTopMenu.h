@@ -26,6 +26,9 @@ public:
     UFUNCTION(BlueprintImplementableEvent)
     void RequestAnimIO(bool In);
     
+    UFUNCTION(BlueprintImplementableEvent)
+    void RefreshPanelUnLockState(int32 no, bool Locked);
+    
     UFUNCTION(BlueprintCallable)
     void InvokeSelectCallback(int32 ID);
     

@@ -36,6 +36,9 @@ public:
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void OnGeneralBattleEvent(FEventOnGeneralBattleEventParam Param);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void OnFireOnGroup();
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool IsStoryMode();
     

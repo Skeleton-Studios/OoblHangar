@@ -3,7 +3,7 @@
 #include "EStoreItemAttribute.generated.h"
 
 UENUM()
-enum class EStoreItemAttribute : uint8 {
+enum class EStoreItemAttribute {
     None,
     PickupItem,
     PopularItem,
@@ -19,7 +19,7 @@ enum class EStoreItemAttribute : uint8 {
     General6,
     General7,
     General8,
-    General9,
+    TimeSaleInStore,
     TimeSale,
 };
 

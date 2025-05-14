@@ -69,6 +69,9 @@ ALobbyInputActor* UProfileGameInstanceSubsystem::GetInputManager() {
     return NULL;
 }
 
+void UProfileGameInstanceSubsystem::ExitSceneAndGotoReplayList() {
+}
+
 void UProfileGameInstanceSubsystem::ExitScene() {
 }
 

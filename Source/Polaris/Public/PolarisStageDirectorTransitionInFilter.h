@@ -16,6 +16,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FString Tag;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 PlayerCause;
+    
     POLARIS_API FPolarisStageDirectorTransitionInFilter();
 };
 

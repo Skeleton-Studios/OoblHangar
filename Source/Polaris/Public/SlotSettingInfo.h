@@ -14,6 +14,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     UTexture2D* SlotTexture;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    bool IsFavorited;
+    
     FSlotSettingInfo();
 };
 

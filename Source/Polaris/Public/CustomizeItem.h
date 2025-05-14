@@ -21,6 +21,9 @@ public:
     TArray<FPartsSlotItemSetStructArray> PartsSlotItemSetOuterArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    bool UseHairMaterial;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FString ItemOffsetSlotNameEdit;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)

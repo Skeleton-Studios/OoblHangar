@@ -42,6 +42,12 @@ public:
     void OnCompleteAnimation();
     
     UFUNCTION(BlueprintImplementableEvent)
+    bool HasFinishedAnimToSmall();
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    bool HasFinishedAnimPromote();
+    
+    UFUNCTION(BlueprintImplementableEvent)
     bool HasFinishedAnimIn();
     
 };

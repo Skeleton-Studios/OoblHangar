@@ -7,6 +7,7 @@ UPolarisUMGStoryDifficulty::UPolarisUMGStoryDifficulty() {
 
 
 
+
 void UPolarisUMGStoryDifficulty::InvokeSelectCallback(int32 ID) {
 }
 

@@ -42,6 +42,33 @@ public:
     UPROPERTY(BlueprintReadOnly)
     int32 _teaching;
     
+    UPROPERTY(BlueprintReadOnly)
+    FString _lobbyIndex;
+    
+    UPROPERTY(BlueprintReadOnly)
+    FString _lobbyComment;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 _lobbyCapacity;
+    
+    UPROPERTY(BlueprintReadOnly)
+    FString _lobbyEventId;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 _lobbyMap;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 _lobbyMachine;
+    
+    UPROPERTY(BlueprintReadOnly)
+    TArray<FString> _lobbyOption;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 _lobbyRules;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 _remainingTime;
+    
     POLARIS_API FLobbyLoungeData();
 };
 

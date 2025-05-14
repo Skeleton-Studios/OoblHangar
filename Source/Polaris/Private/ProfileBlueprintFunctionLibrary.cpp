@@ -3,6 +3,10 @@
 UProfileBlueprintFunctionLibrary::UProfileBlueprintFunctionLibrary() {
 }
 
+FString UProfileBlueprintFunctionLibrary::ToStreamerModeName(const FString& Name) {
+    return TEXT("");
+}
+
 void UProfileBlueprintFunctionLibrary::StartLoadCharacter(FPlayerProfileData& profile_data, FTransform& Transform, bool is_force) {
 }
 

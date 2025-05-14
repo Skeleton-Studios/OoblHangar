@@ -12,7 +12,13 @@ void ULobbyNetworkSelect::UploadAvatarChange(bool isFirstUpload, ULobbyNetworkSe
 void ULobbyNetworkSelect::SetTekkenName(const FString& playerName, const FString& Language, ULobbyNetworkSelect::FOnSetTekkenName OnSetTekkenName) {
 }
 
+void ULobbyNetworkSelect::SearchPlayer(const int32 searchType, const FString& searchWord, ULobbyNetworkSelect::FOnSearchPlayer OnSearchPlayer) {
+}
+
 void ULobbyNetworkSelect::SearchFriendLobbies(ULobbyNetworkSelect::FLobbyOnSearched OnSearched) {
+}
+
+void ULobbyNetworkSelect::SearchEventLobbies(ULobbyNetworkSelect::FLobbyOnEventSearched OnSearched, bool usePreResult) {
 }
 
 void ULobbyNetworkSelect::SearchBestLobby(ULobbyNetworkSelect::FLobbyOnBestLobby OnBestLobby) {
@@ -29,6 +35,10 @@ void ULobbyNetworkSelect::JoinLounge(const FString& loungeId, const FString& lou
 
 FString ULobbyNetworkSelect::GetLoungeName(const FString& lobbyPlace, const FString& lobbyName) const {
     return TEXT("");
+}
+
+int32 ULobbyNetworkSelect::GetEventLobbiesNum() const {
+    return 0;
 }
 
 FString ULobbyNetworkSelect::GetDefaultLobbyArea() const {

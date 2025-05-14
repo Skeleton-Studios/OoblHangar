@@ -30,7 +30,7 @@ public:
     void SetMode(EPolarisUMGJukeBoxMode Mode);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void SetInputEnable(bool On);
+    void SetInputEnable(bool on);
     
     UFUNCTION(BlueprintImplementableEvent)
     void SelectSeriesTab(int32 Index);

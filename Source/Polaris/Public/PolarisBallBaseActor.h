@@ -20,6 +20,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     EAnimState AnimationState;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    float AnimationFrame;
+    
+    UPROPERTY(BlueprintReadWrite, Interp, VisibleAnywhere)
+    float FresnelIntensity;
+    
     APolarisBallBaseActor(const FObjectInitializer& ObjectInitializer);
 
 };

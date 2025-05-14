@@ -16,6 +16,9 @@ public:
     bool UnbindFromEventOnCloseMenu(UPARAM(Ref) FLobbyMenuOnCloseDelegate& OnClose);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void CloseMenuImmediately();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CloseMenu();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

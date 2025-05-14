@@ -9,6 +9,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 opponent_id;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 Type;
+    
     POLARIS_API FEventOnGuardDamageParam();
 };
 

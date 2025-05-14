@@ -6,7 +6,7 @@ APolarisItemEffectManager::APolarisItemEffectManager(const FObjectInitializer& O
 void APolarisItemEffectManager::ToggleAuraVisibility(const int32 player_id, const bool Visible) {
 }
 
-void APolarisItemEffectManager::SetAuraVisibility(int32 player_id, bool IsVisible) {
+void APolarisItemEffectManager::SetAuraVisibility(int32 player_id, bool IsVisible, bool isForce) {
 }
 
 void APolarisItemEffectManager::RemoveVisibilityAllParticles() {

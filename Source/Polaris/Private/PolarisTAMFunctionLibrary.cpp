@@ -72,6 +72,9 @@ void UPolarisTAMFunctionLibrary::ShowLoadingIconTAM() {
 void UPolarisTAMFunctionLibrary::ShowInformationBar(const FString& text_id) {
 }
 
+void UPolarisTAMFunctionLibrary::ShowGhostLearningDialog() {
+}
+
 void UPolarisTAMFunctionLibrary::SetTutorialSkip(bool is_skip) {
 }
 
@@ -201,6 +204,9 @@ void UPolarisTAMFunctionLibrary::SetEventScriptNextScenarioID(int32 next_id) {
 void UPolarisTAMFunctionLibrary::SetDownloadGhostCache(int32 npc_id, int32 ghost_index) {
 }
 
+void UPolarisTAMFunctionLibrary::SetCurrentNewsInfoId(const FString& info_id) {
+}
+
 void UPolarisTAMFunctionLibrary::SetCpuGhostCache(int32 npc_id, int32 ghost_index) {
 }
 
@@ -322,6 +328,9 @@ void UPolarisTAMFunctionLibrary::PlaySE_TalkDecide_Force() {
 }
 
 void UPolarisTAMFunctionLibrary::PlaySE_TalkDecide() {
+}
+
+void UPolarisTAMFunctionLibrary::OnOpenNews() {
 }
 
 void UPolarisTAMFunctionLibrary::OnEndNewChallenger_Lobby() {
@@ -451,6 +460,10 @@ bool UPolarisTAMFunctionLibrary::IsInviteAdvice(EPolarisTAMAdviceType Type) {
 }
 
 bool UPolarisTAMFunctionLibrary::IsIncentiveNpc(int32 npc_id) {
+    return false;
+}
+
+bool UPolarisTAMFunctionLibrary::IsGhostLearningDialogClosed() {
     return false;
 }
 
@@ -651,7 +664,7 @@ FVector UPolarisTAMFunctionLibrary::GetPlayerLocation() {
     return FVector{};
 }
 
-bool UPolarisTAMFunctionLibrary::GetPlayerGhost(int32 Index, int32& fighter_id, int32& rank, int64& last_update_time, FDateTime& date_time) {
+bool UPolarisTAMFunctionLibrary::GetPlayerGhost(int32 Index, int32& fighter_id, int32& rank, int64& last_update_time, FDateTime& date_time, int32& update_count, int32& battle_version) {
     return false;
 }
 
@@ -923,6 +936,9 @@ void UPolarisTAMFunctionLibrary::ChangeIsNPCTalkingFlag(bool flag) {
 }
 
 void UPolarisTAMFunctionLibrary::ChangeIsExpeditionFlag(bool flag) {
+}
+
+void UPolarisTAMFunctionLibrary::ChangeGhostSparring() {
 }
 
 void UPolarisTAMFunctionLibrary::ChangeCharacterSelect() {

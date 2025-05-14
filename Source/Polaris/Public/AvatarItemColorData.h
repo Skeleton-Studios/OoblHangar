@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "EAvatarColorType.h"
+#include "EAvatarMaterialParameterType.h"
 #include "EAvatarPartType.h"
 #include "AvatarItemColorData.generated.h"
 
@@ -12,7 +13,7 @@ public:
     EAvatarColorType color_type;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    int32 material_id;
+    EAvatarMaterialParameterType material_parameter_type;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 color_palette_id;

@@ -21,6 +21,7 @@ void APolarisMobAnimal::OnInitBattle_Implementation(FEventOnInitBattleParam Para
 void APolarisMobAnimal::OnGeneralBattleEvent_Implementation(FEventOnGeneralBattleEventParam Param) {
 }
 
+
 bool APolarisMobAnimal::IsStoryMode_Implementation() {
     return false;
 }

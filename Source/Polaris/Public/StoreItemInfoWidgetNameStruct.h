@@ -34,7 +34,7 @@ public:
     FName _horizontal_price_text;
     
     UPROPERTY(EditAnywhere)
-    FName _tb_Count;
+    FName _tb_count;
     
     UPROPERTY(EditAnywhere)
     FName _tb_command;

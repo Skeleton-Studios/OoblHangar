@@ -118,6 +118,9 @@ public:
     float verticalRotOffsetAdd;
     
     UPROPERTY(EditAnywhere)
+    float horizontalRotOffset;
+    
+    UPROPERTY(EditAnywhere)
     float turnBoostOffset;
     
     POLARIS_API FDynamicBoneBustParamCSV();

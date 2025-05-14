@@ -3,6 +3,7 @@
 #include "PhyscsMaterialAttachBoneInfo.generated.h"
 
 class UNiagaraComponent;
+class USkeletalMeshComponent;
 
 USTRUCT()
 struct FPhyscsMaterialAttachBoneInfo {
@@ -16,6 +17,9 @@ public:
     
     UPROPERTY()
     int32 effect_id;
+    
+    UPROPERTY(Export)
+    TWeakObjectPtr<USkeletalMeshComponent> skeletal_mesh;
     
     UPROPERTY()
     bool isAsyncTrace;

@@ -23,6 +23,9 @@ void ULobbyUIManager_Chat::HideUI() {
 void ULobbyUIManager_Chat::EnableInput(bool InEnable) {
 }
 
+void ULobbyUIManager_Chat::DeactivateChatMenu() {
+}
+
 void ULobbyUIManager_Chat::ActiveUI() {
 }
 

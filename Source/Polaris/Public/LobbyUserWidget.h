@@ -53,13 +53,13 @@ public:
     void RemoveFromResidentViewPort();
     
     UFUNCTION(BlueprintPure)
-    static bool PolarisIsFreeItem();
+    static bool PolarisHasShopItemInfo();
     
     UFUNCTION(BlueprintPure)
     bool IsResidentViewPort() const;
     
     UFUNCTION(BlueprintPure)
-    bool IsEnableFreeitemBalloon();
+    bool IsEnableItemBalloon();
     
     UFUNCTION(BlueprintPure)
     bool IsActive();
@@ -95,13 +95,22 @@ public:
     void ButtonHelpNewsTop();
     
     UFUNCTION(BlueprintCallable)
+    void ButtonHelpLobbyMenuMatching203();
+    
+    UFUNCTION(BlueprintCallable)
     void ButtonHelpLobbyMenuMatching();
+    
+    UFUNCTION(BlueprintCallable)
+    void ButtonHelpLobbyMenu203();
     
     UFUNCTION(BlueprintCallable)
     void ButtonHelpLobbyMenu();
     
     UFUNCTION(BlueprintCallable)
     void ButtonHelpLobbyHelpFriendSubMenu();
+    
+    UFUNCTION(BlueprintCallable)
+    void ButtonHelpLobbyHelpFriendListWithWarp();
     
     UFUNCTION(BlueprintCallable)
     void ButtonHelpLobbyHelpFriendList();

@@ -21,6 +21,7 @@ void UPolarisUMGIngameStoreItemPanel::SendNotifyTransCategory(EStoreItemType Typ
 void UPolarisUMGIngameStoreItemPanel::ResetScrollText() {
 }
 
+
 void UPolarisUMGIngameStoreItemPanel::RepItemInfo_Implementation(const FStoreItemPanelStruct& item_data) {
 }
 
@@ -48,6 +49,14 @@ void UPolarisUMGIngameStoreItemPanel::NotifyPurchaseItem() {
 
 UTexture2D* UPolarisUMGIngameStoreItemPanel::FindItemThumbnail(FName item_id) {
     return NULL;
+}
+
+bool UPolarisUMGIngameStoreItemPanel::CheckOwnedContent(const FName& item_id) {
+    return false;
+}
+
+bool UPolarisUMGIngameStoreItemPanel::CheckAllOwnedIncludeDLCs(const TArray<FName>& dlc_ids) {
+    return false;
 }
 
 

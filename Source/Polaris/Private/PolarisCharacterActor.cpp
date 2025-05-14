@@ -29,10 +29,14 @@ APolarisCharacterActor::APolarisCharacterActor(const FObjectInitializer& ObjectI
     this->JiggleEnvelope = 1.00f;
     this->IsPauseDynamics = false;
     this->IsPauseDynamicsForSequencer = false;
+    this->IsUpperBodyMale = true;
+    this->IsLowerBodyMale = true;
     this->ActorVisible = true;
     this->WrinkleComponent = NULL;
     this->UseCharacterEffectManagerBP = NULL;
     this->isAccessoryShifted = false;
+    this->PlayerId = -1;
+    this->IsVisibleActor = true;
     this->CapsuleComponent = (UCapsuleComponent*)RootComponent;
     this->CapsuleComponent2 = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent2"));
     this->CameraCheck = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CameraCheck"));
@@ -45,10 +49,19 @@ APolarisCharacterActor::APolarisCharacterActor(const FObjectInitializer& ObjectI
     this->TintColorOverlaySuntanRatio = 0.50f;
     this->MissileManagerComponent = NULL;
     this->WazaManagerComponent = NULL;
+    this->MyAnimBPType = AnimBPType::AnimBP_Mothead;
     this->AnimBake_CC = NULL;
+    this->AnimType = EPolarisCharacterAnimStatus::ST_None;
+    this->AnimPlaySide = -1;
     this->FacialBlend = 0.00f;
+    this->MuscleAnimPartAnimNo_LeftUpper = 0;
+    this->MuscleAnimPartAnimNo_RightUpper = 0;
+    this->MuscleAnimPartAnimNo_LeftLower = 0;
+    this->MuscleAnimPartAnimNo_RightLower = 0;
+    this->MuscleAnimPartAnimNo_Common = 0;
     this->IsCustomizeMode = false;
     this->DynamicBoneNumResetSteps = 0;
+    this->LastDynamicBoneVariationName = TEXT("v0");
     this->IsEnableClothSimulation = true;
     this->IsForceDisableClothSimulation = false;
     this->LastClothVariationName = TEXT("v0");
@@ -64,6 +77,10 @@ APolarisCharacterActor::APolarisCharacterActor(const FObjectInitializer& ObjectI
     this->IsEnableFresnel = true;
     this->IsEnableFresnelInCustomizeChange = true;
     this->IsUseAutomaticMPCSetting = false;
+    this->IsEnableSequencerMaterialWorkParam = false;
+    this->SequencerMaterialWorkParamF00 = 0.00f;
+    this->SequencerMaterialWorkParamF01 = 0.00f;
+    this->SequencerMaterialWorkParamF02 = 0.00f;
     this->IsRebakeEnable = false;
     this->IsUseSequenceWrinkleIntensities = false;
     this->SequenceWrinkleIntensity01R = 0.00f;
@@ -76,18 +93,23 @@ APolarisCharacterActor::APolarisCharacterActor(const FObjectInitializer& ObjectI
     this->SequenceScalarParameter0Value = 0.00f;
     this->SequenceScalarParameter1Value = 0.00f;
     this->BodySplitType = EBodySplitType::E_BodySplitType_None;
+    this->IsVisibilityDramaPriority = false;
     this->ItemOffsetSlotData = NULL;
     this->IsSkipOffsetImpl = false;
     this->OptionalPhysicsAsset = NULL;
     this->RageArtsUIAsset = NULL;
     this->RageArtsUI = NULL;
-    this->BattleStartCommonOverride_ReversalWin2 = NULL;
     this->SoundPosActor_Head = CreateDefaultSubobject<UChildActorComponent>(TEXT("SoundPosActor_Head"));
     this->SoundPosActor_Trans = CreateDefaultSubobject<UChildActorComponent>(TEXT("SoundPosActor_Trans"));
+    this->TaskReferenceCount = 0;
+    this->IsPendingDeferredLeavePhotoMode = false;
+    this->TimeSinceLeavePhotoMode = 0.00f;
     this->IsDebug = false;
     this->isDemo = false;
+    this->AnimInstance_SetupCharacterFlag = false;
     this->MasterMesh->SetupAttachment(RootComponent);
 }
+
 
 void APolarisCharacterActor::UpdateMaterialParameters_Implementation(float DeltaTime) {
 }
@@ -387,6 +409,9 @@ bool APolarisCharacterActor::IsEquipHoodRemoveItem() {
 
 
 
+void APolarisCharacterActor::HiddenClothSimulationFromTag(UCatwalkClothComponentBase* _ClothComponent, const FString& _SimulationMeshTag, bool _IsHidden, int32 _WorkParamNo) {
+}
+
 
 
 void APolarisCharacterActor::GetSlaveMeshSetStruct2(FSlaveMeshSetStruct& InStruct, FItemPositionWrapPinStruct ItemPos, int32 acc_num) const {
@@ -575,6 +600,9 @@ void APolarisCharacterActor::ChangeClothParameters(FName VariationName) {
 void APolarisCharacterActor::ChangeBodyRegionMeshVisibility(EMeshBodyRegionType bodyRegion, bool IsVisible, bool isForce) {
 }
 
+void APolarisCharacterActor::CancelNscThunderMaterialAnimation(int32 Type) {
+}
+
 void APolarisCharacterActor::CancelMissileRequestFromTag(const FName& Tag, bool IsDestory) {
 }
 
@@ -584,6 +612,9 @@ void APolarisCharacterActor::CalculateOffsetProcessForBP_ReOffset(UItemPrefab* s
 }
 
 void APolarisCharacterActor::CalcSweatAnimation(float& StopSweat_A_L, float& StopSweat_B_L, float& StopSweat_A_R, float& StopSweat_B_R) {
+}
+
+void APolarisCharacterActor::AssignItemActorMaterialFromSlaveMesh(FItemPositionWrapPinStruct SrcItemPos, FItemPositionWrapPinStruct DstItemPos) {
 }
 
 void APolarisCharacterActor::ApplySequenceWrinkleIntensities(bool bForce) {

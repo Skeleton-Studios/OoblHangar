@@ -11,9 +11,11 @@ class POLARIS_API ULobbyNetworkSelect : public UObject {
     GENERATED_BODY()
 public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnSetTekkenName, int32, Status);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FOnSearchPlayer, int32, Status);
     DECLARE_DYNAMIC_DELEGATE_ThreeParams(FOnJoinLounge, bool, isSuccess, bool, isOver, bool, isNotFound);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyUploadAvatarChange, int32, mainSlotNo);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnSearched, bool, isSuccess);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnEventSearched, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_FiveParams(FLobbyOnBestLobby, bool, isSuccess, const FString&, loungeId, const FString&, loungeUrl, const FString&, loungeName, int32, loungePlatform);
     DECLARE_DYNAMIC_DELEGATE(FLobbyForceRename);
     
@@ -74,7 +76,13 @@ public:
     void SetTekkenName(const FString& playerName, const FString& Language, ULobbyNetworkSelect::FOnSetTekkenName OnSetTekkenName);
     
     UFUNCTION(BlueprintCallable)
+    void SearchPlayer(const int32 searchType, const FString& searchWord, ULobbyNetworkSelect::FOnSearchPlayer OnSearchPlayer);
+    
+    UFUNCTION(BlueprintCallable)
     void SearchFriendLobbies(ULobbyNetworkSelect::FLobbyOnSearched OnSearched);
+    
+    UFUNCTION(BlueprintCallable)
+    void SearchEventLobbies(ULobbyNetworkSelect::FLobbyOnEventSearched OnSearched, bool usePreResult);
     
     UFUNCTION(BlueprintCallable)
     void SearchBestLobby(ULobbyNetworkSelect::FLobbyOnBestLobby OnBestLobby);
@@ -90,6 +98,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     FString GetLoungeName(const FString& lobbyPlace, const FString& lobbyName) const;
+    
+    UFUNCTION(BlueprintPure)
+    int32 GetEventLobbiesNum() const;
     
     UFUNCTION(BlueprintPure)
     FString GetDefaultLobbyArea() const;

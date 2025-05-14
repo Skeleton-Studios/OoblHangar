@@ -9,6 +9,7 @@
 #include "PolarisUMGIngameStoreBlackPen.generated.h"
 
 class UPolarisUMGStoreButton;
+class UPolarisUserWidget;
 class UWidgetAnimation;
 
 UCLASS(EditInlineNew)
@@ -34,6 +35,9 @@ public:
 
     UFUNCTION(BlueprintImplementableEvent)
     void UpdateDataToWidget(FBlackPenUpdateData Data);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void SetRoundLimitWidget(UPolarisUserWidget* round_ui);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetConsumeCoinMaintenanceState(bool is_maintenance);

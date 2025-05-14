@@ -5,6 +5,7 @@
 UENUM()
 enum class GS_StoreMenuType : uint8 {
     Home,
+    PFTab,
     CharaItem,
     AvatarItem,
     OtherItem,

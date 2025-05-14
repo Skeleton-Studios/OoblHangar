@@ -6,6 +6,9 @@ ULobbyQuickSelect::ULobbyQuickSelect() {
 void ULobbyQuickSelect::SetRankRange(int32 rankRange) {
 }
 
+void ULobbyQuickSelect::SetQuickMatchRankRange(int32 rankRange) {
+}
+
 void ULobbyQuickSelect::SetPlayerSideLeft(bool isLeft) {
 }
 
@@ -45,6 +48,10 @@ void ULobbyQuickSelect::GetSelectedCharacter(int32& FighterId, int32& costumeTyp
 }
 
 int32 ULobbyQuickSelect::GetRankRange() const {
+    return 0;
+}
+
+int32 ULobbyQuickSelect::GetQuickMatchRankRange() const {
     return 0;
 }
 

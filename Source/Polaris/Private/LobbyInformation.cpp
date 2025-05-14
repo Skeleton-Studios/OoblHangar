@@ -9,6 +9,9 @@ void ULobbyInformation::Test1201(ULobbyInformation::FLobbyTest1201 OnTest1201) {
 void ULobbyInformation::Test1200(ULobbyInformation::FLobbyTest1200 OnTest1200) {
 }
 
+void ULobbyInformation::ShowPsTournamentActivityCard(ULobbyInformation::FOnCallback OnFinishShowPsTournamentActivityCard) {
+}
+
 void ULobbyInformation::ShowPlatformStoreItem(const FString& ItemId, ULobbyInformation::FOnCallbackStatus OnFinishPlatformStore) {
 }
 
@@ -30,6 +33,9 @@ int32 ULobbyInformation::LobbyGetGameModeStoreIndex() {
 }
 
 void ULobbyInformation::LobbyDecideGameModeStoreByNews() {
+}
+
+void ULobbyInformation::LobbyClearShowPsTournamentActivityCard() {
 }
 
 void ULobbyInformation::LobbyClearShowPlatformStore() {

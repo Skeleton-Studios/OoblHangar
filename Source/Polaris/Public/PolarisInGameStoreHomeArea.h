@@ -1,7 +1,8 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ContentPanelData.h"
 #include "EShowcaseType.h"
-#include "EStoreItemAttribute.h"
+#include "EStoreItemShowCaseType.h"
 #include "PolarisUserWidget.h"
 #include "StoreItemPanelStruct.h"
 #include "PolarisInGameStoreHomeArea.generated.h"
@@ -41,7 +42,10 @@ public:
     UPolarisInGameStoreHomeArea();
 
     UFUNCTION(BlueprintCallable)
-    UTexture2D* GetPickUpBanner(EStoreItemAttribute sell_type, int32 pick_up_group);
+    UTexture2D* GetPickUpBannerFromBannerID(const FName& banner_id);
+    
+    UFUNCTION(BlueprintCallable)
+    UTexture2D* GetPickUpBanner(EStoreItemShowCaseType sell_type, int32 pick_up_group);
     
     UFUNCTION(BlueprintPure)
     int32 GetLineNum() const;
@@ -69,6 +73,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void DisableAreaEvent();
+    
+    UFUNCTION(BlueprintCallable)
+    void CreatePlatformPanelData(const TArray<FContentPanelData> Data, UClass* loaded_class);
     
     UFUNCTION(BlueprintCallable)
     UPolarisUMGIngameStoreItemPanel* CreateOtherPanelData(UClass* loaded_class);

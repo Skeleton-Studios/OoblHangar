@@ -15,6 +15,9 @@ enum class ELobbyPlayerStatus : uint8 {
     Battle,
     PlayerMatch,
     OnlinePractice,
+    Common,
+    InPracticeMatch,
+    InLoungeMatch,
     LongWarp = 100,
     ShortWarp,
 };

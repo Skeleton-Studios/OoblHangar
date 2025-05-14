@@ -70,6 +70,9 @@ public:
     bool CheckTutorialSessionSetEventFlag();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void ChangeVisibility(bool next_visibility);
+    
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     bool ActiveLogChat();
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)

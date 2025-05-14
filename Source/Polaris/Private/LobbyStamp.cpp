@@ -11,6 +11,10 @@ ULobbyStamp* ULobbyStamp::LobbyStampData() {
 void ULobbyStamp::GetStampIndices(TArray<FName>& Result) {
 }
 
+TMap<FName, FLobbyStampInfo> ULobbyStamp::GetMap() const {
+    return TMap<FName, FLobbyStampInfo>();
+}
+
 bool ULobbyStamp::GetInfo(const FName& Index, FLobbyStampInfo& Info) {
     return false;
 }

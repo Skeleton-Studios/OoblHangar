@@ -41,7 +41,7 @@ public:
     void CursorEvent(int32 move_x, int32 move_y);
     
     UFUNCTION(BlueprintImplementableEvent)
-    void AddVc(const FRewardItemDesc& Desc);
+    void AddVcOrMoney(const FRewardItemDesc& Desc);
     
     UFUNCTION(BlueprintImplementableEvent)
     void AddItem(const FRewardItemDesc& Desc, int32 Num);

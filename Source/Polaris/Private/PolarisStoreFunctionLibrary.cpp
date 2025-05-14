@@ -17,11 +17,23 @@ bool UPolarisStoreFunctionLibrary::IsItemSalesMaintenanceStatus() {
     return false;
 }
 
+bool UPolarisStoreFunctionLibrary::IsInExtraStageBlackPen() {
+    return false;
+}
+
+bool UPolarisStoreFunctionLibrary::IsInExtraStage(int32 current_lv, int32 max_level, int32 add_max_level) {
+    return false;
+}
+
 bool UPolarisStoreFunctionLibrary::IsEnableStoreTestSetting() {
     return false;
 }
 
 bool UPolarisStoreFunctionLibrary::IsEnableLimitedOwnedButton() {
+    return false;
+}
+
+bool UPolarisStoreFunctionLibrary::IsDisablePF() {
     return false;
 }
 
@@ -48,6 +60,9 @@ bool UPolarisStoreFunctionLibrary::IsAlertNeededInStore() {
 void UPolarisStoreFunctionLibrary::IngameStoreViewerDestroyAllNiagaraEffects() {
 }
 
+void UPolarisStoreFunctionLibrary::IngameStoreViewerDestroyAllDecals() {
+}
+
 void UPolarisStoreFunctionLibrary::IngameStoreClickCharaIcon(int32 button_index) {
 }
 
@@ -65,6 +80,9 @@ FName UPolarisStoreFunctionLibrary::GetStoreIconIdFromSetId(const FName& item_id
 
 FText UPolarisStoreFunctionLibrary::GetStoreCategoryTitleRawText(EStoreItemType Type) {
     return FText::GetEmpty();
+}
+
+void UPolarisStoreFunctionLibrary::GetLatestBalloonInfo(FString& _out_raw_text, int32& _out_color_idx) {
 }
 
 int32 UPolarisStoreFunctionLibrary::GetCurrentVerNo() {

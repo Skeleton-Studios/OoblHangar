@@ -8,6 +8,7 @@ UPolarisUMGCharCustomizeTopMenu::UPolarisUMGCharCustomizeTopMenu() {
 
 
 
+
 void UPolarisUMGCharCustomizeTopMenu::InvokeSelectCallback(int32 ID) {
 }
 

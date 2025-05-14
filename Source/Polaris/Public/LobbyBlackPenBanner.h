@@ -22,6 +22,12 @@ public:
     int32 blackPenXpNow;
     
     UPROPERTY(BlueprintReadOnly)
+    int32 blackPenLvMax;
+    
+    UPROPERTY(BlueprintReadOnly)
+    int32 blackPenAddLvMax;
+    
+    UPROPERTY(BlueprintReadOnly)
     int32 blackPenXpNext;
     
     UPROPERTY(BlueprintReadOnly)

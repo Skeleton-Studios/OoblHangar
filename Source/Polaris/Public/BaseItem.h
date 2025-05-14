@@ -6,6 +6,7 @@
 #include "UObject/NoExportTypes.h"
 #include "ClothCollision.h"
 #include "DependencySkeletalMeshRigSet.h"
+#include "DropItemInfoStruct.h"
 #include "DynamicBoneDataStruct.h"
 #include "EMeshType.h"
 #include "ItemAddAuraEffect.h"
@@ -169,6 +170,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<int32> DropItemDependencyMeshIndexArray;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    FDropItemInfoStruct DropItemInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     UTexture* HairScalpMask;

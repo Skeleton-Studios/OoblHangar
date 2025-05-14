@@ -31,6 +31,9 @@ public:
     FName exclusive_image_name;
     
     UPROPERTY(EditAnywhere)
+    FName tb_count_name;
+    
+    UPROPERTY(EditAnywhere)
     TArray<FName> rarity_uis_name;
     
     FBlackPenItemWidgetName();

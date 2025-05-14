@@ -1,7 +1,7 @@
 #include "EventOnChangeAnotherWorldParam.h"
 
 FEventOnChangeAnotherWorldParam::FEventOnChangeAnotherWorldParam() {
-    this->Type = EStageAnotherWorldType::None;
+    this->Type = 0;
     this->proc_type = EStageAnotherWorldProcType::Pre;
 }
 

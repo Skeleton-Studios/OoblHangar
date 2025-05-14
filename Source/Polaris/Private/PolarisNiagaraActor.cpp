@@ -3,6 +3,7 @@
 APolarisNiagaraActor::APolarisNiagaraActor(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
     this->IsPlaySoundByBiginPlay = true;
     this->IsDelayNextTick = false;
+    this->IsDelaySpawn = false;
 }
 
 void APolarisNiagaraActor::StopNiagaraSound() {

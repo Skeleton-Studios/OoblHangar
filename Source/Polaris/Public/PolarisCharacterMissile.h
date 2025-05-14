@@ -12,6 +12,7 @@
 class APolarisItemBaseActor;
 class UChildActorComponent;
 class UNiagaraComponent;
+class USkeletalMeshComponent;
 
 UCLASS()
 class APolarisCharacterMissile : public AActor {
@@ -97,6 +98,9 @@ public:
     
     UFUNCTION(BlueprintNativeEvent)
     bool IsFinish() const;
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    USkeletalMeshComponent* GetSkeletalMesh();
     
     UFUNCTION()
     TEnumAsByte<EMissileHitType> GetNextEffectQueued() const;

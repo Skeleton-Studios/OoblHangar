@@ -33,10 +33,10 @@ public:
     void SetPlayerId(const int32 player_id);
     
     UFUNCTION(BlueprintCallable)
-    void SetDeactiveEffect(bool is_deactive_start_effect, bool is_deactive_end_effect);
+    void SetDeactiveEffect(bool is_deactive_start_effect, bool is_deactive_end_effect, bool is_deactive_frame_effect);
     
     UFUNCTION(BlueprintCallable)
-    void SetActiveEffect(bool is_active_start_effect, bool is_active_end_effect);
+    void SetActiveEffect(bool is_active_start_effect, bool is_active_end_effect, bool is_active_frame_effect);
     
     UFUNCTION(BlueprintCallable)
     void PlayStartEffectMotionId(int32 motion_id, USkeletalMeshComponent* attach_component);

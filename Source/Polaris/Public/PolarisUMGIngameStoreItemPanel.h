@@ -1,5 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "ContentPanelData.h"
 #include "EStoreItemType.h"
 #include "PolarisUMGStoreButton.h"
 #include "StoreItemPanelStruct.h"
@@ -46,6 +47,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void ResetScrollText();
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void RepPlatformInfo(const FContentPanelData& Data);
+    
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
     void RepItemInfo(const FStoreItemPanelStruct& item_data);
     
@@ -75,6 +79,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     UTexture2D* FindItemThumbnail(FName item_id);
+    
+    UFUNCTION(BlueprintCallable)
+    bool CheckOwnedContent(const FName& item_id);
+    
+    UFUNCTION(BlueprintCallable)
+    bool CheckAllOwnedIncludeDLCs(const TArray<FName>& dlc_ids);
     
 };
 

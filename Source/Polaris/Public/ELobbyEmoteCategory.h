@@ -9,5 +9,6 @@ enum class ELobbyEmoteCategory : uint8 {
     Battle,
     Emotions,
     Others,
+    Art,
 };
 

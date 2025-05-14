@@ -2,9 +2,12 @@
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
 #include "UObject/NoExportTypes.h"
+#include "ELobbyMachineType.h"
+#include "EventLobbyStruct.h"
 #include "LobbyEnemyInfo.h"
 #include "LobbyInput.h"
 #include "LobbyNetwork.h"
+#include "OwnGhostStruct.h"
 #include "PolarisCharacterGameMode.h"
 #include "Templates/SubclassOf.h"
 #include "LobbyGameMode.generated.h"
@@ -20,10 +23,15 @@ class POLARIS_API ALobbyGameMode : public APolarisCharacterGameMode {
 public:
     DECLARE_DYNAMIC_DELEGATE_OneParam(FOnInviteLobby, bool, isSuccess);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnTakeSeat, bool, isSuccess);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnFinishSparringGhost, bool, Result);
     DECLARE_DYNAMIC_DELEGATE(FLobbyOnFinishSimpleProfile);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnFinishSetIsLearning, bool, Result);
     DECLARE_DYNAMIC_DELEGATE(FLobbyOnFinishPlayData);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnFinishPlatformCommunicationMSGDialog, bool, Result);
     DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnFinishGhostDialog, bool, Result);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnFinishGetOwnServerGhost, const TArray<FOwnGhostStruct>&, DataArray);
+    DECLARE_DYNAMIC_DELEGATE_TwoParams(FLobbyOnFinishDeleteGhost, bool, Result, const TArray<FOwnGhostStruct>&, DataArray);
+    DECLARE_DYNAMIC_DELEGATE_OneParam(FLobbyOnFinishCheckGvG, bool, Result);
     
     UPROPERTY(EditAnywhere)
     bool _isLobbyOnly2;
@@ -95,6 +103,9 @@ public:
     int32 _balloonChatTemplate;
     
     UPROPERTY(BlueprintReadWrite)
+    int32 _balloonChatSubTemplate;
+    
+    UPROPERTY(BlueprintReadWrite)
     int32 _balloonState;
     
     UPROPERTY(BlueprintReadWrite)
@@ -147,6 +158,9 @@ public:
     void StartMatchmaking(int32 Delay);
     
     UFUNCTION(BlueprintCallable)
+    void SparringGhost(ALobbyGameMode::FLobbyOnFinishSparringGhost OnFinishSparringGhost);
+    
+    UFUNCTION(BlueprintCallable)
     void ShowPlayData(ALobbyGameMode::FLobbyOnFinishPlayData OnFinishPlayData);
     
     UFUNCTION(BlueprintCallable)
@@ -158,6 +172,12 @@ public:
     UFUNCTION(BlueprintCallable)
     void SetKeyboardActive(bool bActive);
     
+    UFUNCTION(BlueprintCallable)
+    void SetIsLearnigGhost(ALobbyGameMode::FLobbyOnFinishSetIsLearning OnFinishSetIsLearning);
+    
+    UFUNCTION(BlueprintCallable)
+    void SetEnabledSwitchPlayerName(bool Enable);
+    
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void SetBootingFlag(bool isBooting);
     
@@ -166,6 +186,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void SendSeatStatus(bool isSitting, FVector Location, FRotator Rotation);
+    
+    UFUNCTION(BlueprintCallable)
+    void SeatingGroupMatchingStart(const FString& groupId, ELobbyMachineType machine_type);
     
     UFUNCTION(BlueprintCallable)
     void ResumeMatchmaking(int32 Delay);
@@ -177,13 +200,25 @@ public:
     void RequestLeaveSeat();
     
     UFUNCTION(BlueprintCallable)
+    void RegistUnloadDefaultLevelsFlag(bool need_unload);
+    
+    UFUNCTION(BlueprintCallable)
     void PlatformCommunicationMSGDialog(ALobbyGameMode::FLobbyOnFinishPlatformCommunicationMSGDialog OnPlatformCommunicationMSGDialog);
     
     UFUNCTION(BlueprintCallable)
     void PauseMatchmaking();
     
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    void NotifyLobbyLoginProccess();
+    
+    UFUNCTION(BlueprintPure)
+    bool IsUnloadDefaultLobby() const;
+    
     UFUNCTION(BlueprintPure)
     bool IsShowProfileSimple() const;
+    
+    UFUNCTION(BlueprintPure)
+    bool IsSeatingMatching() const;
     
     UFUNCTION(BlueprintCallable)
     bool IsProfileScene();
@@ -198,7 +233,13 @@ public:
     bool IsInvalidActionCtrl();
     
     UFUNCTION(BlueprintPure)
+    bool IsForceChangeMachineType() const;
+    
+    UFUNCTION(BlueprintPure)
     bool IsFinishedUnlockdialog();
+    
+    UFUNCTION(BlueprintPure)
+    bool IsBlockAnywhereMatching() const;
     
     UFUNCTION(BlueprintPure)
     bool IsAnywhereMatchingSuspend() const;
@@ -228,6 +269,9 @@ public:
     void ImplDebugDummyEnemiesPlayEmote(const FName& emoteId);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void ImplChangeLobbyHudVisibility(bool Visibility);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void ImplAddDummyAvatarPlanting(FVector Location, FRotator Rotation);
     
     UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
@@ -235,6 +279,15 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent, BlueprintPure)
     bool ImplAddDummyAvatar10();
+    
+    UFUNCTION(BlueprintPure)
+    bool HasRankMatchingSet();
+    
+    UFUNCTION(BlueprintPure)
+    bool HasQuickMatchingSet();
+    
+    UFUNCTION(BlueprintPure)
+    bool HasEnableEvLounge() const;
     
     UFUNCTION(BlueprintCallable)
     void GotoWatchByBattleId(const FString& battleId);
@@ -297,6 +350,12 @@ public:
     void GotoOnlineMenu();
     
     UFUNCTION(BlueprintCallable)
+    void GotoOnlineGhostVsGhostBattle(const FString& lobbyMatchId);
+    
+    UFUNCTION(BlueprintCallable)
+    void GotoMyReplay();
+    
+    UFUNCTION(BlueprintCallable)
     void GotoMainMenu();
     
     UFUNCTION(BlueprintCallable)
@@ -307,6 +366,15 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void GotoJudgeBattle();
+    
+    UFUNCTION(BlueprintCallable)
+    void GotoIronBird(ALobbyNpc* LobbyNpc);
+    
+    UFUNCTION(BlueprintCallable)
+    void GotoGhostVsGhostBattle();
+    
+    UFUNCTION(BlueprintCallable)
+    void GotoGhostSparring();
     
     UFUNCTION(BlueprintCallable)
     void GotoGhostBattle();
@@ -329,6 +397,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void GhostBattleDialog(int64 cosmosId, const FString& playerName, const FString& onlineId, ALobbyGameMode::FLobbyOnFinishGhostDialog OnFinishGhostDialog);
     
+    UFUNCTION(BlueprintCallable)
+    void GetOwnServerGhost(ALobbyGameMode::FLobbyOnFinishGetOwnServerGhost OnFinishGetOwnServerGhost);
+    
     UFUNCTION(BlueprintPure)
     int64 GetOwnPlayerId();
     
@@ -339,13 +410,31 @@ public:
     int32 GetLobbyIndex();
     
     UFUNCTION(BlueprintCallable)
+    bool GetEventTableRow(const FString& RowName, FEventLobbyStruct& OutRow);
+    
+    UFUNCTION(BlueprintPure)
+    ELobbyMachineType GetEventMachinType() const;
+    
+    UFUNCTION(BlueprintCallable)
     void GetEnemiesInfo(TArray<FLobbyEnemyInfo>& EnemiesInfo);
+    
+    UFUNCTION(BlueprintPure)
+    FString GetEnableEvLoungeName() const;
     
     UFUNCTION(BlueprintCallable)
     static bool GetAutoPlay();
     
     UFUNCTION(BlueprintCallable)
+    void DeleteGhost(ALobbyGameMode::FLobbyOnFinishDeleteGhost OnFinishDeleteGhost, int32 ghost_index, bool is_server_ghost);
+    
+    UFUNCTION(BlueprintCallable)
     void CloseSimpleProfile();
+    
+    UFUNCTION(BlueprintCallable)
+    void CheckOnlineGhostVsGhost(ALobbyGameMode::FLobbyOnFinishCheckGvG OnFinishCheckGvG);
+    
+    UFUNCTION(BlueprintCallable)
+    void CheckGhostVsGhost(int64 cosmosId, const FString& playerName, const FString& onlineId, int32 platformTag, const FString& polarisId, ALobbyGameMode::FLobbyOnFinishCheckGvG OnFinishCheckGvG);
     
     UFUNCTION(BlueprintCallable)
     void CancelMatchmaking();

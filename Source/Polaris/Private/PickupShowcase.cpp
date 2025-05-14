@@ -2,7 +2,7 @@
 
 FPickupShowcase::FPickupShowcase() {
     this->_order = 0;
-    this->_sellType = EStoreItemAttribute::None;
+    this->_sellType = EStoreItemShowCaseType::PfItem;
     this->check_owned_status = false;
     this->enabled_when_owned = false;
 }

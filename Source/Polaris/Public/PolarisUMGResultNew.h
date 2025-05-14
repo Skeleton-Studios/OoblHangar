@@ -86,7 +86,7 @@ public:
     void CheckRematchHistoryNum();
     
     UFUNCTION(BlueprintImplementableEvent)
-    void AddRematchHistory(EPolarisUMGResultNewType result_type);
+    void AddRematchHistory(TEnumAsByte<EPolarisUMGResultNewType> result_type);
     
 };
 

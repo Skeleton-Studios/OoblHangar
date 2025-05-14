@@ -21,6 +21,7 @@ ALobbyGameMode::ALobbyGameMode(const FObjectInitializer& ObjectInitializer) : Su
     this->_isRightTrigger = false;
     this->_balloonChatStamp = 0;
     this->_balloonChatTemplate = 0;
+    this->_balloonChatSubTemplate = 0;
     this->_balloonState = 0;
     this->_isBooting2 = false;
     this->_isDisableInput2 = false;
@@ -56,6 +57,9 @@ void ALobbyGameMode::StartServerMonitoring() {
 void ALobbyGameMode::StartMatchmaking(int32 Delay) {
 }
 
+void ALobbyGameMode::SparringGhost(ALobbyGameMode::FLobbyOnFinishSparringGhost OnFinishSparringGhost) {
+}
+
 void ALobbyGameMode::ShowPlayData(ALobbyGameMode::FLobbyOnFinishPlayData OnFinishPlayData) {
 }
 
@@ -68,11 +72,20 @@ void ALobbyGameMode::SetLoadedSoundLevel() {
 void ALobbyGameMode::SetKeyboardActive(bool bActive) {
 }
 
+void ALobbyGameMode::SetIsLearnigGhost(ALobbyGameMode::FLobbyOnFinishSetIsLearning OnFinishSetIsLearning) {
+}
+
+void ALobbyGameMode::SetEnabledSwitchPlayerName(bool Enable) {
+}
+
 
 void ALobbyGameMode::SetAutoPlay(bool isAutoplay) {
 }
 
 void ALobbyGameMode::SendSeatStatus(bool isSitting, FVector Location, FRotator Rotation) {
+}
+
+void ALobbyGameMode::SeatingGroupMatchingStart(const FString& groupId, ELobbyMachineType machine_type) {
 }
 
 void ALobbyGameMode::ResumeMatchmaking(int32 Delay) {
@@ -84,13 +97,27 @@ void ALobbyGameMode::RequestTakeSeat(int32 seatId, ALobbyGameMode::FLobbyOnTakeS
 void ALobbyGameMode::RequestLeaveSeat() {
 }
 
+void ALobbyGameMode::RegistUnloadDefaultLevelsFlag(bool need_unload) {
+}
+
 void ALobbyGameMode::PlatformCommunicationMSGDialog(ALobbyGameMode::FLobbyOnFinishPlatformCommunicationMSGDialog OnPlatformCommunicationMSGDialog) {
 }
 
 void ALobbyGameMode::PauseMatchmaking() {
 }
 
+void ALobbyGameMode::NotifyLobbyLoginProccess_Implementation() {
+}
+
+bool ALobbyGameMode::IsUnloadDefaultLobby() const {
+    return false;
+}
+
 bool ALobbyGameMode::IsShowProfileSimple() const {
+    return false;
+}
+
+bool ALobbyGameMode::IsSeatingMatching() const {
     return false;
 }
 
@@ -110,7 +137,15 @@ bool ALobbyGameMode::IsInvalidActionCtrl() {
     return false;
 }
 
+bool ALobbyGameMode::IsForceChangeMachineType() const {
+    return false;
+}
+
 bool ALobbyGameMode::IsFinishedUnlockdialog() {
+    return false;
+}
+
+bool ALobbyGameMode::IsBlockAnywhereMatching() const {
     return false;
 }
 
@@ -133,6 +168,19 @@ void ALobbyGameMode::InviteLobby(const FString& TargetUserPlatformId, ALobbyGame
 
 
 
+
+
+bool ALobbyGameMode::HasRankMatchingSet() {
+    return false;
+}
+
+bool ALobbyGameMode::HasQuickMatchingSet() {
+    return false;
+}
+
+bool ALobbyGameMode::HasEnableEvLounge() const {
+    return false;
+}
 
 void ALobbyGameMode::GotoWatchByBattleId(const FString& battleId) {
 }
@@ -194,6 +242,12 @@ void ALobbyGameMode::GotoOnlinePractice(const FString& groupId, bool isLeader) {
 void ALobbyGameMode::GotoOnlineMenu() {
 }
 
+void ALobbyGameMode::GotoOnlineGhostVsGhostBattle(const FString& lobbyMatchId) {
+}
+
+void ALobbyGameMode::GotoMyReplay() {
+}
+
 void ALobbyGameMode::GotoMainMenu() {
 }
 
@@ -204,6 +258,15 @@ void ALobbyGameMode::GotoLeaderboard() {
 }
 
 void ALobbyGameMode::GotoJudgeBattle() {
+}
+
+void ALobbyGameMode::GotoIronBird(ALobbyNpc* LobbyNpc) {
+}
+
+void ALobbyGameMode::GotoGhostVsGhostBattle() {
+}
+
+void ALobbyGameMode::GotoGhostSparring() {
 }
 
 void ALobbyGameMode::GotoGhostBattle() {
@@ -227,6 +290,9 @@ void ALobbyGameMode::GhostDialog(int64 cosmosId, const FString& playerName, bool
 void ALobbyGameMode::GhostBattleDialog(int64 cosmosId, const FString& playerName, const FString& onlineId, ALobbyGameMode::FLobbyOnFinishGhostDialog OnFinishGhostDialog) {
 }
 
+void ALobbyGameMode::GetOwnServerGhost(ALobbyGameMode::FLobbyOnFinishGetOwnServerGhost OnFinishGetOwnServerGhost) {
+}
+
 int64 ALobbyGameMode::GetOwnPlayerId() {
     return 0;
 }
@@ -239,14 +305,35 @@ int32 ALobbyGameMode::GetLobbyIndex() {
     return 0;
 }
 
+bool ALobbyGameMode::GetEventTableRow(const FString& RowName, FEventLobbyStruct& OutRow) {
+    return false;
+}
+
+ELobbyMachineType ALobbyGameMode::GetEventMachinType() const {
+    return ELobbyMachineType::Single;
+}
+
 void ALobbyGameMode::GetEnemiesInfo(TArray<FLobbyEnemyInfo>& EnemiesInfo) {
+}
+
+FString ALobbyGameMode::GetEnableEvLoungeName() const {
+    return TEXT("");
 }
 
 bool ALobbyGameMode::GetAutoPlay() {
     return false;
 }
 
+void ALobbyGameMode::DeleteGhost(ALobbyGameMode::FLobbyOnFinishDeleteGhost OnFinishDeleteGhost, int32 ghost_index, bool is_server_ghost) {
+}
+
 void ALobbyGameMode::CloseSimpleProfile() {
+}
+
+void ALobbyGameMode::CheckOnlineGhostVsGhost(ALobbyGameMode::FLobbyOnFinishCheckGvG OnFinishCheckGvG) {
+}
+
+void ALobbyGameMode::CheckGhostVsGhost(int64 cosmosId, const FString& playerName, const FString& onlineId, int32 platformTag, const FString& polarisId, ALobbyGameMode::FLobbyOnFinishCheckGvG OnFinishCheckGvG) {
 }
 
 void ALobbyGameMode::CancelMatchmaking() {

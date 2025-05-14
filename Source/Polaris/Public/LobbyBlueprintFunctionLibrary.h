@@ -32,6 +32,9 @@ public:
     ULobbyBlueprintFunctionLibrary();
 
     UFUNCTION(BlueprintCallable)
+    static void SetLobbyHudVisibility(bool is_visible);
+    
+    UFUNCTION(BlueprintCallable)
     static void RequestCrossPrivilege(const FString& xuid, ULobbyBlueprintFunctionLibrary::FLobbyOnGetBool OnGetBool);
     
     UFUNCTION(BlueprintCallable)
@@ -70,6 +73,9 @@ public:
     UFUNCTION(BlueprintCallable)
     static void LobbyShowConnectionIcon();
     
+    UFUNCTION(BlueprintPure)
+    static bool LobbyShouldHideRelationshipIcon();
+    
     UFUNCTION(BlueprintCallable)
     static void LobbySetSwingParam(int32 infoTranslation, const FName StrParam1, int32 NumParam1);
     
@@ -91,6 +97,9 @@ public:
     UFUNCTION(BlueprintCallable)
     static void LobbySetCrossplayFlag(bool is_crossplay);
     
+    UFUNCTION(BlueprintPure)
+    static FString LobbySeatingToPracticeTextID();
+    
     UFUNCTION(BlueprintCallable)
     static void LobbyScreenShot2(const FString& Path, bool withUI);
     
@@ -99,6 +108,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void LobbySavePath(UPARAM(Ref) TArray<float>& times, UPARAM(Ref) TArray<FRotator>& rotators, UPARAM(Ref) TArray<FVector>& locations);
+    
+    UFUNCTION(BlueprintCallable)
+    static bool LobbyRequestStreamLevelDynamic(const TArray<FString>& request_maps_path);
     
     UFUNCTION(BlueprintCallable)
     static void LobbyRapidJsonTest();
@@ -120,6 +132,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void LobbyOpenPlatformProfileUI(const FString& platformId, int32 platform012, ULobbyBlueprintFunctionLibrary::FLobbyOpenPlatformProfileUIDelegate OnClose);
+    
+    UFUNCTION(BlueprintCallable)
+    static void LobbyNotifyErrorCheck();
     
     UFUNCTION(BlueprintPure)
     static bool LobbyNotificationExistsInvitation();
@@ -197,13 +212,34 @@ public:
     static bool LobbyIsFirstPlayLounge();
     
     UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableProfileToReplayList();
+    
+    UFUNCTION(BlueprintPure)
     static bool LobbyIsEnableOnlinePractice();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableOnlineGhostVsGhost();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableKBChat();
     
     UFUNCTION(BlueprintPure)
     static bool LobbyIsEnableIGS();
     
     UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableGhostVsGhost();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableFastTravel();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableEvLobby();
+    
+    UFUNCTION(BlueprintPure)
     static bool LobbyIsEnableCustomizeSlot();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyIsEnableArtEmote();
     
     UFUNCTION(BlueprintPure)
     static bool LobbyIsDisableSwing();
@@ -213,6 +249,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static bool LobbyIsButtonHelpStackEmpty();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyIsAgingWarp();
     
     UFUNCTION(BlueprintCallable)
     static void LobbyInputConvert(const float& inX, const float& inY, float& OutValue, float& outRadian);
@@ -238,11 +277,20 @@ public:
     UFUNCTION(BlueprintCallable)
     static void LobbyHideButtonHelp();
     
+    UFUNCTION(BlueprintPure)
+    static bool LobbyGvGNpcTutorial();
+    
     UFUNCTION(BlueprintCallable)
     static void LobbyGotoPlayerMatchRoomInCommunityMenu();
     
     UFUNCTION(BlueprintCallable)
     static void LobbyGotoMultiPlayStart(ULobbyBlueprintFunctionLibrary::FLobbyOnGetBool Callback);
+    
+    UFUNCTION(BlueprintPure)
+    static FString LobbyGetTextIDPanelFastTravel();
+    
+    UFUNCTION(BlueprintPure)
+    static FString LobbyGetStreamerModePlayerName(const FString& playerName);
     
     UFUNCTION(BlueprintCallable)
     static void LobbyGetServerLabel(FString& Result);
@@ -292,6 +340,9 @@ public:
     UFUNCTION(BlueprintPure)
     static int32 LobbyGetMyChatPrivilegeStatus();
     
+    UFUNCTION(BlueprintPure)
+    static FString LobbyGetMenu4TextID();
+    
     UFUNCTION(BlueprintCallable)
     static void LobbyGetLocalTimeLocalizedStringFromIso8601(const FString& Iso8601Text, FString& DateText, FString& TimeText, bool Seconds);
     
@@ -306,6 +357,12 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void LobbyGetHelpListCategoryList(TArray<FString>& Categories);
+    
+    UFUNCTION(BlueprintPure)
+    static FString LobbyGetGvGMenuTextID();
+    
+    UFUNCTION(BlueprintPure)
+    static FString LobbyGetGvGHudTextID(int32 Index);
     
     UFUNCTION(BlueprintPure)
     static bool LobbyGetGameSettingCrossPlayFlag();
@@ -324,6 +381,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     static bool LobbyGetCrossplayFlag();
+    
+    UFUNCTION(BlueprintPure)
+    static bool LobbyGetCrossplayConfig();
     
     UFUNCTION(BlueprintPure)
     static int32 LobbyGetCrossFlagTest();
@@ -349,6 +409,9 @@ public:
     UFUNCTION(BlueprintPure)
     static bool LobbyGetCameraSettingAutoTrackingFlag();
     
+    UFUNCTION(BlueprintPure)
+    static FString LobbyGetBuddyTalkTextId(int32 Index);
+    
     UFUNCTION(BlueprintCallable)
     static int32 LobbyGetBasePlatformTag();
     
@@ -373,6 +436,9 @@ public:
     UFUNCTION(BlueprintCallable)
     static void LobbyDownloadGhostInCommunityMenu(int64 cosmosId, const FString& playerName, ULobbyBlueprintFunctionLibrary::FDownloadGhostFinishCallback Callback);
     
+    UFUNCTION(BlueprintCallable)
+    static void LobbyCrashAgingWarpBadLocation();
+    
     UFUNCTION(BlueprintPure)
     static FString LobbyCosmosIdToString(int64 cosmosId);
     
@@ -395,6 +461,9 @@ public:
     static void LobbyButtonHelpSitting();
     
     UFUNCTION(BlueprintCallable)
+    static void LobbyButtonHelpSeatingMatching();
+    
+    UFUNCTION(BlueprintCallable)
     static void LobbyButtonHelpScene(const FString& Scene);
     
     UFUNCTION(BlueprintCallable)
@@ -405,6 +474,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static void LobbyButtonHelpPop();
+    
+    UFUNCTION(BlueprintCallable)
+    static void LobbyButtonHelpIronBird();
     
     UFUNCTION(BlueprintCallable)
     static void LobbyButtonHelpEmoteListPlay();
@@ -497,10 +569,19 @@ public:
     static void LobbNotificationClearFriendRequest();
     
     UFUNCTION(BlueprintPure)
+    static bool IsWaitingStreamLevel(const TArray<FString>& check_maps_path);
+    
+    UFUNCTION(BlueprintPure)
     static bool GetMyCrossPrivilege(bool InFriendOnly, bool InAll);
     
     UFUNCTION(BlueprintPure)
     static int64 ConvertCosmosIdToInt64(const FName& cosmosId);
+    
+    UFUNCTION(BlueprintCallable)
+    static void ChangeVisibleButtonHelpUI(bool is_visible);
+    
+    UFUNCTION(BlueprintCallable)
+    static void BeginCarrot();
     
 };
 

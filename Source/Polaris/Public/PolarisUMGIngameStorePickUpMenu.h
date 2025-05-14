@@ -1,6 +1,6 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "EStoreItemAttribute.h"
+#include "EStoreItemShowCaseType.h"
 #include "PolarisUMGIngameStoreMenuBase.h"
 #include "StoreItemPanelStruct.h"
 #include "PolarisUMGIngameStorePickUpMenu.generated.h"
@@ -27,7 +27,7 @@ public:
     
 protected:
     UFUNCTION(BlueprintCallable)
-    UTexture2D* GetPickUpHeader(EStoreItemAttribute sell_type);
+    UTexture2D* GetPickUpHeader(EStoreItemShowCaseType sell_type);
     
 public:
     UFUNCTION(BlueprintCallable)

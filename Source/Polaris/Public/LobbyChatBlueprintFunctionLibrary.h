@@ -23,7 +23,7 @@ public:
     static void SendTextLocal(const FLobbyChatAddressInfo& InSendTo, const FLobbyChatData& InData);
     
     UFUNCTION(BlueprintCallable)
-    static bool SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId);
+    static bool SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId, int32 InTemplateSubId);
     
     UFUNCTION(BlueprintCallable)
     static void SendSystemAllCategory(const FString& InMessage, bool InMessageID);
@@ -32,7 +32,7 @@ public:
     static void SendSystem(ELobbyChatAddressType Address, const FString& InMessageID, bool All);
     
     UFUNCTION(BlueprintCallable)
-    static void SelfBalloon(const ELobbyChatAddressType& Address, const FString& Message, const FName& stampName, int32 templateId);
+    static void SelfBalloon(const ELobbyChatAddressType& Address, const FString& Message, const FName& stampName, int32 templateId, int32 InTemplateSubId);
     
     UFUNCTION(BlueprintCallable)
     static bool OutputChatLog(bool InOutput, const FString& InTitle, const FString& InLog, bool InVerbose, bool InCallstack);
@@ -54,6 +54,9 @@ public:
     
     UFUNCTION(BlueprintPure)
     static ULobbyChatText* GetChat();
+    
+    UFUNCTION(BlueprintCallable)
+    static bool EnableChatUpdate();
     
     UFUNCTION(BlueprintCallable)
     static void ChatKeyboardEnable(bool InEnable);

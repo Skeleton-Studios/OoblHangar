@@ -36,6 +36,12 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 clear_mission_num;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 level_max;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 level_demise;
+    
     FBlackPenBasic();
 };
 

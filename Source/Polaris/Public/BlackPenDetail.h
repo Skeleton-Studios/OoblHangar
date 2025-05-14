@@ -22,6 +22,9 @@ public:
     int32 level_max;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 level_demise;
+    
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 xp_now;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)

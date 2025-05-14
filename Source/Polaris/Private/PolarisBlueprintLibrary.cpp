@@ -143,6 +143,10 @@ bool UPolarisBlueprintLibrary::IsEnableResolutionUpscaling(EPolarisResolutionUps
     return false;
 }
 
+bool UPolarisBlueprintLibrary::IsDramaPlaying() {
+    return false;
+}
+
 bool UPolarisBlueprintLibrary::IsDoingZoneCutIn(int32 player_id) {
     return false;
 }
@@ -172,6 +176,10 @@ bool UPolarisBlueprintLibrary::IsDoingRageArts() {
 }
 
 bool UPolarisBlueprintLibrary::IsDisableBattleHUD() {
+    return false;
+}
+
+bool UPolarisBlueprintLibrary::IsCompareStaticMesh(UStaticMeshComponent* pA, UStaticMeshComponent* pB) {
     return false;
 }
 
@@ -255,7 +263,15 @@ int32 UPolarisBlueprintLibrary::GetSideByPlayerID(int32 player_id) {
     return 0;
 }
 
+int32 UPolarisBlueprintLibrary::GetSftCounterX(int32 player_id, int32 ID) {
+    return 0;
+}
+
 FRotator UPolarisBlueprintLibrary::GetsetVectorFightRy2(FVector rot, int32 player_id) {
+    return FRotator{};
+}
+
+FRotator UPolarisBlueprintLibrary::GetsetVectorActRy2(FVector rot, int32 player_id) {
     return FRotator{};
 }
 
@@ -277,6 +293,10 @@ int32 UPolarisBlueprintLibrary::GetPlayerCount() {
 
 FString UPolarisBlueprintLibrary::GetMotName(const int32& player_id) {
     return TEXT("");
+}
+
+int32 UPolarisBlueprintLibrary::GetMotheadDramaNo(int32 player_id) {
+    return 0;
 }
 
 APolarisMobManager* UPolarisBlueprintLibrary::GetMobManager() {

@@ -18,6 +18,9 @@ public:
     void SetSideText(const FString& sideText);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetHeadText(const FString& headText);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetFighterTexture(const UTexture2D* Texture);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -63,7 +66,13 @@ public:
     void InvokeDecideCallback(int32 ID);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void ClearTabButton();
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void ClearData();
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void AddTabButton(const FString& Text);
     
     UFUNCTION(BlueprintImplementableEvent)
     void AddHeadingData(const FString& Text);

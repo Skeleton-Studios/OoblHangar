@@ -9,5 +9,7 @@ FBlackPenBasic::FBlackPenBasic() {
     this->premium_flag = false;
     this->total_mission_num = 0;
     this->clear_mission_num = 0;
+    this->level_max = 0;
+    this->level_demise = 0;
 }
 

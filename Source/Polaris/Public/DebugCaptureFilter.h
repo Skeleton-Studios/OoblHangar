@@ -22,6 +22,9 @@ public:
     UPROPERTY(EditAnywhere)
     TSoftObjectPtr<UItemPrefab> ReplaceItem;
     
+    UPROPERTY(EditAnywhere)
+    TArray<TSoftObjectPtr<UItemPrefab>> ReplaceItems;
+    
     POLARIS_API FDebugCaptureFilter();
 };
 

@@ -23,4 +23,10 @@ UTexture2D* UDebugImageBlueprintLibrary::CreateTempTextureAsset(const FString& t
     return NULL;
 }
 
+void UDebugImageBlueprintLibrary::ConvertToPng(const TArray<FColor>& Data, int32 Width, int32 Height, TArray<uint8>& png_data) {
+}
+
+void UDebugImageBlueprintLibrary::AppendColorData(int32 color_width, int32 color_height, const TArray<FColorArrayData>& datas, int32 data_width, int32 data_height, TArray<FColor>& Result) {
+}
+
 

@@ -3,7 +3,7 @@
 #include "PolarisMobAnimal.h"
 #include "PolarisMobAnimalPegion.generated.h"
 
-UCLASS()
+UCLASS(Abstract)
 class POLARIS_API APolarisMobAnimalPegion : public APolarisMobAnimal {
     GENERATED_BODY()
 public:

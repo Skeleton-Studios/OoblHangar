@@ -1,11 +1,14 @@
 #pragma once
 #include "CoreMinimal.h"
+#include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "GameFramework/Actor.h"
 #include "CommonEffect.h"
 #include "CommonEffectInstanceManager.h"
 #include "PolarisCommonEffectManager.generated.h"
 
 class APolarisCharacterEffectManager;
+class UNiagaraComponent;
 class UPolarisEffectDataAsset;
 
 UCLASS()
@@ -48,6 +51,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CanceledCommonEffect(int32 player_id, int32 ID);
+    
+    UFUNCTION(BlueprintCallable)
+    UNiagaraComponent* CallSpawnBone(const int32& EffectId, const int32& PlayerNumber, const FName& BoneName, const FVector& position, const FRotator& Rotation, const FVector& Offset, const int32& Pattern);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void CalledCommonEffect(int32 player_id, int32 ID);

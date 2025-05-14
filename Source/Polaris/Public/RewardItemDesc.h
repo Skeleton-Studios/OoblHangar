@@ -39,6 +39,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool can_display_char_summary;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 Num;
+    
     POLARIS_API FRewardItemDesc();
 };
 

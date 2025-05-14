@@ -6,5 +6,7 @@ UENUM()
 enum class EAnimState : uint8 {
     Off,
     Explosion,
+    Charged,
+    Dead,
 };
 

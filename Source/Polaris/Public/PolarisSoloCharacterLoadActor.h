@@ -16,6 +16,9 @@ public:
     bool RequestCharacterLoad(int32 fighter_id, int32 customizeslot_id, int32 costumetype_id, const FString& overridePathToCustomizeSet);
     
     UFUNCTION(BlueprintPure)
+    bool IsUnLoaded() const;
+    
+    UFUNCTION(BlueprintPure)
     bool IsLoaded() const;
     
 };

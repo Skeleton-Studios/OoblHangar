@@ -53,6 +53,9 @@ public:
     void SetVisibilityAll(bool IsVisible);
     
     UFUNCTION(BlueprintCallable)
+    void SetPausedAll(bool IsPaused);
+    
+    UFUNCTION(BlueprintCallable)
     void SetDummyTick(const int32 tick_count, const float delta_time);
     
     UFUNCTION(BlueprintCallable)
@@ -69,6 +72,9 @@ public:
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     void OnBakeAnimationEffect();
+    
+    UFUNCTION(BlueprintNativeEvent)
+    bool IsNotChangeSpeedEffectId(int32 effect_id);
     
     UFUNCTION(BlueprintCallable)
     void AddParticleSystem(int32 PlayerNumber, int32 EffectId, UNiagaraComponent* Emitter);

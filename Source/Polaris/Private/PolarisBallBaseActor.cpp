@@ -5,6 +5,8 @@ APolarisBallBaseActor::APolarisBallBaseActor(const FObjectInitializer& ObjectIni
     this->IsVisibleActor = true;
     this->IsToPlayAnimation = false;
     this->AnimationState = EAnimState::Off;
+    this->AnimationFrame = -1.00f;
+    this->FresnelIntensity = 0.00f;
 }
 
 

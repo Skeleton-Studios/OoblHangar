@@ -39,6 +39,9 @@ public:
     void SetPlayerNum(int32 current_num, int32 max_num);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetPassCodeMasked(bool bIsMasked);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetOwnBattleGroup(int32 group_index);
     
     UFUNCTION(BlueprintImplementableEvent)

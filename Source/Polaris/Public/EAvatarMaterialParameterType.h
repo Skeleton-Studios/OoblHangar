@@ -9,5 +9,6 @@ enum class EAvatarMaterialParameterType : uint8 {
     BaseColor03,
     BaseColor04,
     HairRootColor,
+    EmissiveColor,
 };
 

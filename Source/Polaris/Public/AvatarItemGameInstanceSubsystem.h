@@ -12,6 +12,9 @@ public:
     UPROPERTY(BlueprintReadWrite)
     UAvatarItemDataRepository* item_data_repository;
     
+    UPROPERTY(BlueprintReadWrite)
+    bool bShouldShowDebugInfo;
+    
     UAvatarItemGameInstanceSubsystem();
 
 };

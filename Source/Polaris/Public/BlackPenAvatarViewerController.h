@@ -36,6 +36,9 @@ public:
     void PlayEmote(FName emoteId);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    AActor* GetAvatarColorDataAssetRepository();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     AActor* GetAvatarActor();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

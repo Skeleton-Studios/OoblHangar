@@ -11,7 +11,7 @@ public:
     ULobbyChatTextSender();
 
     UFUNCTION(BlueprintCallable)
-    bool SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId);
+    bool SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId, int32 InTemplateSubId);
     
     UFUNCTION(BlueprintPure)
     bool CanSend(float& OutParcent) const;

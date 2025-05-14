@@ -8,5 +8,8 @@ enum class ESessionBattleResult : uint8 {
     LOSE,
     DRAW,
     INVALID,
+    RETIRE_WIN,
+    RETIRE_LOSE,
+    RETIRE_DRAW,
 };
 

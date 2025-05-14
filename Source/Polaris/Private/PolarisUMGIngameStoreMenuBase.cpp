@@ -41,6 +41,9 @@ void UPolarisUMGIngameStoreMenuBase::RequestPurchaseDialog(const FStoreItemPanel
 void UPolarisUMGIngameStoreMenuBase::RequestPFStoreDLC(const FName& dlc_item_id) {
 }
 
+void UPolarisUMGIngameStoreMenuBase::RequestItemViewerFiltering(const FStoreItemPanelStruct& item_data, EStoreItemType filter_type, int32 fighter_id) {
+}
+
 void UPolarisUMGIngameStoreMenuBase::RequestItemViewer(const FStoreItemPanelStruct& item_data, bool is_bottom_layer) {
 }
 

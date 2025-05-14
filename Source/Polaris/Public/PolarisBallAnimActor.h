@@ -5,6 +5,7 @@
 #include "PolarisBallAnimActor.generated.h"
 
 class UAnimSequence;
+class ULevelSequence;
 class UPolarisBallSkeletalMeshComponent;
 
 UCLASS()
@@ -16,6 +17,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, VisibleDefaultsOnly)
     TMap<EAnimState, UAnimSequence*> AnimationSequences;
+    
+    UPROPERTY(BlueprintReadWrite, VisibleDefaultsOnly)
+    TMap<EAnimState, ULevelSequence*> LevelSequences;
     
     APolarisBallAnimActor(const FObjectInitializer& ObjectInitializer);
 

@@ -35,6 +35,9 @@ public:
     void PlayGuideVisibleAnimation(bool is_show);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void PlayFrameAdvanceAnimation(int32 frame_advance);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void PlayExecArrowAnimation(int32 list_idx, bool is_left);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -81,6 +84,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     void InvokeArrowDecideCallback(int32 ID);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void InitializeFrameForward(int32 max_frame);
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
     UPolarisPhotomodeWidget* GetPhotoWin();

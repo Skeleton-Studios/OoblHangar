@@ -12,6 +12,7 @@ APolarisDebugCustomizeActor::APolarisDebugCustomizeActor(const FObjectInitialize
     this->isDemo = false;
     this->isOnlyLaunchItem = true;
     this->isKeepItem = true;
+    this->DispCharacterSelectOrder = 0;
     this->FighterId = 0;
     this->ItemPrefabSets.AddDefaulted(17);
     this->ItemPrefabAccSets.AddDefaulted(2);

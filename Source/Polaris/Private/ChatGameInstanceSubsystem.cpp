@@ -8,4 +8,8 @@ ULobbyChatText* UChatGameInstanceSubsystem::GetTextChat() {
     return NULL;
 }
 
+FString UChatGameInstanceSubsystem::GetStreamerModeName(const FString& Name) {
+    return TEXT("");
+}
+
 

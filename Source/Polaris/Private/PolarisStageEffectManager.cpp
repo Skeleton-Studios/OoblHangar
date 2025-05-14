@@ -19,7 +19,7 @@ void APolarisStageEffectManager::SetVisibilityAll(bool IsVisible) {
 void APolarisStageEffectManager::SetStageGimmickParticleAsset(UNiagaraSystem* Asset) {
 }
 
-void APolarisStageEffectManager::SetAnotherWorldType(EStageAnotherWorldType wolrd_type) {
+void APolarisStageEffectManager::SetAnotherWorldType(int32 wolrd_type) {
 }
 
 void APolarisStageEffectManager::ResetStageSmoke() {
@@ -40,10 +40,10 @@ void APolarisStageEffectManager::ResetDebris() {
 void APolarisStageEffectManager::ResetAllEffect(bool is_floor_break) {
 }
 
-void APolarisStageEffectManager::RequestStageFloorSmoke_Implementation(const FVector& position, const FRotator& Rotation, int32 FloorId, const int32 EffectId, const int32 PlayerId, const FName BoneName) {
+void APolarisStageEffectManager::RequestStageFloorSmoke_Implementation(const FVector& position, const FRotator& Rotation, int32 FloorId, const int32 EffectId, const int32 PlayerId, const FName BoneName, USkeletalMeshComponent* attach_mesh) {
 }
 
-void APolarisStageEffectManager::RequestSoundFootstepKeyOn(const int32 surface_type, int32 PlayerIndex, int32 FighterId, bool isLeft) {
+void APolarisStageEffectManager::RequestSoundFootstepKeyOn(const int32 surface_type, int32 PlayerIndex, int32 FighterId, bool isLeft, USkeletalMeshComponent* attach_mesh) {
 }
 
 
@@ -57,7 +57,7 @@ void APolarisStageEffectManager::RequestFootstep_Implementation(int32 PlayerInde
 }
 
 
-void APolarisStageEffectManager::RequestBonestep_Implementation(int32 PlayerIndex, const int32 EffectId, const FName BoneName, const FVector& position, const FRotator& Rotation, const bool bSound, const FVector& Offset) {
+void APolarisStageEffectManager::RequestBonestep_Implementation(int32 PlayerIndex, const int32 EffectId, const FName BoneName, const FVector& position, const FRotator& Rotation, const bool bSound, const FVector& Offset, USkeletalMeshComponent* attach_mesh) {
 }
 
 

@@ -24,6 +24,9 @@ public:
     UPROPERTY(EditAnywhere)
     FName own_panel_name;
     
+    UPROPERTY(EditAnywhere)
+    FName tb_count_name;
+    
     FBlackPenItemSmallWidgetName();
 };
 

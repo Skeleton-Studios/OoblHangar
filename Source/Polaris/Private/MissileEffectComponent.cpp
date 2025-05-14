@@ -6,10 +6,10 @@ UMissileEffectComponent::UMissileEffectComponent(const FObjectInitializer& Objec
 void UMissileEffectComponent::SetPlayerId(const int32 player_id) {
 }
 
-void UMissileEffectComponent::SetDeactiveEffect(bool is_deactive_start_effect, bool is_deactive_end_effect) {
+void UMissileEffectComponent::SetDeactiveEffect(bool is_deactive_start_effect, bool is_deactive_end_effect, bool is_deactive_frame_effect) {
 }
 
-void UMissileEffectComponent::SetActiveEffect(bool is_active_start_effect, bool is_active_end_effect) {
+void UMissileEffectComponent::SetActiveEffect(bool is_active_start_effect, bool is_active_end_effect, bool is_active_frame_effect) {
 }
 
 void UMissileEffectComponent::PlayStartEffectMotionId(int32 motion_id, USkeletalMeshComponent* attach_component) {

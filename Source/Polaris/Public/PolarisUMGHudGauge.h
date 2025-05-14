@@ -6,6 +6,7 @@
 #include "UiCommunicationStatus.h"
 #include "PolarisUMGHudGauge.generated.h"
 
+class UMaterial;
 class UTexture2D;
 
 UCLASS(EditInlineNew)
@@ -34,6 +35,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void UpdateRTT(int32 Max, int32 Min, int32 Average, int32 median, float loss_rate_up, float loss_rate_down, bool is_relayed, bool is_host, int32 antenna, int32 Delay, int32 max_rollback, int32 Count, int32 total_frame, int32 last_frame, int32 key_wait_total_frame, int32 key_wait_frame);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void UpdateProstrationIcon(int32 side, int32 Val);
     
     UFUNCTION(BlueprintImplementableEvent)
     void UpdatePowerUpIconVisibility(int32 side, bool Visible);
@@ -72,6 +76,12 @@ public:
     void ShowCommunicationStatus(bool flag, bool left_display_proc_drop, bool right_display_proc_drop);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetVersionVisibility(bool Visible);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void SetVersionInfo(const FString& version_text);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetTekkenPowerVisibility(int32 side, bool Visible);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -93,6 +103,9 @@ public:
     void SetRankTexture(int32 rank, const UTexture2D* Texture, const UTexture2D* num_texture);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetProstrationMaterial(int32 side, const UMaterial* Material);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SetPowerUpIconWidget(int32 side, const UPolarisUserWidget* Widget, bool Reverse);
     
     UFUNCTION(BlueprintImplementableEvent)
@@ -110,6 +123,9 @@ public:
     UFUNCTION(BlueprintImplementableEvent)
     void SetLeaderIcon(int32 side, bool is_leader);
     
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    void SetHologramFlag(int32 side, bool flag);
+    
     UFUNCTION(BlueprintImplementableEvent)
     void SetGaugeTexture(int32 side, const UTexture2D* Texture);
     
@@ -118,6 +134,9 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void SetFighterTexture(int32 side, const UTexture2D* Texture);
+    
+    UFUNCTION(BlueprintImplementableEvent)
+    void SetFighterRimTexture(int32 side, const UTexture2D* Texture);
     
     UFUNCTION(BlueprintImplementableEvent)
     void SetFighterNameTexture2(int32 side, const UTexture2D* Texture);
@@ -211,6 +230,18 @@ public:
     
     UFUNCTION(BlueprintImplementableEvent)
     void HideHpRate();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    float GetHologramTime();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    bool GetHologramFlag();
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UTexture2D* GetFighterBGTexture(int32 side);
+    
+    UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
+    UTexture2D* GetFighterBGFullTexture(int32 side);
     
     UFUNCTION(BlueprintImplementableEvent)
     void AttachStoryModePatch(int32 star_max);

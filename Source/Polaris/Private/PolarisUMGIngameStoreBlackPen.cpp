@@ -7,6 +7,7 @@ UPolarisUMGIngameStoreBlackPen::UPolarisUMGIngameStoreBlackPen() {
 
 
 
+
 int32 UPolarisUMGIngameStoreBlackPen::RightX(int32 Y, int32 Offset) {
     return 0;
 }

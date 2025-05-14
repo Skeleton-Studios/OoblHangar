@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "UObject/NoExportTypes.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "PolarisItemFunctionLibrary.generated.h"
 
@@ -22,7 +23,13 @@ public:
     static void OverrideAssetData(UObject* SrcAsset, UObject* TgtAsset);
     
     UFUNCTION(BlueprintPure)
+    static bool IsPlayerProfileScene();
+    
+    UFUNCTION(BlueprintPure)
     static int32 GetWinnerPlayerNumber();
+    
+    UFUNCTION(BlueprintPure)
+    static FString GetAssetNameFromSoftObjectPath(FSoftObjectPath SrcPath);
     
     UFUNCTION(BlueprintPure)
     static FTransform FinalizeTransformForConstraintItem(const FTransform& Transform);

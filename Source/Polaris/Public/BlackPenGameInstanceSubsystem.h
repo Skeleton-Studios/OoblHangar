@@ -5,7 +5,7 @@
 
 class UBlackPenData;
 
-UCLASS()
+UCLASS(BlueprintType)
 class POLARIS_API UBlackPenGameInstanceSubsystem : public UGameInstanceSubsystem {
     GENERATED_BODY()
 public:
@@ -14,5 +14,8 @@ public:
     
     UBlackPenGameInstanceSubsystem();
 
+    UFUNCTION(BlueprintPure)
+    int32 GetRoundNum() const;
+    
 };
 

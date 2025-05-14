@@ -32,7 +32,7 @@ void ULobbyUserWidget::ReserveCursorPositionToYellowBook() {
 void ULobbyUserWidget::RemoveFromResidentViewPort() {
 }
 
-bool ULobbyUserWidget::PolarisIsFreeItem() {
+bool ULobbyUserWidget::PolarisHasShopItemInfo() {
     return false;
 }
 
@@ -40,7 +40,7 @@ bool ULobbyUserWidget::IsResidentViewPort() const {
     return false;
 }
 
-bool ULobbyUserWidget::IsEnableFreeitemBalloon() {
+bool ULobbyUserWidget::IsEnableItemBalloon() {
     return false;
 }
 
@@ -78,13 +78,22 @@ void ULobbyUserWidget::ButtonHelpPlayerMatchInviteList() {
 void ULobbyUserWidget::ButtonHelpNewsTop() {
 }
 
+void ULobbyUserWidget::ButtonHelpLobbyMenuMatching203() {
+}
+
 void ULobbyUserWidget::ButtonHelpLobbyMenuMatching() {
+}
+
+void ULobbyUserWidget::ButtonHelpLobbyMenu203() {
 }
 
 void ULobbyUserWidget::ButtonHelpLobbyMenu() {
 }
 
 void ULobbyUserWidget::ButtonHelpLobbyHelpFriendSubMenu() {
+}
+
+void ULobbyUserWidget::ButtonHelpLobbyHelpFriendListWithWarp() {
 }
 
 void ULobbyUserWidget::ButtonHelpLobbyHelpFriendList() {

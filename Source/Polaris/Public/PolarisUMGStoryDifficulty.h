@@ -11,6 +11,9 @@ public:
     UPolarisUMGStoryDifficulty();
 
     UFUNCTION(BlueprintImplementableEvent)
+    void SetSide(int32 side);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void SelectMenu(int32 ID);
     
     UFUNCTION(BlueprintImplementableEvent)

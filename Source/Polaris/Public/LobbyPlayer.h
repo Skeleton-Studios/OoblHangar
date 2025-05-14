@@ -30,6 +30,9 @@ protected:
     UPROPERTY(BlueprintReadOnly)
     bool _isFirstJudgeBattle;
     
+    UPROPERTY(BlueprintReadOnly)
+    bool _isSeatingMatchReserve;
+    
 public:
     UPROPERTY(BlueprintReadOnly)
     bool _isEnableUpdate;
@@ -91,6 +94,9 @@ public:
     void SetStandingLocationAndRotation();
     
     UFUNCTION(BlueprintCallable)
+    void SetSeatMatchingId(int32 seatId);
+    
+    UFUNCTION(BlueprintCallable)
     void SetSeatId(int32 seatId);
     
     UFUNCTION(BlueprintCallable)
@@ -148,6 +154,9 @@ public:
     void PushCustomize(const ULobbyAvatarData* pAvatarData);
     
     UFUNCTION(BlueprintCallable)
+    void OutputDebugCallstack(const FString& Option);
+    
+    UFUNCTION(BlueprintCallable)
     void LongWarp();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)
@@ -199,6 +208,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     bool GetSkipFlagForAnywhereSettingDialogAndClear();
+    
+    UFUNCTION(BlueprintPure)
+    int32 GetSeatMatchingId();
     
     UFUNCTION(BlueprintPure)
     int32 GetSeatId();

@@ -25,6 +25,9 @@ public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 GhostId;
     
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    int32 CharaPanelId;
+    
     POLARIS_API FLobbyTreasureInfo();
 };
 

@@ -28,6 +28,9 @@ public:
     void EnableInput(bool InEnable);
     
     UFUNCTION(BlueprintCallable)
+    void DeactivateChatMenu();
+    
+    UFUNCTION(BlueprintCallable)
     void ActiveUI();
     
     UFUNCTION(BlueprintCallable, BlueprintImplementableEvent)

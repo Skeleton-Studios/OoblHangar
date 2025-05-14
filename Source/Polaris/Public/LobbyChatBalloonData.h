@@ -20,6 +20,9 @@ public:
     int32 _templateId;
     
     UPROPERTY(BlueprintReadWrite)
+    int32 _templateSubId;
+    
+    UPROPERTY(BlueprintReadWrite)
     FName _stampName;
     
     UPROPERTY(BlueprintReadWrite)

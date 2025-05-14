@@ -104,6 +104,9 @@ public:
     static void AutoTest_SetMovieCaptureName(const FString& MovieName);
     
     UFUNCTION(BlueprintCallable)
+    static void AutoTest_SetFinishCharCusItemCapture();
+    
+    UFUNCTION(BlueprintCallable)
     static void AutoTest_SetDebugOption(const FString& ValueName, int32 Param);
     
     UFUNCTION(BlueprintCallable)
@@ -144,6 +147,9 @@ public:
     
     UFUNCTION(BlueprintCallable)
     static bool AutoTest_IsFinishDebugBattle();
+    
+    UFUNCTION(BlueprintCallable)
+    static bool AutoTest_IsFinishCharCusItemCapture();
     
     UFUNCTION(BlueprintCallable)
     static bool AutoTest_IsFinishCharaEpisodeDrama();

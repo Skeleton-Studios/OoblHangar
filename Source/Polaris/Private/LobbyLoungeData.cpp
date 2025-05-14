@@ -9,5 +9,10 @@ FLobbyLoungeData::FLobbyLoungeData() {
     this->_ball = 0;
     this->_practice = 0;
     this->_teaching = 0;
+    this->_lobbyCapacity = 0;
+    this->_lobbyMap = 0;
+    this->_lobbyMachine = 0;
+    this->_lobbyRules = 0;
+    this->_remainingTime = 0;
 }
 

@@ -6,7 +6,7 @@ ULobbyChatBlueprintFunctionLibrary::ULobbyChatBlueprintFunctionLibrary() {
 void ULobbyChatBlueprintFunctionLibrary::SendTextLocal(const FLobbyChatAddressInfo& InSendTo, const FLobbyChatData& InData) {
 }
 
-bool ULobbyChatBlueprintFunctionLibrary::SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId) {
+bool ULobbyChatBlueprintFunctionLibrary::SendText(const FLobbyChatAddressInfo& InSendTo, const FString& InMessage, FName InStampName, int32 InTemplateId, int32 InTemplateSubId) {
     return false;
 }
 
@@ -16,7 +16,7 @@ void ULobbyChatBlueprintFunctionLibrary::SendSystemAllCategory(const FString& In
 void ULobbyChatBlueprintFunctionLibrary::SendSystem(ELobbyChatAddressType Address, const FString& InMessageID, bool All) {
 }
 
-void ULobbyChatBlueprintFunctionLibrary::SelfBalloon(const ELobbyChatAddressType& Address, const FString& Message, const FName& stampName, int32 templateId) {
+void ULobbyChatBlueprintFunctionLibrary::SelfBalloon(const ELobbyChatAddressType& Address, const FString& Message, const FName& stampName, int32 templateId, int32 InTemplateSubId) {
 }
 
 bool ULobbyChatBlueprintFunctionLibrary::OutputChatLog(bool InOutput, const FString& InTitle, const FString& InLog, bool InVerbose, bool InCallstack) {
@@ -45,6 +45,10 @@ ULobbyChatTextAddressBook* ULobbyChatBlueprintFunctionLibrary::GetChatAddressBoo
 
 ULobbyChatText* ULobbyChatBlueprintFunctionLibrary::GetChat() {
     return NULL;
+}
+
+bool ULobbyChatBlueprintFunctionLibrary::EnableChatUpdate() {
+    return false;
 }
 
 void ULobbyChatBlueprintFunctionLibrary::ChatKeyboardEnable(bool InEnable) {

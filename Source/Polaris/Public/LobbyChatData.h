@@ -35,6 +35,9 @@ public:
     int32 _templateId;
     
     UPROPERTY(BlueprintReadWrite)
+    int32 _templateSubId;
+    
+    UPROPERTY(BlueprintReadWrite)
     int32 _platform012;
     
     UPROPERTY(BlueprintReadWrite)

@@ -13,6 +13,9 @@ public:
     void SetVersionText(const FString& raw_text);
     
     UFUNCTION(BlueprintImplementableEvent)
+    void SetCopyRightImage(const bool enable_okm);
+    
+    UFUNCTION(BlueprintImplementableEvent)
     void OnPlayAnimTimeOut();
     
     UFUNCTION(BlueprintImplementableEvent)
