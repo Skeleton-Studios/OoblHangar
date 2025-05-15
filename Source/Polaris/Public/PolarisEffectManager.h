@@ -113,10 +113,10 @@ public:
     void requestDebugDraw(const FName Name, const FColor Color, float Duration);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UNiagaraComponent* ReqNiagaraScalingAttached(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, FVector Scale, TEnumAsByte<EAttachLocation::Type> LocationType, bool bAutoDestroy, bool bAutoSound);
+    UNiagaraComponent* ReqNiagaraScalingAttached(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, FVector Scale, EAttachLocation::Type LocationType, bool bAutoDestroy, bool bAutoSound);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
-    UNiagaraComponent* ReqNiagaraAttached(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, TEnumAsByte<EAttachLocation::Type> LocationType, bool bAutoDestroy, bool bAutoSound);
+    UNiagaraComponent* ReqNiagaraAttached(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, EAttachLocation::Type LocationType, bool bAutoDestroy, bool bAutoSound);
     
     UFUNCTION(BlueprintCallable, BlueprintNativeEvent, meta=(WorldContext="WorldContextObject"))
     UNiagaraComponent* ReqNiagaraAtLocation(const UObject* WorldContextObject, UNiagaraSystem* SystemTemplate, FVector Location, FRotator Rotation, FVector Scale, bool bAutoDestroy, bool bAutoActivate, bool bAutoSound);

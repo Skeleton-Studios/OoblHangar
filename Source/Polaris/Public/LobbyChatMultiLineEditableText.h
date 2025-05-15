@@ -7,9 +7,10 @@ UCLASS()
 class ULobbyChatMultiLineEditableText : public UPolarisMultiLineEditableText {
     GENERATED_BODY()
 public:
+    /**
     UPROPERTY(BlueprintAssignable)
     FOnMultiLineEditableTextKeyDownEvent OnKeyDown;
-    
+    */
     ULobbyChatMultiLineEditableText();
 
 };

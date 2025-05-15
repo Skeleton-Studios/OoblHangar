@@ -37,21 +37,17 @@ void APolarisEffectManager::ResetParticle() {
 void APolarisEffectManager::ResetAllFlag() {
 }
 
-
-
-UNiagaraComponent* APolarisEffectManager::ReqNiagaraScalingAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, FVector Scale, TEnumAsByte<EAttachLocation::Type> LocationType, bool bAutoDestroy, bool bAutoSound) {
+UNiagaraComponent* APolarisEffectManager::ReqNiagaraScalingAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, FVector Scale, EAttachLocation::Type LocationType, bool bAutoDestroy, bool bAutoSound) {
     return NULL;
 }
 
-UNiagaraComponent* APolarisEffectManager::ReqNiagaraAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, TEnumAsByte<EAttachLocation::Type> LocationType, bool bAutoDestroy, bool bAutoSound) {
+UNiagaraComponent* APolarisEffectManager::ReqNiagaraAttached_Implementation(UNiagaraSystem* SystemTemplate, USceneComponent* AttachToComponent, FName AttachPointName, FVector Location, FRotator Rotation, EAttachLocation::Type LocationType, bool bAutoDestroy, bool bAutoSound) {
     return NULL;
 }
 
 UNiagaraComponent* APolarisEffectManager::ReqNiagaraAtLocation_Implementation(const UObject* WorldContextObject, UNiagaraSystem* SystemTemplate, FVector Location, FRotator Rotation, FVector Scale, bool bAutoDestroy, bool bAutoActivate, bool bAutoSound) {
     return NULL;
 }
-
-
 
 void APolarisEffectManager::OnChangeAnotherWorld(FEventOnChangeAnotherWorldParam Param) {
 }
@@ -101,5 +97,3 @@ void APolarisEffectManager::GetBattleEffect(TArray<UNiagaraComponent*>& niagara_
 
 void APolarisEffectManager::AddParticle(UNiagaraComponent* particlem, bool over_count_check) {
 }
-
-
