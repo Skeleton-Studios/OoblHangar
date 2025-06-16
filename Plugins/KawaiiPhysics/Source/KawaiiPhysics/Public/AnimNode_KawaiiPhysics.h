@@ -4,6 +4,7 @@
 #include "BoneControllers/AnimNode_AnimDynamics.h"
 #include "BoneContainer.h"
 #include "BonePose.h"
+#include "KawaiiPhysicsDynamicBoneDataAsset.h"
 #include "BoneControllers/AnimNode_SkeletalControlBase.h"
 #include "AnimNode_KawaiiPhysics.generated.h"
 
@@ -37,7 +38,6 @@ enum class ECollisionLimitType : uint8
 	Capsule,
 	Planar,
 };
-
 
 USTRUCT()
 struct FCollisionLimitBase
@@ -155,7 +155,7 @@ struct KAWAIIPHYSICS_API FKawaiiPhysicsSettings
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ClampMin = "0"), category = "KawaiiPhysics")
 	float Radius = 3.0f;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (PinHiddenByDefault, ClampMin = "0"), category = "KawaiiPhysics")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (ClampMin = "0"), category = "KawaiiPhysics")
 	float LimitAngle = 0.0f;
 };
 
@@ -231,7 +231,7 @@ public:
 	TArray<FBoneReference> ExcludeBones;
 
 	UPROPERTY(EditAnywhere, Category = TargetFramerate, meta = (EditCondition = "OverrideTargetFramerate"))
-	int32 TargetFramerate = 60;
+	int32 TargetFrameRate = 60;
 	UPROPERTY(EditAnywhere, Category = TargetFramerate, meta = (InlineEditConditionToggle))
 	bool OverrideTargetFramerate = false;
 
@@ -309,17 +309,22 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Spherical Limits")
 	TArray< FSphericalLimit> SphericalLimits;
+	
 	UPROPERTY(EditAnywhere, Category = "Capsule Limits")
 	TArray< FCapsuleLimit> CapsuleLimits;
+	
 	UPROPERTY(EditAnywhere, Category = "Planar Limits")
 	TArray< FPlanarLimit> PlanarLimits;
 
 	UPROPERTY(EditAnywhere, Category = "Limits Data(Experimental)")
 	UKawaiiPhysicsLimitsDataAsset* LimitsDataAsset = nullptr;
+	
 	UPROPERTY(VisibleAnywhere, AdvancedDisplay, Category = "Limits Data(Experimental)")
 	TArray< FSphericalLimit> SphericalLimitsData;
+	
 	UPROPERTY(VisibleAnywhere, AdvancedDisplay, Category = "Limits Data(Experimental)")
 	TArray< FCapsuleLimit> CapsuleLimitsData;
+	
 	UPROPERTY(VisibleAnywhere, AdvancedDisplay, Category = "Limits Data(Experimental)")
 	TArray< FPlanarLimit> PlanarLimitsData;
 
@@ -349,9 +354,11 @@ public:
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Collision", meta = (PinHiddenByDefault))
 	bool bAllowWorldCollision = false;
+	
 	//use component collision channel settings by default
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Collision", meta = (PinHiddenByDefault, EditCondition = "bAllowWorldCollision"))
 	bool bOverrideCollisionParams = false;
+	
 	/** Types of objects that this physics objects will collide with. */
 	UPROPERTY(EditAnywhere, Category = "Collision", meta = (FullyExpand = "true", EditCondition = "bAllowWorldCollision&&bOverrideCollisionParams"))
 	FBodyInstance CollisionChannelSettings;
@@ -360,9 +367,11 @@ public:
 	/** Self collision is best done by setting the "Limits" in this node, but if you really need using PhysicsAsset collision, uncheck this!*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Collision", meta = (PinHiddenByDefault, EditCondition = "bAllowWorldCollision"))
 	bool bIgnoreSelfComponent = true;
+	
 	/** Self bone is always ignored*/
 	UPROPERTY(EditAnywhere, Category = "Collision", meta = (EditCondition = "!bIgnoreSelfComponent"))
 	TArray<FBoneReference> IgnoreBones;
+	
 	/** If the bone starts with this name, will be ignored (Self bone is always ignored)*/
 	UPROPERTY(EditAnywhere, Category = "Collision", meta = (EditCondition = "!bIgnoreSelfComponent"))
 	TArray<FName> IgnoreBoneNamePrefix;
@@ -373,14 +382,17 @@ public:
 private:
 	UPROPERTY()
 	float TotalBoneLength = 0;
+	
 	UPROPERTY()
 	FTransform PreSkelCompTransform;
+	
 	UPROPERTY()
 	bool bInitPhysicsSettings = false;
-
 #if WITH_EDITORONLY_DATA
+	
 	UPROPERTY()
 	bool bEditing = false;
+	
 #endif
 
 	FVector SkelCompMoveVector;
@@ -390,6 +402,18 @@ private:
 	bool bResetDynamics;
 
 public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Polaris)
+	bool bEnableUserAsset;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Polaris)
+	UKawaiiPhysicsDynamicBoneDataAsset* DynamicBoneDataAsset;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Polaris)
+	int32 nDynamicBoneDataNo;
+    
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient, Category = Polaris)
+	bool bEditingUserAsset;
+
 	FAnimNode_KawaiiPhysics();
 
 	// FAnimNode_Base interface
@@ -403,6 +427,8 @@ public:
 	// FAnimNode_SkeletalControlBase interface
 	virtual void EvaluateSkeletalControl_AnyThread(FComponentSpacePoseContext& Output, TArray<FBoneTransform>& OutBoneTransforms) override;
 	virtual bool IsValidToEvaluate(const USkeleton* Skeleton, const FBoneContainer& RequiredBones) override;
+	virtual bool HasPreUpdate() const override;
+	virtual void PreUpdate(const UAnimInstance* InAnimInstance) override;
 	virtual void UpdateInternal(const FAnimationUpdateContext& Context) override;
 	// End of FAnimNode_SkeletalControlBase interface
 

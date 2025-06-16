@@ -36,15 +36,6 @@ void FAnimNode_KawaiiPhysics::Initialize_AnyThread(const FAnimationInitializeCon
 	DeltaTimeOld = 1.0f / TargetFramerate;
 
 	bResetDynamics = false;
-
-#if WITH_EDITOR
-	const UWorld* World = Context.AnimInstanceProxy->GetSkelMeshComponent()->GetWorld();
-	if (World->WorldType == EWorldType::Editor ||
-		World->WorldType == EWorldType::EditorPreview)
-	{
-		bEditing = true;
-	}
-#endif
 }
 
 void FAnimNode_KawaiiPhysics::CacheBones_AnyThread(const FAnimationCacheBonesContext& Context)
@@ -169,6 +160,30 @@ bool FAnimNode_KawaiiPhysics::IsValidToEvaluate(const USkeleton* Skeleton, const
 	//return RootBone.IsValidToEvaluate(RequiredBones);
 	return RootBone.BoneName.IsValid();
 }
+
+bool FAnimNode_KawaiiPhysics::HasPreUpdate() const
+{
+#if WITH_EDITOR
+	return true;
+#endif
+
+	return false;
+}
+
+void FAnimNode_KawaiiPhysics::PreUpdate(const UAnimInstance* InAnimInstance)
+{
+#if WITH_EDITOR
+	if(const UWorld* World =  InAnimInstance->GetWorld())
+	{
+		if (World->WorldType == EWorldType::Editor ||
+			World->WorldType == EWorldType::EditorPreview)
+		{
+			bEditing = true;
+		}
+	}
+#endif
+}
+
 
 void FAnimNode_KawaiiPhysics::InitializeBoneReferences(const FBoneContainer& RequiredBones)
 {
@@ -840,7 +855,7 @@ void FAnimNode_KawaiiPhysics::AdjustByAngleLimit(FComponentSpacePoseContext& Out
 
 	if (AngleOverLimit > 0.0f)
 	{
-		BoneDir = BoneDir.RotateAngleAxis(-AngleOverLimit, Axis);
+		BoneDir = BoneDir.RotateAngleAxis(-AngleOverLimit, Axis.GetSafeNormal());
 		Bone.Location = BoneDir * (Bone.Location - ParentBone.Location).Size() + ParentBone.Location;
 	}
 }
