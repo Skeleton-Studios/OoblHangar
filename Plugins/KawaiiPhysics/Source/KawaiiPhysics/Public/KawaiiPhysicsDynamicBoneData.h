@@ -22,22 +22,22 @@ public:
     FKawaiiPhysicsSettings PhysicsSettings;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCurveFloat* DampingCurve;
+    TObjectPtr<UCurveFloat> DampingCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCurveFloat* WorldDampingLocationCurve;
+    TObjectPtr<UCurveFloat> WorldDampingLocationCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCurveFloat* WorldDampingRotationCurve;
+    TObjectPtr<UCurveFloat> WorldDampingRotationCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCurveFloat* StiffnessCurve;
+    TObjectPtr<UCurveFloat> StiffnessCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCurveFloat* RadiusCurve;
+    TObjectPtr<UCurveFloat> RadiusCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCurveFloat* LimitAngleCurve;
+    TObjectPtr<UCurveFloat> LimitAngleCurve;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float DummyBoneLength;

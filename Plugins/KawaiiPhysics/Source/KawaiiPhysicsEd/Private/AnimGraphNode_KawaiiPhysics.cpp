@@ -137,7 +137,7 @@ void UAnimGraphNode_KawaiiPhysics::CopyNodeDataToPreviewNode(FAnimNode_Base* Ani
 	// Default
 	KawaiiPhysics->RootBone = Node.RootBone;
 	KawaiiPhysics->ExcludeBones = Node.ExcludeBones;
-	KawaiiPhysics->TargetFramerate = Node.TargetFramerate;
+	KawaiiPhysics->TargetFrameRate = Node.TargetFrameRate;
 	KawaiiPhysics->OverrideTargetFramerate = Node.OverrideTargetFramerate;
 
 	// Physics Settings

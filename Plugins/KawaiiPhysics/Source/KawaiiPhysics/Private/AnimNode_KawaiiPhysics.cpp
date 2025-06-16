@@ -33,7 +33,7 @@ void FAnimNode_KawaiiPhysics::Initialize_AnyThread(const FAnimationInitializeCon
 	ModifyBones.Empty();
 
 	// For Avoiding Zero Divide in the first frame
-	DeltaTimeOld = 1.0f / TargetFramerate;
+	DeltaTimeOld = 1.0f / TargetFrameRate;
 
 	bResetDynamics = false;
 }
@@ -555,7 +555,7 @@ void FAnimNode_KawaiiPhysics::SimulateModifyBones(FComponentSpacePoseContext& Ou
 	const USkeletalMeshComponent* SkelComp = Output.AnimInstanceProxy->GetSkelMeshComponent();
 	const UWorld* World = SkelComp ? SkelComp->GetWorld() : nullptr;
 	FSceneInterface* Scene = World && World->Scene ? World->Scene : nullptr;
-	const float Exponent = TargetFramerate * DeltaTime;
+	const float Exponent = TargetFrameRate * DeltaTime;
 
 	//transform gravity to component space
 	FVector GravityCS = ComponentTransform.InverseTransformVector(Gravity);
@@ -599,7 +599,7 @@ void FAnimNode_KawaiiPhysics::SimulateModifyBones(FComponentSpacePoseContext& Ou
 				// TODO:Migrate if there are more good method (Currently copying AnimDynamics implementation)
 				WindVelocity *= FMath::FRandRange(0.0f, 2.0f);
 
-				Velocity += WindVelocity * TargetFramerate;
+				Velocity += WindVelocity * TargetFrameRate;
 			}
 			Bone.Location += Velocity * DeltaTime;
 		}
