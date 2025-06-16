@@ -18,7 +18,7 @@ public:
     int32 FighterId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    TArray<UParentConstraintBinary*> ParentConstraintBinariesItem;
+    TArray<TObjectPtr<UParentConstraintBinary>> ParentConstraintBinariesItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<FSqueezeInfoStruct> SqueezeBoneInfoArray;

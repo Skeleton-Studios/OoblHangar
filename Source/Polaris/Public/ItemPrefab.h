@@ -12,13 +12,13 @@ class POLARIS_API UItemPrefab : public UObject {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UBaseItem* BaseItemRef;
+    TObjectPtr<UBaseItem> BaseItemRef;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UBaseCharacterItem* BaseCharacterItemRef;
+    TObjectPtr<UBaseCharacterItem> BaseCharacterItemRef;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCustomizeItem* CustomizeItemRef;
+    TObjectPtr<UCustomizeItem> CustomizeItemRef;
     
     UPROPERTY(BlueprintReadOnly)
     FString ParentItemPrefabName;

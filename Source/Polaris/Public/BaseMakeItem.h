@@ -14,19 +14,19 @@ public:
     int32 MakePositionId;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture* TextureBaseColor;
+    TObjectPtr<UTexture> TextureBaseColor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture* TextureNormal;
+    TObjectPtr<UTexture> TextureNormal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture* TextureRAD;
+    TObjectPtr<UTexture> TextureRAD;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture* TextureMTM;
+    TObjectPtr<UTexture> TextureMTM;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture* TextureOpAlpha;
+    TObjectPtr<UTexture> TextureOpAlpha;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool TextureOpAlphaUseBaseColorAlpha;

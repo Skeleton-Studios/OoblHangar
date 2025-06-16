@@ -52,7 +52,7 @@ public:
     TArray<FSkeletalMeshRigSetArray> SourceSkeletalMeshSetArray;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UBasePartsMeshItem* SourceBasePartsMeshItem;
+    TObjectPtr<UBasePartsMeshItem> SourceBasePartsMeshItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TSoftObjectPtr<UStaticMesh> SourceStaticMesh;
@@ -64,13 +64,13 @@ public:
     bool IsCastContactShadow;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    TArray<UPhoenixSkeletonBinary*> PhoenixSkeletonBinariesItem;
+    TArray<TObjectPtr<UPhoenixSkeletonBinary>> PhoenixSkeletonBinariesItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<FDynamicBoneDataStruct> PhoenixDynamicBoneBinariesItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    TArray<UParentConstraintBinary*> ParentConstraintBinaries;
+    TArray<TObjectPtr<UParentConstraintBinary>> ParentConstraintBinaries;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     UCatwalkClothCollisionAsset* CatwalkClothCollisionAssetItem;
@@ -79,19 +79,19 @@ public:
     TArray<FClothCollision> CatwalkClothCollisionVariations;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UClothOverrideCollisionDataAsset* CatwalkClothCollisionOverrideDataAsset;
+    TObjectPtr<UClothOverrideCollisionDataAsset> CatwalkClothCollisionOverrideDataAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UClothOverrideCollisionDataAsset* CatwalkClothCollisionAttachmentDataAsset;
+    TObjectPtr<UClothOverrideCollisionDataAsset> CatwalkClothCollisionAttachmentDataAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCatwalkClothLcjOverrideAsset* CatwalkClothLcjOverrideAssetItem;
+    TObjectPtr<UCatwalkClothLcjOverrideAsset> CatwalkClothLcjOverrideAssetItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UClothOverrideLcjDataAsset* CatwalkClothLcjOverrideDataAsset;
+    TObjectPtr<UClothOverrideLcjDataAsset> CatwalkClothLcjOverrideDataAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    TArray<UGFurAsset*> GFurAssetItem;
+    TArray<TObjectPtr<UGFurAsset>> GFurAssetItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool IsCreateMaterialInstanceDynamic;
@@ -175,7 +175,7 @@ public:
     FDropItemInfoStruct DropItemInfo;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture* HairScalpMask;
+    TObjectPtr<UTexture> HairScalpMask;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     FOverrideFaceSkinMaterialParameter OverrideFaceSkinMaterialParameter;
