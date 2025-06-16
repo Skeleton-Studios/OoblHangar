@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "AnimNode_KawaiiPhysics.h"
+#include "KawaiiPhysicsLimitsDataAsset.h"
 #include "KawaiiPhysicsDynamicBoneData.generated.h"
 
 class UCurveFloat;

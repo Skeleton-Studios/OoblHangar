@@ -1,6 +1,7 @@
 #include "AnimGraphNode_KawaiiPhysics.h"
 #include "Kismet2/CompilerResultsLog.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "AnimNode_KawaiiPhysics.h"
 
 #define LOCTEXT_NAMESPACE "KawaiiPhysics"
 

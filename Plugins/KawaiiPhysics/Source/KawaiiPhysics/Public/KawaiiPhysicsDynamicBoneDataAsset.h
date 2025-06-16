@@ -1,6 +1,7 @@
 #pragma once
 #include "CoreMinimal.h"
-#include "AnimNode_KawaiiPhysics.h"
+#include "KawaiiPolaris.h"
+#include "KawaiiPhysicsLimitsDataAsset.h"
 #include "KawaiiPhysicsDynamicBoneDataAsset.generated.h"
 
 UCLASS(BlueprintType)
