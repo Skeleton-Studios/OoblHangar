@@ -109,12 +109,16 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
     TArray<TSoftObjectPtr<APolarisMobAnimal>> MobAnimalSlot;
+
+    uint8 UnknownData_APolarisStageGimmickSkeletalMeshActor01[0x8] = {};
     
     UPROPERTY(Export, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
     TArray<TWeakObjectPtr<UNiagaraComponent>> ReactHitEffectInstances;
     
     UPROPERTY()
     int32 LastImpulseStrengthType;
+
+    uint8 UnknownData_APolarisStageGimmickSkeletalMeshActor02[0x8] = {};
     
     APolarisStageGimmickSkeletalMeshActor(const FObjectInitializer& ObjectInitializer);
 

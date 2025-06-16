@@ -76,6 +76,8 @@ public:
     
     UFUNCTION(BlueprintPure, Category = "Polaris|StageGimmickBase")
     bool IsPlayerDown(int32 player_id) const;
+
+    uint8 UnknownData_APolarisStageGimmickBaseActor[0x88] = {};
     
 };
 

@@ -31,7 +31,7 @@ public:
     FStagePrestart StagePrestart;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "LevelControl")
-    TArray<ULevelSequence*> ResidentLevelSequence;
+    TArray<TObjectPtr<ULevelSequence>> ResidentLevelSequence;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "LevelControl")
     FStageLevelSequence ResetStageLevelSequence;

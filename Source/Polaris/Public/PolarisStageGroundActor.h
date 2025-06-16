@@ -33,7 +33,7 @@ class POLARIS_API APolarisStageGroundActor : public AStaticMeshActor {
 public:
 protected:
     UPROPERTY(Instanced)
-    USphereComponent* HitCollision;
+    TObjectPtr<USphereComponent> HitCollision;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
@@ -70,7 +70,7 @@ public:
     int32 DestructLevel;
     
     UPROPERTY(EditAnywhere, Instanced, Category = "Polaris|StageGround")
-    TArray<UBoxComponent*> ExtraTKCollisions;
+    TArray<TObjectPtr<UBoxComponent>> ExtraTKCollisions;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     TArray<FPolarisStageHitAnimationMesh> HitAnimationMeshes;
@@ -82,40 +82,42 @@ public:
     FPolarisForceParam HitForceParam;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<ARadialForceActor*> HitForces;
+    TArray<TObjectPtr<ARadialForceActor>> HitForces;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<APolarisRadialForceActor*> HitForcesPolaris;
+    TArray<TObjectPtr<APolarisRadialForceActor>> HitForcesPolaris;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<UNiagaraSystem*> HitEffects;
+    TArray<TObjectPtr<UNiagaraSystem>> HitEffects;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     int32 HitInterval;
     
     UPROPERTY(Export)
     TArray<TWeakObjectPtr<UNiagaraComponent>> HitEffectHandles;
+
+    uint8 UnknownData_APolarisStageGroundActor01[0x8] = {};
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<APolarisStageGimmickBaseActor*> HitSAnimationGimmicks;
+    TArray<TObjectPtr<APolarisStageGimmickBaseActor>> HitSAnimationGimmicks;
     
     UPROPERTY(BlueprintAssignable, Category = "Polaris|StageGround")
     FPolarisGroundHitSignature OnHitEventDispather;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<APolarisStageGimmickDeformControlActor*> StageGimmick_DeformControls;
+    TArray<TObjectPtr<APolarisStageGimmickDeformControlActor>> StageGimmick_DeformControls;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     FPolarisForceParam BreakForceParam;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<UNiagaraSystem*> DamageEffects;
+    TArray<TObjectPtr<UNiagaraSystem>> DamageEffects;
     
     UPROPERTY(Export)
     TArray<TWeakObjectPtr<UNiagaraComponent>> DamageEffectHandles;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<UNiagaraSystem*> FractureEffects;
+    TArray<TObjectPtr<UNiagaraSystem>> FractureEffects;
     
     UPROPERTY(Export)
     TArray<TWeakObjectPtr<UNiagaraComponent>> FractureEffectHandles;
@@ -124,34 +126,34 @@ public:
     float DecalRegionW;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* HitDecal;
+    TObjectPtr<APolarisDecalActor> HitDecal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* HitDecal2;
+    TObjectPtr<APolarisDecalActor> HitDecal2;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* HitDecal3;
+    TObjectPtr<APolarisDecalActor> HitDecal3;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<APolarisDecalActor*> HitDecals;
+    TArray<TObjectPtr<APolarisDecalActor>> HitDecals;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* BreakDecal;
+    TObjectPtr<APolarisDecalActor> BreakDecal;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* BreakDecal2;
+    TObjectPtr<APolarisDecalActor> BreakDecal2;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* BreakDecal3;
+    TObjectPtr<APolarisDecalActor> BreakDecal3;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<APolarisDecalActor*> BreakDecals;
+    TArray<TObjectPtr<APolarisDecalActor>> BreakDecals;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisDecalActor* BreakDecal_Crack;
+    TObjectPtr<APolarisDecalActor> BreakDecal_Crack;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<UNiagaraSystem*> BreakLevelEffects;
+    TArray<TObjectPtr<UNiagaraSystem>> BreakLevelEffects;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     TArray<FPolarisStageNiagaraSystemArray> BreakLevelEffectsWorld;
@@ -163,19 +165,21 @@ public:
     TArray<TWeakObjectPtr<UNiagaraComponent>> BreakLevelEffectHandles;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    TArray<APolarisGroundResetPoint*> GroundResetPoints;
+    TArray<TObjectPtr<APolarisGroundResetPoint>> GroundResetPoints;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    APolarisGroundResetPoint* BalconyMidResetPoint;
+    TObjectPtr<APolarisGroundResetPoint> BalconyMidResetPoint;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
-    UAkAudioEvent* BreakSound;
+    TObjectPtr<UAkAudioEvent> BreakSound;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     TArray<FPolarisStageLevelSequence> BreakLevelSequences;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     FPolarisStageLevelSequence GroundControllLevelSequence;
+
+    uint8 UnknownData_APolarisStageGroundActor02[0x18] = {};
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     TArray<FVector2D> GroundControllLevelSequenceFrameList;
@@ -185,6 +189,8 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGround")
     FPolarisStageLevelSequence FractureLevelSequence;
+
+    uint8 UnknownData_APolarisStageGroundActor03[0x60] = {};
     
     APolarisStageGroundActor(const FObjectInitializer& ObjectInitializer);
 
