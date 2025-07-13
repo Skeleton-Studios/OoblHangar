@@ -11,7 +11,7 @@ class POLARIS_API AEventDispatcher : public AActor {
 public:
 private:
     UPROPERTY(Transient)
-    UEventDispatcherObject* EventDispatcherObject;
+    TObjectPtr<UEventDispatcherObject> EventDispatcherObject;
     
 public:
     AEventDispatcher(const FObjectInitializer& ObjectInitializer);

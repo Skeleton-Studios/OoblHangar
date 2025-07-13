@@ -11,7 +11,7 @@ class POLARIS_API APolarisStageGimmickStaticMeshActor : public APolarisStageGimm
 public:
 private:
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickStaticMesh")
-    UStaticMeshComponent* StaticMeshComponent;
+    TObjectPtr<UStaticMeshComponent> StaticMeshComponent;
     
 public:
     APolarisStageGimmickStaticMeshActor(const FObjectInitializer& ObjectInitializer);

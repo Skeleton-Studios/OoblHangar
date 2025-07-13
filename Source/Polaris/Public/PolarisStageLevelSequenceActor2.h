@@ -16,16 +16,16 @@ class POLARIS_API APolarisStageLevelSequenceActor2 : public AActor, public IPola
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "StageLevelSequence")
-    ULevelSequence* LevelSequenceHardRef;
+    TObjectPtr<ULevelSequence> LevelSequenceHardRef;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "StageLevelSequence")
     FMovieSceneSequencePlaybackSettings PlaybackSettings;
     
     UPROPERTY(BlueprintReadWrite, Category = "StageLevelSequence")
-    ULevelSequencePlayer* SequencePlayer;
+    TObjectPtr<ULevelSequencePlayer> SequencePlayer;
     
     UPROPERTY(BlueprintReadWrite, Category = "StageLevelSequence")
-    ALevelSequenceActor* SequenceActor;
+    TObjectPtr<ALevelSequenceActor> SequenceActor;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "StageLevelSequence")
     FGameplayTagContainer ReductionTagContainer;

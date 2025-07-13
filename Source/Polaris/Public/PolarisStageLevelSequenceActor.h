@@ -10,7 +10,7 @@ class POLARIS_API APolarisStageLevelSequenceActor : public ALevelSequenceActor {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    ULevelSequence* LevelSequenceHardRef;
+    TObjectPtr<ULevelSequence> LevelSequenceHardRef;
     
     APolarisStageLevelSequenceActor(const FObjectInitializer& ObjectInitializer);
 

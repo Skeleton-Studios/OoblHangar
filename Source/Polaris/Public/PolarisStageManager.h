@@ -20,6 +20,8 @@ public:
 private:
     UPROPERTY(Instanced)
     UPolarisRadialForceComponent* Force;
+
+    uint8 UnknownData_APolarisStageManager[0x8] = {};
     
 public:
     UPROPERTY(VisibleAnywhere)

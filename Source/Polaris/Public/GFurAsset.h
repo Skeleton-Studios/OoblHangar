@@ -25,22 +25,22 @@ class POLARIS_API UGFurAsset : public UObject {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    USkeletalMesh* SkeletalGrowMesh;
+    TObjectPtr<USkeletalMesh> SkeletalGrowMesh;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    UStaticMesh* StaticGrowMesh;
+    TObjectPtr<UStaticMesh> StaticGrowMesh;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    UMaterialInterface* Material;
+    TObjectPtr<UMaterialInterface> Material;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    UFurSplines* FurSplines;
+    TObjectPtr<UFurSplines> FurSplines;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    TArray<USkeletalMesh*> SkeletalGuideMeshes;
+    TArray<TObjectPtr<USkeletalMesh>> SkeletalGuideMeshes;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    TArray<UStaticMesh*> StaticGuideMeshes;
+    TArray<TObjectPtr<UStaticMesh>> StaticGuideMeshes;
     
     UPROPERTY(BlueprintReadOnly, EditAnywhere)
     FTransform RelativeTransform;
@@ -130,7 +130,7 @@ public:
     uint8 bUseAttachParentBound: 1;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadOnly, EditAnywhere)
-    TArray<UMaterialInterface*> OverrideMaterials;
+    TArray<TObjectPtr<UMaterialInterface>> OverrideMaterials;
     
     UPROPERTY(AdvancedDisplay, BlueprintReadOnly, EditAnywhere)
     uint8 bVisibleInReflectionCaptures: 1;

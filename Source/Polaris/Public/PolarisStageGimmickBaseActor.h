@@ -32,6 +32,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmickBase")
     bool IsTakeForceUpperFloorHit;
+
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmickBase")
+    bool IsReduceTickRateAnotherFloor;
     
     UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Polaris|StageGimmickBase")
     bool IsDurableBreakFlag;

@@ -13,7 +13,7 @@ public:
     int32 SESTParam;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UTexture2D* SESTTexture;
+    TObjectPtr<UTexture2D> SESTTexture;
     
     UBaseSESTItem();
 

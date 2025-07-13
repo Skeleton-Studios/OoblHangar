@@ -18,6 +18,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageFloor")
     bool IsFloorBlast;
+
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageFloor")
+    bool IsBreakCheck_OnlyDamage;
     
     APolarisStageFloorActor(const FObjectInitializer& ObjectInitializer);
 

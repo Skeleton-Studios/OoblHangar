@@ -23,46 +23,46 @@ class POLARIS_API APolarisStageGimmickSkeletalMeshActor : public APolarisStageGi
 public:
 protected:
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    UStaticMeshComponent* DefaultMeshComponent;
+    TObjectPtr<UStaticMeshComponent> DefaultMeshComponent;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    USkeletalMeshComponent* SkeletalMeshComponent;
+    TObjectPtr<USkeletalMeshComponent> SkeletalMeshComponent;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    UStaticMeshComponent* BrokenMeshComponent;
+    TObjectPtr<UStaticMeshComponent> BrokenMeshComponent;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<USkeletalMeshComponent*> SkeletalMeshComponents;
+    TArray<TObjectPtr<USkeletalMeshComponent>> SkeletalMeshComponents;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<ULightComponent*> LightComponents;
+    TArray<TObjectPtr<ULightComponent>> LightComponents;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<UFXSystemComponent*> FXSystemComponents;
+    TArray<TObjectPtr<UFXSystemComponent>> FXSystemComponents;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<UPolarisColorBlendComponent*> PolarisColorBlendComponents;
+    TArray<TObjectPtr<UPolarisColorBlendComponent>> PolarisColorBlendComponents;
     
     UPROPERTY(EditAnywhere, Instanced, Category = "Polaris|StageGimmickSkeletalMesh")
-    UPolarisMeshDeformComponent* PolarisMeshDeformComponent;
+    TObjectPtr<UPolarisMeshDeformComponent> PolarisMeshDeformComponent;
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
     TArray<FPolarisMeshDeformParamArray> DeformParams;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<UStaticMeshComponent*> DecalMeshs;
+    TArray<TObjectPtr<UStaticMeshComponent>> DecalMeshs;
     
     UPROPERTY(Instanced)
-    UStaticMeshComponent* DecalMesh;
+    TObjectPtr<UStaticMeshComponent> DecalMesh;
     
     UPROPERTY(Instanced)
-    UStaticMeshComponent* DecalMesh_Broken;
+    TObjectPtr<UStaticMeshComponent> DecalMesh_Broken;
     
     UPROPERTY(Instanced, VisibleAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<UDecalComponent*> Decals;
+    TArray<TObjectPtr<UDecalComponent>> Decals;
     
     UPROPERTY(Instanced)
-    UDecalComponent* decal;
+    TObjectPtr<UDecalComponent> decal;
     
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmickSkeletalMesh")
@@ -90,7 +90,7 @@ public:
     bool IsBreakPattern2nd;
     
     UPROPERTY(BlueprintReadOnly, Category = "Polaris|StageGimmickSkeletalMesh")
-    TArray<UAnimationAsset*> AnimationAsset2nd;
+    TArray<TObjectPtr<UAnimationAsset>> AnimationAsset2nd;
     
     UPROPERTY(BlueprintReadWrite, Category = "Polaris|StageGimmickSkeletalMesh")
     int32 BreakLevel;

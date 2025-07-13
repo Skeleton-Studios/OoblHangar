@@ -26,7 +26,7 @@ class UPrimitiveComponent;
 class UStaticMesh;
 
 UCLASS(Abstract)
-class POLARIS_API APolarisStageGimmickActor : public APolarisStageGimmickBaseActor {
+class alignas(0x10) POLARIS_API APolarisStageGimmickActor : public APolarisStageGimmickBaseActor {
     GENERATED_BODY()
 public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
@@ -57,22 +57,22 @@ public:
     float TouchImpluseStrength;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    ARadialForceActor* DestrictibleForce;
+    TObjectPtr<ARadialForceActor> DestrictibleForce;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    APolarisRadialForceActor* DestrictibleForcePolaris;
+    TObjectPtr<APolarisRadialForceActor> DestrictibleForcePolaris;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    TArray<AActor*> HitInvisibleActors;
+    TArray<TObjectPtr<AActor>> HitInvisibleActors;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
     float HitInvisibleImpuleseThreshold;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    UNiagaraSystem* DestrictibleNiagaraRBDAsset;
+    TObjectPtr<UNiagaraSystem> DestrictibleNiagaraRBDAsset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    UStaticMesh* DestrictibleStaticMeshAssset;
+    TObjectPtr<UStaticMesh> DestrictibleStaticMeshAssset;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
     bool DestrictibleEnableHardSleeping;
@@ -96,13 +96,13 @@ public:
     bool IsDispDestructibleForce;
     
     UPROPERTY(BlueprintReadWrite, Instanced, Category = "Polaris|StageGimmick")
-    TArray<UPolarisStageAttackSphereComponent*> AttackArray;
+    TArray<TObjectPtr<UPolarisStageAttackSphereComponent>> AttackArray;
     
     UPROPERTY(BlueprintReadWrite, Instanced, Category = "Polaris|StageGimmick")
-    UPrimitiveComponent* Volume;
+    TObjectPtr<UPrimitiveComponent> Volume;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    APolarisStageWallActor* BattleSpaceWallActor;
+    TObjectPtr<APolarisStageWallActor> BattleSpaceWallActor;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
     bool IsVanish;
@@ -129,13 +129,13 @@ public:
     TArray<TWeakObjectPtr<UNiagaraComponent>> ReactEffectHandles;
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGimmick")
-    TArray<UNiagaraSystem*> HitEffects;
+    TArray<TObjectPtr<UNiagaraSystem>> HitEffects;
     
     UPROPERTY(Export)
     TArray<TWeakObjectPtr<UNiagaraComponent>> HitEffectHandles;
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGimmick")
-    TArray<UNiagaraSystem*> HitEffectsOnMesh;
+    TArray<TObjectPtr<UNiagaraSystem>> HitEffectsOnMesh;
     
     UPROPERTY(Export)
     TArray<TWeakObjectPtr<UNiagaraComponent>> HitEffectOnMeshHandles;
@@ -147,13 +147,13 @@ public:
     TArray<TWeakObjectPtr<UNiagaraComponent>> HitEffectOnMeshOffsetHandles;
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGimmick")
-    UAkAudioEvent* HitSound;
+    TObjectPtr<UAkAudioEvent> HitSound;
     
     UPROPERTY()
     TArray<uint32> HitSoundPlayHandle;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
-    UAkAudioEvent* ImpacterAudioEvent;
+    TObjectPtr<UAkAudioEvent> ImpacterAudioEvent;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Polaris|StageGimmick")
     float ImpacterExtraMassValue;
@@ -175,15 +175,17 @@ public:
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGimmick")
     float DeformWeightDamageMul;
+
+    uint8 UnknownData_APolarisStageGimmickActor[0x8] = {};
     
     UPROPERTY(VisibleAnywhere, Category = "Polaris|StageGimmick")
-    TArray<APolarisDestructibleNiagaraActor*> PolarisDestructibleNiagaraActors;
+    TArray<TObjectPtr<APolarisDestructibleNiagaraActor>> PolarisDestructibleNiagaraActors;
     
     UPROPERTY(EditAnywhere, Category = "Polaris|StageGimmick")
     TSubclassOf<APolarisDestructibleNiagaraActor> DestructibleNiagaraActorClass;
     
     UPROPERTY(VisibleAnywhere, Category = "Polaris|StageGimmick")
-    TArray<APolarisStagePhysicsActor*> PolarisDestructibleStaticMeshActors;
+    TArray<TObjectPtr<APolarisStagePhysicsActor>> PolarisDestructibleStaticMeshActors;
     
     APolarisStageGimmickActor(const FObjectInitializer& ObjectInitializer);
 

@@ -31,6 +31,7 @@ class UGFurAsset;
 class UMaterialInterface;
 class UParentConstraintBinary;
 class UPhoenixSkeletonBinary;
+class UPhysicsAsset;
 class UPolarisCharacterMotionOverrideData;
 class UStaticMesh;
 class UTexture;
@@ -73,7 +74,7 @@ public:
     TArray<TObjectPtr<UParentConstraintBinary>> ParentConstraintBinaries;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UCatwalkClothCollisionAsset* CatwalkClothCollisionAssetItem;
+    TObjectPtr<UCatwalkClothCollisionAsset> CatwalkClothCollisionAssetItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<FClothCollision> CatwalkClothCollisionVariations;
@@ -92,6 +93,9 @@ public:
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     TArray<TObjectPtr<UGFurAsset>> GFurAssetItem;
+
+    UPROPERTY(BlueprintReadWrite, EditAnywhere)
+    TObjectPtr<UPhysicsAsset> RBANCollisionAssetItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     bool IsCreateMaterialInstanceDynamic;

@@ -23,7 +23,7 @@ public:
     TMap<int32, FCharacterEffect> CharacterEffectItems;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    UDebugEffectItem* DebugEffectItem;
+    TObjectPtr<UDebugEffectItem> DebugEffectItem;
     
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     int32 ExtraAbilityId;
